@@ -14,21 +14,24 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     searchwindow.cpp \
-    signup.cpp
+    signup.cpp \
+    user.cpp
 
 HEADERS += \
     admin.h \
     login.h \
     mainwindow.h \
     searchwindow.h \
-    signup.h
+    signup.h \
+    user.h
 
 FORMS += \
     admin.ui \
     login.ui \
     mainwindow.ui \
     searchwindow.ui \
-    signup.ui
+    signup.ui \
+    user.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
