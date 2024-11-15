@@ -1,4 +1,8 @@
 #include "filemanipulator.h"
+#include <QString>
+#include <QVector>
+#include <QStringList>
+#include <vector>
 
 filemanipulator::filemanipulator() {
 
@@ -10,7 +14,6 @@ void filemanipulator::users_files_reader()
 
     QFile users_file(":/thefiles/csv files/users_info.csv");  //openeing the users file
     string line;
-    int row = 0;
     if(!users_file.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "users files is not open"; //check if file is open
     }
@@ -25,29 +28,48 @@ void filemanipulator::users_files_reader()
     {
         qDebug() << "reading lines";
         QString line = in.readLine();
-        std::vector<QString> row_data;
-        for (const QString& cell : line.split(','))
-        {
-           row_data.push_back(cell);
-        }
+        QStringList cells = line.split(',');
 
-        the_user_data_vector.push_back(row_data);
+        // Check if there are enough cells in the line to process
+        if (cells.size() >= 4) {
+            user *a_user = new user();
+
+            // Set user name
+            a_user->set_user_name(cells[0].trimmed());
+
+            // Set password
+            a_user->set_password(cells[1].trimmed());
+
+            // Process wishlisted books (split by semicolon)
+            QStringList wishlistedBooksList = cells[2].split(';');
+            std::vector<QString> wishlistedBooks;
+            for (const QString& book : wishlistedBooksList) {
+                a_user->set_wishlisted_books(book.trimmed());
+            }
+
+
+            // Process borrowed books (split by semicolon)
+            QStringList borrowedBooksList = cells[3].split(';');
+            std::vector<QString> borrowedBooks;
+            for (const QString& book : borrowedBooksList) {
+                a_user->set_borrowed_books(book.trimmed());
+            }
+
+
+            the_users_data_map[a_user->get_password().toInt()] = a_user;
 
     }
+
+   }
+
+
 
     users_file.close();
-
-    for(auto row = the_user_data_vector.begin(); row != the_user_data_vector.end(); row++)
-    {
-        for(auto col= row->begin(); col != row->end(); col++)
-        {
-            qDebug() << *col << " ";
-        }
-        cout << endl;
-    }
+   auto temp = the_users_data_map.find(432);
+    qDebug() << temp->second->get_user_name();
 
 }
-
+/*
 void filemanipulator::users_files_writer()
 {
     QFile users_written("C:\\Users\\HP\\Desktop\\shit\\writtenusers.csv");
@@ -87,4 +109,4 @@ void filemanipulator::write_to_users_vector(QString name, QString password, QStr
     the_user_data_vector.push_back(rowdata);
 }
 
-
+*/
