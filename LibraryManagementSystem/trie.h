@@ -6,7 +6,6 @@
 #include <string>
 #include "book.h"
 using namespace std;
-
 class Trie {
 public:
     struct TrieNode {
@@ -17,9 +16,9 @@ public:
     };
 
     Trie();
-    void insert(string word,book* b);
-    vector<book*> search(string word);
-    bool startsWith(string prefix);
+    void insert(QString word,book* b);
+    vector<book*> search(QString word);
+    bool startsWith(QString prefix);
 
 private:
     TrieNode* root;

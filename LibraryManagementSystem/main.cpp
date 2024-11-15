@@ -1,8 +1,9 @@
 #include "mainwindow.h"
 #include "filemanipulator.h"
-
+#include "trie.h"
 #include <QApplication>
 
+Trie* myTrie=new Trie();
 int main(int argc, char *argv[])
 {
 
