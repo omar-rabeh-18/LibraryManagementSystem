@@ -10,21 +10,25 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    book.cpp \
     filemanipulator.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     searchwindow.cpp \
     signup.cpp \
+    trie.cpp \
     user.cpp
 
 HEADERS += \
     admin.h \
+    book.h \
     filemanipulator.h \
     login.h \
     mainwindow.h \
     searchwindow.h \
     signup.h \
+    trie.h \
     user.h
 
 FORMS += \
