@@ -1,4 +1,5 @@
 #include "user.h"
+#include "searchwindow.h"
 #include "ui_user.h"
 
 user::user(QWidget *parent)
@@ -53,4 +54,13 @@ vector<QString> user::get_borrowed_books()
     return borrowed_books;
 }
 
+
+
+void user::on_searchPushButton_clicked()
+{
+    hide();
+    searchWindow s;
+    s.setModal(true);
+    s.exec();
+}
 

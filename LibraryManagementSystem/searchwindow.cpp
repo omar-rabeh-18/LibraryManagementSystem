@@ -1,5 +1,6 @@
 #include "searchwindow.h"
 #include "ui_searchwindow.h"
+#include "user.h"
 
 searchWindow::searchWindow(QWidget *parent)
     : QDialog(parent)
@@ -12,3 +13,12 @@ searchWindow::~searchWindow()
 {
     delete ui;
 }
+
+void searchWindow::on_pushButton_clicked()
+{
+    hide();
+    user userDashboard;
+    userDashboard.setModal(true);
+    userDashboard.exec();
+}
+

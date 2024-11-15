@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    adminloginwindow.cpp \
     book.cpp \
     filemanipulator.cpp \
     login.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 
 HEADERS += \
     admin.h \
+    adminloginwindow.h \
     book.h \
     filemanipulator.h \
     login.h \
@@ -33,6 +35,7 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    adminloginwindow.ui \
     login.ui \
     mainwindow.ui \
     searchwindow.ui \

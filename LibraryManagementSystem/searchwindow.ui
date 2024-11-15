@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>840</width>
-    <height>489</height>
+    <width>846</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>30</y>
+     <y>20</y>
      <width>41</width>
      <height>16</height>
     </rect>
@@ -26,37 +26,17 @@
     <string>Title:</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="titleTextEdit">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>20</y>
-     <width>251</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="authorLabel">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>70</y>
+     <y>60</y>
      <width>58</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>Author:</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="titleTextEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>251</width>
-     <height>31</height>
-    </rect>
    </property>
   </widget>
   <widget class="QLabel" name="authorLabel_2">
@@ -76,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>100</y>
+     <y>110</y>
      <width>251</width>
      <height>201</height>
     </rect>
@@ -316,6 +296,39 @@
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QLineEdit" name="titleLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>20</y>
+     <width>211</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="authorLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>60</y>
+     <width>211</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>470</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
   </widget>
  </widget>
  <resources/>

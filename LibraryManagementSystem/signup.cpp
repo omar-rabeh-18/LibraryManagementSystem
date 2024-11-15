@@ -1,4 +1,5 @@
 #include "signup.h"
+#include "login.h"
 #include "ui_signup.h"
 
 signup::signup(QWidget *parent)
@@ -12,3 +13,12 @@ signup::~signup()
 {
     delete ui;
 }
+
+void signup::on_signupPushButton_clicked()
+{
+    hide();
+    login userLogin;
+    userLogin.setModal(true);
+    userLogin.exec();
+}
+

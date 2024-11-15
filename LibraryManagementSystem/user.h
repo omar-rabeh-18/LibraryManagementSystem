@@ -26,6 +26,9 @@ public:
     void set_borrowed_books(QString borrowed_book);
     vector<QString> get_borrowed_books();
 
+private slots:
+    void on_searchPushButton_clicked();
+
 private:
     Ui::user *ui;
     QString user_name;
