@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <vector>
+#include "book.h"
+#include <QListWidgetItem>
 using namespace std;
 
 
@@ -28,13 +30,20 @@ public:
 
 private slots:
     void on_searchPushButton_clicked();
+    void populate_searchList();
+    void populate_wishList();
+    void populate_borrowedList();
+    void on_pushButton_2_clicked();
+
+    void on_searchList_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::user *ui;
     QString user_name;
     QString password;
-    vector<QString> wishlisted_books;
-    vector<QString> borrowed_books;
+    vector<book*> wishlisted_books;
+    vector<book*> borrowed_books;
+    vector<book*> results;
 };
 
 #endif // USER_H
