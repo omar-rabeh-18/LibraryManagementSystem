@@ -31,6 +31,7 @@ void admin::on_pushButton_clicked()
 
 void admin::on_pushButton_2_clicked()
 {
+    results.clear();
     QString searchTitle = ui->titleSearchTextedit->toPlainText();
     QString searchAuthor = ui->authorSearchTextedit->toPlainText();
 
