@@ -1,4 +1,5 @@
 #include "user.h"
+#include "mainwindow.h"
 #include "searchwindow.h"
 #include "ui_user.h"
 #include "trie.h"
@@ -186,5 +187,13 @@ void user::on_pushButton_2_clicked()
 void user::on_searchList_itemClicked(QListWidgetItem *item)
 {
     book* selectedBook = static_cast<book*>(item->data(Qt::UserRole).value<void*>());
+}
+
+
+void user::on_signOutPushButton_clicked()
+{
+    this->close();
+    MainWindow *m = new MainWindow();
+    m->show();
 }
 

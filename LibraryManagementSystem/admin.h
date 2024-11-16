@@ -26,6 +26,9 @@ private slots:
 
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
+
+    void on_signOutPushButton_clicked();
+
 private:
     Ui::admin *ui;
     std::vector<book*> results;

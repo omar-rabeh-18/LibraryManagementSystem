@@ -334,6 +334,19 @@
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="signOutPushButton">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>520</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Sign Out</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

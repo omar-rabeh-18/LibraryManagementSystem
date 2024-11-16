@@ -1,4 +1,5 @@
 #include "admin.h"
+#include "mainwindow.h"
 #include "ui_admin.h"
 #include "book.h"
 #include "trie.h"
@@ -149,5 +150,16 @@ void admin::poulateBooksList()
 void admin::on_listWidget_itemClicked(QListWidgetItem *item)
 {
 book* selectedBook = static_cast<book*>(item->data(Qt::UserRole).value<void*>());
+}
+
+
+
+
+
+void admin::on_signOutPushButton_clicked()
+{
+    this->close();
+    MainWindow *m = new MainWindow();
+    m->show();
 }
 

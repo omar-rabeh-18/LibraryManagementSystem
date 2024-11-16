@@ -16,9 +16,8 @@ adminLoginWindow::~adminLoginWindow()
 
 void adminLoginWindow::on_loginPushButton_clicked()
 {
-    hide();
-    admin adminDashboard;
-    adminDashboard.setModal(true);
-    adminDashboard.exec();
+    this->close();
+    admin *adminDashboard = new admin();
+    adminDashboard->show();
 }
 

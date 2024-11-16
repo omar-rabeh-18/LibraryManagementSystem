@@ -7,7 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -17,18 +20,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_userPushButton_clicked()
 {
-    hide();
-    login userLogin;
-    userLogin.setModal(true);
-    userLogin.exec();
+    this->close();
+    login* userLogin = new login();
+    userLogin->show();
 }
 
 
 void MainWindow::on_adminPushButton_clicked()
 {
-    hide();
-    adminLoginWindow aLogin;
-    aLogin.setModal(true);
-    aLogin.exec();
+    this->close();
+    adminLoginWindow* aLogin = new adminLoginWindow();
+    aLogin->show();
 }
+
+
 

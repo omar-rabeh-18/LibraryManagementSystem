@@ -16,9 +16,8 @@ searchWindow::~searchWindow()
 
 void searchWindow::on_pushButton_clicked()
 {
-    hide();
-    user userDashboard;
-    userDashboard.setModal(true);
-    userDashboard.exec();
+    this->close();
+    user* userDashboard = new user();
+    userDashboard->show();
 }
 

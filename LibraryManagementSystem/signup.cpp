@@ -16,9 +16,8 @@ signup::~signup()
 
 void signup::on_signupPushButton_clicked()
 {
-    hide();
-    login userLogin;
-    userLogin.setModal(true);
-    userLogin.exec();
+    this->close();
+    login* userLogin = new login();
+    userLogin->show();
 }
 

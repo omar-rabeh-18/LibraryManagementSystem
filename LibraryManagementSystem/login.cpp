@@ -21,18 +21,16 @@ login::~login()
 
 void login::on_loginPushButton_clicked()
 {
-    hide();
-    user u;
-    u.setModal(true);
-    u.exec();
+    this->close();
+    user* u = new user();
+    u->show();
 }
 
 
 void login::on_signupPushButton_clicked()
 {
-    hide();
-    signup s;
-    s.setModal(true);
-    s.exec();
+    this->close();
+    signup* s = new signup();
+    s->show();
 }
 

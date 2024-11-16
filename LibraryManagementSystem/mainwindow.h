@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,7 @@ private slots:
     void on_userPushButton_clicked();
 
     void on_adminPushButton_clicked();
+
 
 private:
     Ui::MainWindow *ui;
