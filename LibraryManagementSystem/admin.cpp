@@ -10,6 +10,7 @@ admin::admin(QWidget *parent)
     , ui(new Ui::admin)
 {
     ui->setupUi(this);
+    connect(ui->listWidget, &QListWidget::itemClicked, this, &admin::on_listWidget_itemClicked);
 }
 
 admin::~admin()
@@ -70,7 +71,7 @@ void admin::on_pushButton_2_clicked()
     }
 
     // Now, let's perform the search for each word in the title and author and find the intersection of results
-    std::vector<book*> results;
+
     bool firstWord = true;
 
     // Search for title words and find the intersection
@@ -111,7 +112,42 @@ void admin::on_pushButton_2_clicked()
             results = intersectedBooks;  // Update results with the intersection
         }
     }
+
+    poulateBooksList();
+
+}
+
+
+void admin::on_pushButton_3_clicked()
+{
+    auto selectedItem = ui->listWidget->currentItem();
+    if (selectedItem) {
+        book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
+        selectedBook->setAvailableBooks(selectedBook->getAvailableBooks()-ui->removingNumber->value());
+        poulateBooksList(); // Refresh the list
+    }
+}
+
+void admin::poulateBooksList()
+{
     for (book * b: results) qDebug()<<b->getTitle()<<"\n";
 
+    ui->listWidget->clear(); // Clear any existing items
+
+    for (const auto& b : results) {
+        QString bookDetails = QString("%1 by %2 [%3 copies available]")
+        .arg(b->getTitle())
+            .arg(b->getAuthor())
+            .arg(b->getAvailableBooks());
+        QListWidgetItem* item = new QListWidgetItem(bookDetails, ui->listWidget);
+        item->setData(Qt::UserRole, QVariant::fromValue(static_cast<void*>(b)));
+        ui->listWidget->addItem(item);
+    }
+}
+
+
+void admin::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+book* selectedBook = static_cast<book*>(item->data(Qt::UserRole).value<void*>());
 }
 

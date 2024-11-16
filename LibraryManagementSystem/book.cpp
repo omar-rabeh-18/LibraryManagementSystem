@@ -87,6 +87,7 @@ int book::getAvailableBooks() const
 void book::setAvailableBooks(int newAvailableBooks)
 {
     availableBooks = newAvailableBooks;
+    if(availableBooks<0) availableBooks=0;
 }
 
 

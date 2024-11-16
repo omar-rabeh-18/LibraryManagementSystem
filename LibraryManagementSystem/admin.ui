@@ -48,8 +48,8 @@
   <widget class="QScrollArea" name="deleteArea">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>40</y>
+     <x>390</x>
+     <y>80</y>
      <width>221</width>
      <height>321</height>
     </rect>
@@ -66,6 +66,16 @@
       <height>319</height>
      </rect>
     </property>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>211</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QLabel" name="deleteLabel">
@@ -294,6 +304,29 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </property>
    <property name="text">
     <string>Search</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>110</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="removingNumber">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>160</y>
+     <width>42</width>
+     <height>22</height>
+    </rect>
    </property>
   </widget>
  </widget>

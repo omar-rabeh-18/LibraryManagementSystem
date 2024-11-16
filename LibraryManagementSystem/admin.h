@@ -1,8 +1,8 @@
 #ifndef ADMIN_H
 #define ADMIN_H
-
+#include "book.h"
 #include <QDialog>
-
+#include <QListWidgetItem>
 namespace Ui {
 class admin;
 }
@@ -20,8 +20,15 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void poulateBooksList();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::admin *ui;
+    std::vector<book*> results;
 };
 
 #endif // ADMIN_H
