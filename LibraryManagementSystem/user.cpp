@@ -39,22 +39,38 @@ QString user::get_password()
 
 void user::set_wishlisted_books(QString wishlisted_book)
 {
-  //  wishlisted_books.push_back(wishlisted_book);
+    wishlisted_books.push_back(wishlisted_book);
 }
 
 vector<QString> user::get_whishlisted_books()
 {
-  //  return wishlisted_books;
+    return wishlisted_books;
 }
 
 void user::set_borrowed_books(QString borrowed_book)
 {
-    //borrowed_books.push_back(borrowed_book);
+    borrowed_books.push_back(borrowed_book);
 }
 
 vector<QString> user::get_borrowed_books()
 {
-   // return borrowed_books;
+     return borrowed_books;
+}
+
+void user::print_info()
+{
+    qDebug() << user_name;
+    qDebug() << password;
+    for(QString book : wishlisted_books)
+    {
+        qDebug() << book;
+    }
+
+    for(QString book : borrowed_books)
+    {
+        qDebug() << book;
+    }
+    qDebug() << "|||||||||||";
 }
 
 
@@ -86,11 +102,11 @@ void user::populate_searchList()
 
 void user::populate_wishList()
 {
-    for (book * b: wishlisted_books) qDebug()<<b->getTitle()<<"\n";
+    for (book * b: wishlisted_books_objects) qDebug()<<b->getTitle()<<"\n";
 
     ui->wishList->clear(); // Clear any existing items
 
-    for (const auto& b : wishlisted_books) {
+    for (const auto& b : wishlisted_books_objects) {
         QString bookDetails = QString("%1 by %2 [%3 copies available in library]")
         .arg(b->getTitle())
             .arg(b->getAuthor())
@@ -103,11 +119,11 @@ void user::populate_wishList()
 
 void user::populate_borrowedList()
 {
-    for (book * b: borrowed_books) qDebug()<<b->getTitle()<<"\n";
+    for (book * b: borrowed_books_objects) qDebug()<<b->getTitle()<<"\n";
 
     ui->borrowList->clear(); // Clear any existing items
 
-    for (const auto& b : borrowed_books) {
+    for (const auto& b : borrowed_books_objects) {
         QString bookDetails = QString("%1 by %2 [%3 copies available in library]")
         .arg(b->getTitle())
             .arg(b->getAuthor())
@@ -231,7 +247,7 @@ void user::on_pushButton_clicked()
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
         if(selectedBook->getAvailableBooks()>0) selectedBook->setAvailableBooks(selectedBook->getAvailableBooks()-1);
-       if(selectedBook->getAvailableBooks()>0)  borrowed_books.push_back(selectedBook);
+       if(selectedBook->getAvailableBooks()>0)  borrowed_books_objects.push_back(selectedBook);
         populate_borrowedList(); // Refresh the list
         populate_searchList();
         ui->borrowList->update();
@@ -245,7 +261,7 @@ void user::on_pushButton_3_clicked()
     auto selectedItem = ui->searchList->currentItem();
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
-        wishlisted_books.push_back(selectedBook);
+        wishlisted_books_objects.push_back(selectedBook);
        populate_wishList(); // Refresh the list
         populate_searchList();
     }

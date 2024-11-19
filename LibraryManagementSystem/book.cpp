@@ -1,8 +1,14 @@
 #include "book.h"
 #include "trie.h"
+#include "filemanipulator.h"
 extern Trie* myTrie;
 book::book(QString t, QString a, QString g, int copies):author(a),title(t),genre(g),availableBooks(copies)
 {  QString word;
+
+   filemanipulator a_file;
+
+    a_file.books_vector.push_back(this);
+
 
     // Loop through each character in the title
     for (int i = 0; i < title.length(); ++i) {

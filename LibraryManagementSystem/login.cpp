@@ -21,9 +21,18 @@ login::~login()
 
 void login::on_loginPushButton_clicked()
 {
-    this->close();
-    user* u = new user();
-    u->show();
+    filemanipulator file;
+    for(user* some_user : file.the_users_data_vector)
+    {
+        if(some_user->get_user_name() == ui->usernameLineEdit->text() && some_user->get_password() == ui->passwordLineEdit->text())
+        {
+            this->close();
+            user* u = new user();
+            u->show();
+        }
+    }
+
+
 }
 
 

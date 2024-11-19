@@ -5,6 +5,7 @@
 #include <vector>
 #include "book.h"
 #include <QListWidgetItem>
+#include <iostream>
 using namespace std;
 
 
@@ -27,6 +28,7 @@ public:
     vector<QString> get_whishlisted_books();
     void set_borrowed_books(QString borrowed_book);
     vector<QString> get_borrowed_books();
+    void print_info();
 
 
 private slots:
@@ -48,8 +50,10 @@ private:
     Ui::user *ui;
     QString user_name;
     QString password;
-    vector<book*> wishlisted_books;
-    vector<book*> borrowed_books;
+    vector<QString> wishlisted_books;
+    vector<QString> borrowed_books;
+    vector<book*> wishlisted_books_objects;
+    vector<book*> borrowed_books_objects;
     vector<book*> results;
 };
 

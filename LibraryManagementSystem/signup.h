@@ -2,6 +2,8 @@
 #define SIGNUP_H
 
 #include <QDialog>
+#include "filemanipulator.h"
+#include "user.h";
 
 namespace Ui {
 class signup;

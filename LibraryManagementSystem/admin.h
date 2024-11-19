@@ -3,6 +3,8 @@
 #include "book.h"
 #include <QDialog>
 #include <QListWidgetItem>
+#include <vector>
+using namespace std;
 namespace Ui {
 class admin;
 }

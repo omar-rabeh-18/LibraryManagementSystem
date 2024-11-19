@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include "filemanipulator.h"
 
 namespace Ui {
 class login;

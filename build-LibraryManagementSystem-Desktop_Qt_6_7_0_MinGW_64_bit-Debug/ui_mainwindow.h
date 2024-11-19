@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -22,6 +24,9 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QLabel *roleLabel;
+    QPushButton *adminPushButton;
+    QPushButton *userPushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -29,13 +34,26 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(737, 389);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        roleLabel = new QLabel(centralwidget);
+        roleLabel->setObjectName("roleLabel");
+        roleLabel->setGeometry(QRect(220, 80, 301, 41));
+        QFont font;
+        font.setPointSize(26);
+        font.setBold(true);
+        roleLabel->setFont(font);
+        adminPushButton = new QPushButton(centralwidget);
+        adminPushButton->setObjectName("adminPushButton");
+        adminPushButton->setGeometry(QRect(220, 170, 100, 32));
+        userPushButton = new QPushButton(centralwidget);
+        userPushButton->setObjectName("userPushButton");
+        userPushButton->setGeometry(QRect(400, 170, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 37));
+        menubar->setGeometry(QRect(0, 0, 737, 37));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -49,6 +67,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        roleLabel->setText(QCoreApplication::translate("MainWindow", "Please select your role:", nullptr));
+        adminPushButton->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
+        userPushButton->setText(QCoreApplication::translate("MainWindow", "User", nullptr));
     } // retranslateUi
 
 };

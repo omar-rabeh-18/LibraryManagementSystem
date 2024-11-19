@@ -11,13 +11,13 @@ int main(int argc, char *argv[])
     MainWindow w;
 
     filemanipulator thefiles;
-    thefiles.users_files_reader();
-    //thefiles.write_to_users_vector("ahmed", "987", "kicking and running", "the impossible");
-   // thefiles.write_to_users_vector("qusai", "000", "kicking and flying", "the possible");
-    //thefiles.users_files_writer();
 
+    thefiles.users_files_reader();
+    thefiles.books_files_reader();
 
     w.show();
+
+    thefiles.users_files_writer();
     return a.exec();
 
 
