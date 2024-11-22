@@ -19,7 +19,7 @@ public:
     void insert(QString word,book* b);
     vector<book*> search(QString word);
     bool startsWith(QString prefix);
-
+    int charToIndex(char c);
 private:
     TrieNode* root;
 };

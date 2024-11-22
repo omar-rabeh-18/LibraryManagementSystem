@@ -38,12 +38,14 @@ void admin::on_pushButton_2_clicked()
     std::vector<QString> titleWords;
     std::vector<QString> authorWords;
 
-    // Split the title into words
+    // Split the title into words (considering letters, digits, and dash)
     QString currentWord;
     for (int i = 0; i < searchTitle.length(); ++i) {
         QChar c = searchTitle[i];
-        if (c.isLetter()) {
-            currentWord += c.toLower();  // Add the letter to the current word in lowercase
+
+        // Check if the character is a letter, digit, or dash
+        if (c.isLetter() || c.isDigit() || c == '-') {
+            currentWord += c.toLower();  // Add the character to the current word in lowercase
         } else {
             if (!currentWord.isEmpty()) {
                 titleWords.push_back(currentWord);  // Add word to vector if it's not empty
@@ -55,12 +57,14 @@ void admin::on_pushButton_2_clicked()
         titleWords.push_back(currentWord);  // Add the last word if any
     }
 
-    // Split the author into words
+    // Split the author into words (considering letters, digits, and dash)
     currentWord.clear();
     for (int i = 0; i < searchAuthor.length(); ++i) {
         QChar c = searchAuthor[i];
-        if (c.isLetter()) {
-            currentWord += c.toLower();  // Add the letter to the current word in lowercase
+
+        // Check if the character is a letter, digit, or dash
+        if (c.isLetter() || c.isDigit() || c == '-') {
+            currentWord += c.toLower();  // Add the character to the current word in lowercase
         } else {
             if (!currentWord.isEmpty()) {
                 authorWords.push_back(currentWord);  // Add word to vector if it's not empty
@@ -116,7 +120,6 @@ void admin::on_pushButton_2_clicked()
     }
 
     poulateBooksList();
-
 }
 
 

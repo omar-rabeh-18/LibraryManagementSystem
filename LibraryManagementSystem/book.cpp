@@ -2,26 +2,26 @@
 #include "trie.h"
 #include "filemanipulator.h"
 extern Trie* myTrie;
-book::book(QString t, QString a, QString g, int copies):author(a),title(t),genre(g),availableBooks(copies)
-{  QString word;
+book::book(QString t, QString a, QString g, int copies)
+    : author(a), title(t), genre(g), availableBooks(copies) {
 
-   filemanipulator a_file;
+    QString word;
 
+    filemanipulator a_file;
     a_file.books_vector.push_back(this);
-
 
     // Loop through each character in the title
     for (int i = 0; i < title.length(); ++i) {
         QChar c = title[i];
 
-        // If the character is a letter (A-Z or a-z), add it to the current word
-        if (c.isLetter()) {
+        // Check if the character is alphanumeric (A-Z, a-z, 0-9) or a dash
+        if (c.isLetter() || c.isDigit() || c == '-') {
             word += c.toLower(); // Convert to lowercase and append to the word
         } else {
-            // If the character is not a letter and word is not empty, insert it into the Trie
+            // If the character is not valid for the Trie and the word is not empty, insert it into the Trie
             if (!word.isEmpty()) {
                 myTrie->insert(word, this); // Insert the word into the Trie
-                word.clear(); // Reset word for next word
+                word.clear(); // Reset word for the next word
             }
         }
     }
@@ -38,14 +38,14 @@ book::book(QString t, QString a, QString g, int copies):author(a),title(t),genre
     for (int i = 0; i < author.length(); ++i) {
         QChar c = author[i];
 
-        // If the character is a letter (A-Z or a-z), add it to the current word
-        if (c.isLetter()) {
+        // Check if the character is alphanumeric (A-Z, a-z, 0-9) or a dash
+        if (c.isLetter() || c.isDigit() || c == '-') {
             word += c.toLower(); // Convert to lowercase and append to the word
         } else {
-            // If the character is not a letter and word is not empty, insert it into the Trie
+            // If the character is not valid for the Trie and the word is not empty, insert it into the Trie
             if (!word.isEmpty()) {
                 myTrie->insert(word, this); // Insert the word into the Trie
-                word.clear(); // Reset word for next word
+                word.clear(); // Reset word for the next word
             }
         }
     }
@@ -53,7 +53,8 @@ book::book(QString t, QString a, QString g, int copies):author(a),title(t),genre
     // After looping through the author, check if there's any remaining word to insert
     if (!word.isEmpty()) {
         myTrie->insert(word, this); // Insert the last word into the Trie
-    }}
+    }
+}
 
 QString book::getTitle() const
 {
