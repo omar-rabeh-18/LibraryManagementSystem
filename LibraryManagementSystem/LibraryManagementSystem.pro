@@ -13,9 +13,11 @@ SOURCES += \
     adminloginwindow.cpp \
     book.cpp \
     filemanipulator.cpp \
+    librarian.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    request.cpp \
     searchwindow.cpp \
     signup.cpp \
     trie.cpp \
@@ -26,8 +28,10 @@ HEADERS += \
     adminloginwindow.h \
     book.h \
     filemanipulator.h \
+    librarian.h \
     login.h \
     mainwindow.h \
+    request.h \
     searchwindow.h \
     signup.h \
     trie.h \
@@ -36,6 +40,7 @@ HEADERS += \
 FORMS += \
     admin.ui \
     adminloginwindow.ui \
+    librarian.ui \
     login.ui \
     mainwindow.ui \
     searchwindow.ui \
