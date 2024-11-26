@@ -36,7 +36,7 @@ public:
     static vector<user*> the_users_data_vector;
     static vector<user*> the_admin_data_vector;
     static vector<book*> books_vector;
-    static vector<pair<QString, QString>> book_requests_vector;
+    static vector<vector<QString>> book_requests_vector;
     QString projectPath = QString::fromStdString(filesystem::current_path().parent_path().string());
 };
 

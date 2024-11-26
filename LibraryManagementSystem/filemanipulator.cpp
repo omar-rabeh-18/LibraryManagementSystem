@@ -196,7 +196,13 @@ void filemanipulator::book_request_reader()
         if (cells.size() >= 2)
         {
 
-            pair<QString, QString> bookrequest(cells[0].trimmed(), cells[1].trimmed());
+            vector<QString> bookrequest;
+            bookrequest.push_back(cells[0].trimmed());
+            bookrequest.push_back(cells[1].trimmed());
+            bookrequest.push_back(cells[2].trimmed());
+            bookrequest.push_back(cells[3].trimmed());
+            bookrequest.push_back(cells[4].trimmed());
+
 
             book_requests_vector.push_back(bookrequest);
 
@@ -204,9 +210,9 @@ void filemanipulator::book_request_reader()
 
     }
 
-    for(pair<QString,QString>  a_request : book_requests_vector)
+    for(auto  a_request : book_requests_vector)
     {
-        qDebug() << a_request.first << "  " <<a_request.second;
+        qDebug() << a_request[0] << "  " << a_request[1] << "  " << a_request[2] << "  " << a_request[3] << "  " <<  "  " << a_request[4];
     }
 
 }
@@ -232,8 +238,11 @@ void filemanipulator::book_request_writer()
     for (const auto book_request : book_requests_vector) {
         QStringList rowData;
 
-        rowData << book_request.first;
-        rowData << book_request.second;
+        rowData << book_request[0];
+        rowData << book_request[1];
+        rowData << book_request[2];
+        rowData << book_request[3];
+        rowData << book_request[4];
 
         out << rowData.join(",") << "\n";  // Join with commas and write as a line
     }
@@ -324,7 +333,7 @@ void filemanipulator::admin_files_writer()
 std::vector<user*> filemanipulator::the_users_data_vector = {};
 std::vector<user*> filemanipulator::the_admin_data_vector = {};
 std::vector<book*> filemanipulator::books_vector = {};
-std::vector<pair<QString, QString>> filemanipulator::book_requests_vector = {};
+std::vector<vector<QString>> filemanipulator::book_requests_vector = {};
 
 void filemanipulator::write_to_users_vector(QString name, QString password, QString wishlistedbooks, QString Borrowedbooks)
 {
