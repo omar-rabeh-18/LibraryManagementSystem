@@ -31,6 +31,7 @@ book::book(QString t, QString a, QString g, int copies, QString i, QString LN)
     processAndInsertWords(author);
     processAndInsertWords(isbn);
     processAndInsertWords(booknuminlib);
+    processAndInsertWords(genre);
 }
 
 QString book::getTitle() const
