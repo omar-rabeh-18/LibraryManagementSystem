@@ -3,6 +3,7 @@
 #include "searchwindow.h"
 #include "ui_user.h"
 #include "trie.h"
+#include "filemanipulator.h"
 extern Trie* myTrie;
 user::user(QWidget *parent)
     : QDialog(parent)
@@ -85,49 +86,65 @@ void user::on_searchPushButton_clicked()
 
 void user::populate_searchList()
 {
-    for (book * b: results) qDebug()<<b->getTitle()<<"\n";
+    for (book* b : results) {
+        qDebug() << b->getTitle() << "\n";
+    }
 
     ui->searchList->clear(); // Clear any existing items
 
     for (const auto& b : results) {
-        QString bookDetails = QString("%1 by %2 [%3 copies available]")
+        QString bookDetails = QString("Title: %1\nAuthor: %2\nGenre: %3\nISBN: %4\nLibrary Number: %5\nAvailable Copies: %6")
         .arg(b->getTitle())
             .arg(b->getAuthor())
+            .arg(b->getGenre())
+            .arg(b->get_isbn())
+            .arg(b->get_book_num_lib())
             .arg(b->getAvailableBooks());
+
         QListWidgetItem* item = new QListWidgetItem(bookDetails, ui->searchList);
         item->setData(Qt::UserRole, QVariant::fromValue(static_cast<void*>(b)));
         ui->searchList->addItem(item);
     }
 }
-
 void user::populate_wishList()
 {
-    for (book * b: wishlisted_books_objects) qDebug()<<b->getTitle()<<"\n";
+    for (book* b : wishlisted_books_objects) {
+        qDebug() << b->getTitle() << "\n";
+    }
 
     ui->wishList->clear(); // Clear any existing items
 
     for (const auto& b : wishlisted_books_objects) {
-        QString bookDetails = QString("%1 by %2 [%3 copies available in library]")
+        QString bookDetails = QString("Title: %1\nAuthor: %2\nGenre: %3\nISBN: %4\nLibrary Number: %5\nAvailable Copies: %6")
         .arg(b->getTitle())
             .arg(b->getAuthor())
+            .arg(b->getGenre())
+            .arg(b->get_isbn())
+            .arg(b->get_book_num_lib())
             .arg(b->getAvailableBooks());
+
         QListWidgetItem* item = new QListWidgetItem(bookDetails, ui->wishList);
         item->setData(Qt::UserRole, QVariant::fromValue(static_cast<void*>(b)));
         ui->wishList->addItem(item);
     }
 }
-
 void user::populate_borrowedList()
 {
-    for (book * b: borrowed_books_objects) qDebug()<<b->getTitle()<<"\n";
+    for (book* b : borrowed_books_objects) {
+        qDebug() << b->getTitle() << "\n";
+    }
 
     ui->borrowList->clear(); // Clear any existing items
 
     for (const auto& b : borrowed_books_objects) {
-        QString bookDetails = QString("%1 by %2 [%3 copies available in library]")
+        QString bookDetails = QString("Title: %1\nAuthor: %2\nGenre: %3\nISBN: %4\nLibrary Number: %5\nAvailable Copies: %6")
         .arg(b->getTitle())
             .arg(b->getAuthor())
+            .arg(b->getGenre())
+            .arg(b->get_isbn())
+            .arg(b->get_book_num_lib())
             .arg(b->getAvailableBooks());
+
         QListWidgetItem* item = new QListWidgetItem(bookDetails, ui->borrowList);
         item->setData(Qt::UserRole, QVariant::fromValue(static_cast<void*>(b)));
         ui->borrowList->addItem(item);
@@ -138,10 +155,9 @@ void user::on_pushButton_2_clicked()
 {
     results.clear();
     QString searchTitle = ui->titleSearchTextedit->toPlainText();
-    QString searchAuthor = ui->authorSearchTextedit->toPlainText();
+
 
     std::vector<QString> titleWords;
-    std::vector<QString> authorWords;
 
     // Split the title into words (considering letters, digits, and dash)
     QString currentWord;
@@ -162,24 +178,7 @@ void user::on_pushButton_2_clicked()
         titleWords.push_back(currentWord);  // Add the last word if any
     }
 
-    // Split the author into words (considering letters, digits, and dash)
-    currentWord.clear();
-    for (int i = 0; i < searchAuthor.length(); ++i) {
-        QChar c = searchAuthor[i];
 
-        // Check if the character is a letter, digit, or dash
-        if (c.isLetter() || c.isDigit() || c == '-') {
-            currentWord += c.toLower();  // Add the character to the current word in lowercase
-        } else {
-            if (!currentWord.isEmpty()) {
-                authorWords.push_back(currentWord);  // Add word to vector if it's not empty
-                currentWord.clear();  // Reset current word
-            }
-        }
-    }
-    if (!currentWord.isEmpty()) {
-        authorWords.push_back(currentWord);  // Add the last word if any
-    }
 
     // Now, let's perform the search for each word in the title and author and find the intersection of results
 
@@ -204,25 +203,6 @@ void user::on_pushButton_2_clicked()
         }
     }
 
-    // Now, do the same for author words and find the intersection with the current results
-    firstWord = true;
-    for (const QString& word : authorWords) {
-        std::vector<book*> currentBooks = myTrie->search(word);
-
-        if (firstWord) {
-            results = currentBooks;  // For the first word, initialize results with the books found
-            firstWord = false;
-        } else {
-            // For subsequent words, find the intersection of results
-            std::vector<book*> intersectedBooks;
-            for (book* bookInResults : results) {
-                if (std::find(currentBooks.begin(), currentBooks.end(), bookInResults) != currentBooks.end()) {
-                    intersectedBooks.push_back(bookInResults);
-                }
-            }
-            results = intersectedBooks;  // Update results with the intersection
-        }
-    }
 
     populate_searchList();
 }
@@ -236,6 +216,8 @@ void user::on_searchList_itemClicked(QListWidgetItem *item)
 
 void user::on_signOutPushButton_clicked()
 {
+    //filemanipulator::book_request_writer();
+    //filemanipulator::users_files_writer();
     this->close();
     MainWindow *m = new MainWindow();
     m->show();
@@ -269,5 +251,45 @@ void user::on_pushButton_3_clicked()
         populate_searchList();
     }
 
+}
+
+
+void user::on_pushButton_4_clicked()
+{
+    // Unborrow
+    auto selectedItem = ui->borrowList->currentItem();
+    if (selectedItem)
+    {
+        book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
+        auto it = std::find(borrowed_books_objects.begin(), borrowed_books_objects.end(), selectedBook);
+        if (it != borrowed_books_objects.end()) {
+            borrowed_books_objects.erase(it); // Erase the book from the borrowed list
+        }
+
+        // Optionally increment the available book count back
+        if (selectedBook) {
+            selectedBook->setAvailableBooks(selectedBook->getAvailableBooks() + 1);
+        }
+    }
+
+    populate_borrowedList(); // Refresh the borrowed list
+    populate_searchList();   // Refresh the search list
+}
+
+void user::on_pushButton_5_clicked()
+{
+    // Remove from Wishlist
+    auto selectedItem = ui->wishList->currentItem();
+    if (selectedItem)
+    {
+        book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
+        auto it = std::find(wishlisted_books_objects.begin(), wishlisted_books_objects.end(), selectedBook);
+        if (it != wishlisted_books_objects.end()) {
+            wishlisted_books_objects.erase(it); // Erase the book from the wishlist
+        }
+    }
+
+    populate_wishList(); // Refresh the wishlist
+    populate_searchList(); // Refresh the search list
 }
 

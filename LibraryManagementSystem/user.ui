@@ -18,8 +18,8 @@
     <rect>
      <x>50</x>
      <y>40</y>
-     <width>301</width>
-     <height>31</height>
+     <width>331</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -36,7 +36,7 @@
    <property name="geometry">
     <rect>
      <x>770</x>
-     <y>130</y>
+     <y>160</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -102,9 +102,9 @@
     <widget class="QListWidget" name="wishList">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>0</y>
-       <width>151</width>
+       <width>141</width>
        <height>131</height>
       </rect>
      </property>
@@ -124,78 +124,6 @@
     <string>Wishlist:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="amountLabel">
-   <property name="geometry">
-    <rect>
-     <x>770</x>
-     <y>310</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Amount due: </string>
-   </property>
-  </widget>
-  <widget class="QScrollArea" name="amountArea">
-   <property name="geometry">
-    <rect>
-     <x>860</x>
-     <y>300</y>
-     <width>161</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="widgetResizable">
-    <bool>true</bool>
-   </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents_3">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>159</width>
-      <height>39</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QScrollArea" name="creditArea">
-   <property name="geometry">
-    <rect>
-     <x>860</x>
-     <y>540</y>
-     <width>161</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="widgetResizable">
-    <bool>true</bool>
-   </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents_4">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>159</width>
-      <height>39</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QLabel" name="creditLabel">
-   <property name="geometry">
-    <rect>
-     <x>770</x>
-     <y>550</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Borrow Credit:</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="searchPushButton">
    <property name="geometry">
     <rect>
@@ -209,33 +137,7 @@
     <string>DO NOT USE NOW</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>310</y>
-     <width>49</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Author</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>220</y>
-     <width>49</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Search:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -245,57 +147,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Title</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>360</y>
-     <width>160</width>
-     <height>119</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <widget class="QRadioButton" name="actionCheck_3">
-      <property name="text">
-       <string>Action</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QRadioButton" name="comedyCheck_3">
-      <property name="text">
-       <string>Comedy</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QRadioButton" name="HorrorCheck_3">
-      <property name="text">
-       <string>Horror</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QRadioButton" name="romanticCheck_3">
-      <property name="text">
-       <string>Romantic</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QTextEdit" name="authorSearchTextedit">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>300</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
+    <string>Search:</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="deleteArea">
@@ -334,8 +186,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>390</y>
+     <x>170</x>
+     <y>310</y>
      <width>91</width>
      <height>51</height>
     </rect>
@@ -385,12 +237,38 @@
     <rect>
      <x>670</x>
      <y>110</y>
-     <width>101</width>
+     <width>121</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
     <string>Add to wishlist</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>290</y>
+     <width>93</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unborrow</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>530</y>
+     <width>161</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Remove from wishlist</string>
    </property>
   </widget>
  </widget>

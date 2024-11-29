@@ -75,4 +75,14 @@ void book::setAvailableBooks(int newAvailableBooks)
     if(availableBooks<0) availableBooks=0;
 }
 
+QString book::get_isbn() const
+{
+    return isbn;
+}
+
+QString book::get_book_num_lib() const
+{
+    return booknuminlib;
+}
+
 

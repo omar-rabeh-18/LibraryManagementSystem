@@ -4,7 +4,8 @@
 #include <QStringList>
 #include <vector>
 #include "book.h"
-
+#include "trie.h"
+extern Trie* myTrie;
 
 filemanipulator::filemanipulator() {
     qDebug() << projectPath;
@@ -65,7 +66,15 @@ void filemanipulator::users_files_reader()
                 a_user->set_borrowed_books(book.trimmed());
             }
 
+            for (QString s: a_user->get_borrowed_books())
+            {
+                a_user->borrowed_books_objects.push_back(myTrie->search(s)[0]);
+            }
 
+            for (QString s: a_user->get_whishlisted_books())
+            {
+                a_user->wishlisted_books_objects.push_back(myTrie->search(s)[0]);
+            }
             the_users_data_vector.push_back(a_user);
 
     }

@@ -27,8 +27,7 @@ void login::on_loginPushButton_clicked()
         if(some_user->get_user_name() == ui->usernameLineEdit->text() && some_user->get_password() == ui->passwordLineEdit->text())
         {
             this->close();
-            user* u = new user();
-            u->show();
+            some_user->show();
         }
     }
 

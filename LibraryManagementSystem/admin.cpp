@@ -25,6 +25,10 @@ void admin::on_pushButton_clicked()
     int copies=ui->copiesNumber->value();
     QString lnum=ui->lnumTextBox->toPlainText();
     QString ispn=ui->ISPNTextBox->toPlainText();
+    if(!myTrie->search(ispn).empty()) {
+        book* existing= myTrie->search(ispn)[0];
+        existing->setAvailableBooks(existing->getAvailableBooks()+copies);
+        return;} //BOOK ALREADY THERE
     book * newBook=new book (ui->titleTextBox->toPlainText(),ui->authorTextBox->toPlainText(),genre,copies,ispn,lnum);
 }
 
@@ -98,15 +102,21 @@ void admin::on_pushButton_3_clicked()
 
 void admin::poulateBooksList()
 {
-    for (book * b: results) qDebug()<<b->getTitle()<<"\n";
+    for (book *b : results) {
+        qDebug() << b->getTitle() << "\n";
+    }
 
     ui->listWidget->clear(); // Clear any existing items
 
     for (const auto& b : results) {
-        QString bookDetails = QString("%1 by %2 [%3 copies available]")
+        QString bookDetails = QString("Title: %1\nAuthor: %2\nGenre: %3\nISBN: %4\nLibrary Number: %5\nAvailable Copies: %6")
         .arg(b->getTitle())
             .arg(b->getAuthor())
+            .arg(b->getGenre())
+            .arg(b->get_isbn())
+            .arg(b->get_book_num_lib())
             .arg(b->getAvailableBooks());
+
         QListWidgetItem* item = new QListWidgetItem(bookDetails, ui->listWidget);
         item->setData(Qt::UserRole, QVariant::fromValue(static_cast<void*>(b)));
         ui->listWidget->addItem(item);

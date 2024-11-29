@@ -31,6 +31,9 @@ public:
     void print_info();
 
 
+    vector<book*> wishlisted_books_objects;
+    vector<book*> borrowed_books_objects;
+
 private slots:
     void on_searchPushButton_clicked();
     void populate_searchList();
@@ -46,14 +49,16 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
 private:
     Ui::user *ui;
     QString user_name;
     QString password;
     vector<QString> wishlisted_books;
     vector<QString> borrowed_books;
-    vector<book*> wishlisted_books_objects;
-    vector<book*> borrowed_books_objects;
     vector<book*> results;
 };
 

@@ -18,10 +18,10 @@ public:
     int getAvailableBooks() const;
     void setAvailableBooks(int newAvailableBooks);
 
-    int get_isbn() const;
+    QString get_isbn() const;
     void set_isbn(int newAvailableBooks);
 
-    int get_book_num_lib() const;
+    QString get_book_num_lib() const;
     void set_book_num_lib(int newAvailableBooks);
     void processAndInsertWords(const QString& text);
 
