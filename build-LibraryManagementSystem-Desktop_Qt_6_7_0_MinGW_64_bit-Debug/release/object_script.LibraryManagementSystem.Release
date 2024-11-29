@@ -2,9 +2,11 @@ release/admin.o
 release/adminloginwindow.o
 release/book.o
 release/filemanipulator.o
+release/librarian.o
 release/login.o
 release/main.o
 release/mainwindow.o
+release/request.o
 release/searchwindow.o
 release/signup.o
 release/trie.o
@@ -12,6 +14,7 @@ release/user.o
 release/qrc_TheResources.o
 release/moc_admin.o
 release/moc_adminloginwindow.o
+release/moc_librarian.o
 release/moc_login.o
 release/moc_mainwindow.o
 release/moc_searchwindow.o

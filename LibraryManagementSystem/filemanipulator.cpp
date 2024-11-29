@@ -158,9 +158,7 @@ void filemanipulator::books_files_reader()
 
         // Check if there are enough cells in the line to process
         if (cells.size() >= 6) {
-            book * some_book = new book(cells[0].trimmed(),cells[1].trimmed(),cells[2].trimmed(),cells[3].trimmed().toInt());
-
-
+            book * some_book = new book(cells[0].trimmed(),cells[1].trimmed(),cells[2].trimmed(),cells[3].trimmed().toInt(), cells[4].trimmed(),cells[5].trimmed());
 
         }
     }
