@@ -1,13 +1,27 @@
 #include "request.h"
 #include <ctime>
-using namespace std;
-Request::Request(user* pUser, book* pBook) {
 
-    //To document the time at which the request has been created
+//To document the time at which the action has been taken
+QString currentTime(){
     time_t currentTime = time(nullptr);
     tm* localTime = localtime(&currentTime);
-    dateOfRequest = asctime(localTime);
-    dateOfDecision = "";
+    char buffer[100];
+    strftime(buffer, sizeof(buffer),":%Y-%m-%d %H:%M:%S", localTime);
+    return buffer;
+}
+
+using namespace std;
+Request::Request(QString pUser, int pBook, QString pDateOfRequest, QString pDateOfDecision, QString pDecision) {
+    if(pDateOfRequest == ""){//In the case this is a new request
+        dateOfRequest = currentTime();
+        dateOfDecision = "";
+        decision = "Pending";
+    }else{//In the case the request is being read from a csv file
+        dateOfRequest = pDateOfRequest;
+        dateOfDecision = pDateOfDecision;
+        decision = pDecision;
+    }
+
 
     //assigning the book and user requesting the books
     userRequestingBook = pUser;
@@ -17,17 +31,14 @@ Request::Request(user* pUser, book* pBook) {
 }
 
 void Request::decide(bool pDecision){
-    //To document the time at which the request has been made
-    time_t currentTime = time(nullptr);
-    tm* localTime = localtime(&currentTime);
-    dateOfDecision = asctime(localTime);
-
-    *decision = pDecision;
+    dateOfDecision = currentTime();
+    if(pDecision)
+        decision = "Accepted";
+    else
+        decision = "Denied";
 }
 
 
 Request::~Request(){
-    delete userRequestingBook;
-    delete bookToBeRequested;
-    delete decision;
+
 }

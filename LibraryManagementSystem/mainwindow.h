@@ -24,6 +24,8 @@ private slots:
     void on_adminPushButton_clicked();
 
 
+    void on_librarianPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

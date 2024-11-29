@@ -36,7 +36,7 @@
    <widget class="QPushButton" name="adminPushButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>160</x>
       <y>170</y>
       <width>100</width>
       <height>32</height>
@@ -49,7 +49,7 @@
    <widget class="QPushButton" name="userPushButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>450</x>
       <y>170</y>
       <width>100</width>
       <height>32</height>
@@ -59,6 +59,19 @@
      <string>User</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="librarianPushButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>170</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Librarian</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -66,7 +79,7 @@
      <x>0</x>
      <y>0</y>
      <width>737</width>
-     <height>37</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

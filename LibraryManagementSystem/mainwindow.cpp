@@ -2,6 +2,7 @@
 #include "adminloginwindow.h"
 #include "login.h"
 #include "ui_mainwindow.h"
+#include "librarianlogin.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,4 +35,12 @@ void MainWindow::on_adminPushButton_clicked()
 }
 
 
+
+
+void MainWindow::on_librarianPushButton_clicked()
+{
+    this->close();
+    LibrarianLogin* lLogin = new LibrarianLogin();
+    lLogin->show();
+}
 

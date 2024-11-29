@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <QByteArray>
 #include "book.h"
+#include "request.h"
 
 
 using namespace std;
@@ -35,7 +36,7 @@ public:
     static vector<user*> the_users_data_vector;
     static vector<user*> the_admin_data_vector;
     static vector<book*> books_vector;
-    static vector<vector<QString>> book_requests_vector;
+    static vector<Request*> book_requests_vector;
     QString projectPath = QString::fromStdString(filesystem::current_path().parent_path().string());
 };
 

@@ -227,8 +227,10 @@ void user::on_signOutPushButton_clicked()
 void user::on_pushButton_clicked()
 {
     //borrow
+    //TODO: Make the borrow make a request
 
     auto selectedItem = ui->searchList->currentItem();
+
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
         if(selectedBook->getAvailableBooks()>0) selectedBook->setAvailableBooks(selectedBook->getAvailableBooks()-1);

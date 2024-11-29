@@ -8,16 +8,21 @@
 class Request
 {
 private:
-    book* bookToBeRequested;
-    user* userRequestingBook;
+    int bookToBeRequested;
+    QString userRequestingBook;
     QString dateOfRequest;
     QString dateOfDecision;
-    bool* decision = nullptr;
+    QString decision;
 
 public:
-    Request(user*, book*);
+    Request(QString, int, QString, QString, QString);
     ~Request();
     void decide(bool);
+    QString getUsername(){return userRequestingBook;}
+    int getISBN(){return bookToBeRequested;}
+    QString getDateOfDecision(){return dateOfDecision;}
+    QString getDateOfRequest(){return dateOfRequest;}
+    QString getDecision(){return decision;}
 };
 
 #endif // REQUEST_H
