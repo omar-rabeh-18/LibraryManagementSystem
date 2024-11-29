@@ -5,7 +5,7 @@
 class book
 {
 public:
-    book(QString t,QString a, QString g,int copies);
+    book(QString t,QString a, QString g,int copies,QString i,QString LN);
     QString getTitle() const;
     void setTitle(const QString &newTitle);
 
@@ -23,14 +23,15 @@ public:
 
     int get_book_num_lib() const;
     void set_book_num_lib(int newAvailableBooks);
+    void processAndInsertWords(const QString& text);
 
 private:
     QString title ;
      QString author ;
      QString genre ;
      int availableBooks;
-     int isbn;
-     int booknuminlib;
+     QString isbn;
+     QString booknuminlib;
 
 };
 

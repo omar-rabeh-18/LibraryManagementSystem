@@ -21,11 +21,11 @@ admin::~admin()
 
 void admin::on_pushButton_clicked()
 {
-    QString genre;
+    QString genre=ui->genreTextBox->toPlainText();;
     int copies=ui->copiesNumber->value();
-    genre=(ui->actionCheck->isChecked())?"action":(ui->comedyCheck->isChecked())? "comedy":
-                                                        (ui->HorrorCheck->isChecked())? "horror":"romantic";
-    book * newBook=new book (ui->titleTextBox->toPlainText(),ui->authorTextBox->toPlainText(),genre,copies);
+    QString lnum=ui->lnumTextBox->toPlainText();
+    QString ispn=ui->ISPNTextBox->toPlainText();
+    book * newBook=new book (ui->titleTextBox->toPlainText(),ui->authorTextBox->toPlainText(),genre,copies,ispn,lnum);
 }
 
 
@@ -33,7 +33,6 @@ void admin::on_pushButton_2_clicked()
 {
     results.clear();
     QString searchTitle = ui->titleSearchTextedit->toPlainText();
-    QString searchAuthor = ui->authorSearchTextedit->toPlainText();
 
     std::vector<QString> titleWords;
     std::vector<QString> authorWords;
@@ -57,26 +56,8 @@ void admin::on_pushButton_2_clicked()
         titleWords.push_back(currentWord);  // Add the last word if any
     }
 
-    // Split the author into words (considering letters, digits, and dash)
-    currentWord.clear();
-    for (int i = 0; i < searchAuthor.length(); ++i) {
-        QChar c = searchAuthor[i];
 
-        // Check if the character is a letter, digit, or dash
-        if (c.isLetter() || c.isDigit() || c == '-') {
-            currentWord += c.toLower();  // Add the character to the current word in lowercase
-        } else {
-            if (!currentWord.isEmpty()) {
-                authorWords.push_back(currentWord);  // Add word to vector if it's not empty
-                currentWord.clear();  // Reset current word
-            }
-        }
-    }
-    if (!currentWord.isEmpty()) {
-        authorWords.push_back(currentWord);  // Add the last word if any
-    }
-
-    // Now, let's perform the search for each word in the title and author and find the intersection of results
+    // searcing
 
     bool firstWord = true;
 
@@ -99,25 +80,7 @@ void admin::on_pushButton_2_clicked()
         }
     }
 
-    // Now, do the same for author words and find the intersection with the current results
-    firstWord = true;
-    for (const QString& word : authorWords) {
-        std::vector<book*> currentBooks = myTrie->search(word);
 
-        if (firstWord) {
-            results = currentBooks;  // For the first word, initialize results with the books found
-            firstWord = false;
-        } else {
-            // For subsequent words, find the intersection of results
-            std::vector<book*> intersectedBooks;
-            for (book* bookInResults : results) {
-                if (std::find(currentBooks.begin(), currentBooks.end(), bookInResults) != currentBooks.end()) {
-                    intersectedBooks.push_back(bookInResults);
-                }
-            }
-            results = intersectedBooks;  // Update results with the intersection
-        }
-    }
 
     poulateBooksList();
 }

@@ -32,7 +32,6 @@ public:
     void admin_files_writer();
 
     void write_to_users_vector(QString name, QString password, QString wishlistedbooks, QString Borrowedbooks);
-    unordered_map<int, user*> the_users_data_map;
     static vector<user*> the_users_data_vector;
     static vector<user*> the_admin_data_vector;
     static vector<book*> books_vector;
