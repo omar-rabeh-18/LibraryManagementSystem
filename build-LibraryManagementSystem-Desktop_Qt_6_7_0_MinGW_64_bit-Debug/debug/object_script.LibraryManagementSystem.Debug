@@ -3,6 +3,7 @@ debug/adminloginwindow.o
 debug/book.o
 debug/filemanipulator.o
 debug/librarian.o
+debug/librarianlogin.o
 debug/login.o
 debug/main.o
 debug/mainwindow.o
@@ -15,6 +16,7 @@ debug/qrc_TheResources.o
 debug/moc_admin.o
 debug/moc_adminloginwindow.o
 debug/moc_librarian.o
+debug/moc_librarianlogin.o
 debug/moc_login.o
 debug/moc_mainwindow.o
 debug/moc_searchwindow.o

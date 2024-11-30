@@ -1,6 +1,7 @@
 #include "librarianlogin.h"
 #include "ui_librarianlogin.h"
 #include "librarian.h"
+#include "filemanipulator.h"
 
 LibrarianLogin::LibrarianLogin(QWidget *parent)
     : QDialog(parent)
@@ -18,8 +19,18 @@ LibrarianLogin::~LibrarianLogin()
 
 void LibrarianLogin::on_loginPushButton_clicked()
 {
-    this->close();
-    Librarian *librarianDashboard = new Librarian();
-    librarianDashboard->show();
+    filemanipulator file;
+    for(user* some_user : file.the_librarian_data_vector)
+    {
+        qDebug() << "in loop statment";
+        if(some_user->get_user_name() == ui->usernameLineEdit->text() && some_user->get_password() == ui->passwordLineEdit->text())
+        {
+            this->close();
+            Librarian *librarianDashboard = new Librarian();
+            librarianDashboard->show();
+        }
+    }
+
+
 }
 

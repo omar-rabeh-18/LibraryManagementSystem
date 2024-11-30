@@ -75,7 +75,7 @@ public:
         scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 219, 439));
         listWidget = new QListWidget(scrollAreaWidgetContents_2);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(-10, 0, 231, 441));
+        listWidget->setGeometry(QRect(10, 0, 191, 441));
         deleteArea->setWidget(scrollAreaWidgetContents_2);
         deleteLabel = new QLabel(admin);
         deleteLabel->setObjectName("deleteLabel");

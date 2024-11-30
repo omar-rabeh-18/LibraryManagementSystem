@@ -66,7 +66,7 @@ void filemanipulator::users_files_reader()
             for (const QString& book : borrowedBooksList) {
                 a_user->set_borrowed_books(book.trimmed());
             }
-
+           /*
             for (QString s: a_user->get_borrowed_books())
             {
                 a_user->borrowed_books_objects.push_back(myTrie->search(s)[0]);
@@ -76,9 +76,13 @@ void filemanipulator::users_files_reader()
             {
                 a_user->wishlisted_books_objects.push_back(myTrie->search(s)[0]);
             }
+*/
             the_users_data_vector.push_back(a_user);
 
     }
+
+
+
 
    }
 
@@ -109,7 +113,7 @@ void filemanipulator::users_files_writer()
 
     QTextStream out(&users_written);
 
-    // Write each row of the 2D vector to the CSV file
+
     for (const auto& user : the_users_data_vector) {
         QStringList rowData;
 
@@ -179,12 +183,46 @@ void filemanipulator::books_files_reader()
     }
 }
 
+void filemanipulator::books_files_writer()
+{
+    QString csv_books_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_info.csv";
+    QFile boks_info_written(csv_books_path);
+
+    if (!boks_info_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Error: Could not open file for writing.";
+
+    }
+
+    else
+    {
+        qDebug() << "book requests written was succesfully opened";
+    }
+
+    QTextStream out(&boks_info_written);
+
+    // Write each row of the 2D vector to the CSV file
+    for (book* some_book : books_vector) {
+        QStringList rowData;
+
+        rowData << some_book->getTitle();
+        rowData << some_book->getAuthor();
+        rowData << some_book->getGenre();
+        rowData << QString::number(some_book->getAvailableBooks());
+        rowData << some_book->get_isbn();
+        rowData << some_book->get_book_num_lib();
+
+        out << rowData.join(",") << "\n";  // Join with commas and write as a line
+    }
+
+    boks_info_written.close();
+}
+
 void filemanipulator::book_request_reader()
 {
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_request_info.csv";
-    QFile users_file(csv_user_path);  //openeing the users file
+    QString csv_book_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_request_info.csv";
+    QFile book_request_file(csv_book_path);  //openeing the users file
     string line;
-    if(!users_file.open(QIODevice::ReadOnly | QIODevice::Text)){
+    if(!book_request_file.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "book requests files is not open"; //check if file is open
     }
 
@@ -193,7 +231,7 @@ void filemanipulator::book_request_reader()
         qDebug() << "users files opened succefulyy";
     }
 
-    QTextStream in(&users_file);
+    QTextStream in(&book_request_file);
     while(!in.atEnd())
     {
         qDebug() << "reading lines";
@@ -203,7 +241,7 @@ void filemanipulator::book_request_reader()
 
 
         //Initialize a request
-        Request bookrequest(
+        Request* bookrequest = new Request(
             cells[0].trimmed(),
             cells[1].trimmed().toInt(),
             cells[2].trimmed(),
@@ -213,7 +251,7 @@ void filemanipulator::book_request_reader()
 
 
 
-        book_requests_vector.push_back(&bookrequest);
+        book_requests_vector.push_back(bookrequest);
 
 
 
@@ -244,13 +282,13 @@ void filemanipulator::book_request_writer()
     QTextStream out(&users_written);
 
     // Write each row of the 2D vector to the CSV file
-    for (const auto book_request : book_requests_vector) {
+    for (Request* book_request : book_requests_vector) {
         QStringList rowData;
 
         rowData << book_request->getUsername();
         rowData << QString::number(book_request->getISBN());
         rowData << book_request->getDateOfRequest();
-        rowData << book_request->getDateOfRequest();
+        rowData << book_request->getDateOfDecision();
         rowData << book_request->getDecision();
 
         out << rowData.join(",") << "\n";  // Join with commas and write as a line
@@ -263,8 +301,8 @@ void filemanipulator::book_request_writer()
 
 void filemanipulator::admin_files_reader()
 {
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\admin_info.csv";
-    QFile admin_file(csv_user_path);  //openeing the users file
+    QString csv_admin_path = projectPath + "\\LibraryManagementSystem\\csv files\\admin_info.csv";
+    QFile admin_file(csv_admin_path);  //openeing the users file
     string line;
     if(!admin_file.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "admin files is not open"; //check if file is open
@@ -294,10 +332,16 @@ void filemanipulator::admin_files_reader()
 
 
 
-            the_users_data_vector.push_back(a_user);
+            the_admin_data_vector.push_back(a_user);
 
         }
 
+    }
+
+    for(user* some_admin : the_admin_data_vector)
+    {
+         some_admin->print_info();
+        qDebug() << "||||||||||||||";
     }
 }
 
@@ -337,10 +381,91 @@ void filemanipulator::admin_files_writer()
 
 }
 
+void filemanipulator::librarian_file_reader()
+{
+    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\csv files\\librarian_info.csv";
+    QFile librarian_file(csv_librarian_path);  //openeing the users file
+    string line;
+    if(!librarian_file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        qDebug() << "librairan files is not open"; //check if file is open
+    }
+
+    else
+    {
+        qDebug() << "librarian files opened succefulyy";
+    }
+
+    QTextStream in(&librarian_file);
+    while(!in.atEnd())
+    {
+        qDebug() << "reading lines";
+        QString line = in.readLine();
+        QStringList cells = line.split(',');
+
+        // Check if there are enough cells in the line to process
+        if (cells.size() >= 2) {
+            user *a_librarian = new user();
+
+            // Set user name
+            a_librarian->set_user_name(cells[0].trimmed());
+
+            // Set password
+            a_librarian->set_password(cells[1].trimmed());
+
+
+
+            the_librarian_data_vector.push_back(a_librarian);
+
+        }
+
+    }
+
+    for(user* some_lib : the_librarian_data_vector)
+    {
+        some_lib->print_info();
+        qDebug() << "||||||||||||||";
+    }
+
+    librarian_file.close();
+
+}
+
+void filemanipulator::librarian_file_writer()
+{
+    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\csv files\\librarian_info.csv";
+    QFile librarian_written(csv_librarian_path);
+
+    if (!librarian_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Error: Could not open librarina file for writing.";
+
+    }
+
+    else
+    {
+        qDebug() << "librarian written was succesfully opened";
+    }
+
+    QTextStream out(&librarian_written);
+
+
+    for (const auto& user : the_librarian_data_vector) {
+        QStringList rowData;
+
+        rowData << user->get_user_name();
+        rowData << user->get_password();
+
+
+        out << rowData.join(",") << "\n";  // Join with commas and write as a line
+    }
+
+    librarian_written.close();
+}
+
 
 
 std::vector<user*> filemanipulator::the_users_data_vector = {};
 std::vector<user*> filemanipulator::the_admin_data_vector = {};
+std::vector<user*> filemanipulator::the_librarian_data_vector = {};
 std::vector<book*> filemanipulator::books_vector = {};
 std::vector<Request*> filemanipulator::book_requests_vector = {};
 

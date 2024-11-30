@@ -27,6 +27,7 @@ public:
     QLabel *roleLabel;
     QPushButton *adminPushButton;
     QPushButton *userPushButton;
+    QPushButton *librarianPushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -46,14 +47,17 @@ public:
         roleLabel->setFont(font);
         adminPushButton = new QPushButton(centralwidget);
         adminPushButton->setObjectName("adminPushButton");
-        adminPushButton->setGeometry(QRect(220, 170, 100, 32));
+        adminPushButton->setGeometry(QRect(160, 170, 100, 32));
         userPushButton = new QPushButton(centralwidget);
         userPushButton->setObjectName("userPushButton");
-        userPushButton->setGeometry(QRect(400, 170, 100, 32));
+        userPushButton->setGeometry(QRect(450, 170, 100, 32));
+        librarianPushButton = new QPushButton(centralwidget);
+        librarianPushButton->setObjectName("librarianPushButton");
+        librarianPushButton->setGeometry(QRect(300, 170, 101, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 737, 37));
+        menubar->setGeometry(QRect(0, 0, 737, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -70,6 +74,7 @@ public:
         roleLabel->setText(QCoreApplication::translate("MainWindow", "Please select your role:", nullptr));
         adminPushButton->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
         userPushButton->setText(QCoreApplication::translate("MainWindow", "User", nullptr));
+        librarianPushButton->setText(QCoreApplication::translate("MainWindow", "Librarian", nullptr));
     } // retranslateUi
 
 };

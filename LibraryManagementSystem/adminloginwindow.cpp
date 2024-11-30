@@ -1,6 +1,7 @@
 #include "adminloginwindow.h"
 #include "admin.h"
 #include "ui_adminloginwindow.h"
+#include "filemanipulator.h"
 
 adminLoginWindow::adminLoginWindow(QWidget *parent)
     : QDialog(parent)
@@ -16,8 +17,20 @@ adminLoginWindow::~adminLoginWindow()
 
 void adminLoginWindow::on_loginPushButton_clicked()
 {
-    this->close();
-    admin *adminDashboard = new admin();
-    adminDashboard->show();
+
+    filemanipulator file;
+    for(user* some_user : file.the_admin_data_vector)
+    {
+      qDebug() << "in loop statment";
+        if(some_user->get_user_name() == ui->usernameLineEdit->text() && some_user->get_password() == ui->passwordLineEdit->text())
+        {
+            qDebug() << "in if statment";
+            this->close();
+
+            admin *adminDashboard = new admin();
+            adminDashboard->show();
+        }
+    }
+
 }
 
