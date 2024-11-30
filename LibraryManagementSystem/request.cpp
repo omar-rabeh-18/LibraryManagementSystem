@@ -11,7 +11,7 @@ QString currentTime(){
 }
 
 using namespace std;
-Request::Request(QString pUser, int pBook, QString pDateOfRequest, QString pDateOfDecision, QString pDecision) {
+Request::Request(QString pUser, int pBook, QString pDateOfRequest ="", QString pDateOfDecision="", QString pDecision="") {
     if(pDateOfRequest == ""){//In the case this is a new request
         dateOfRequest = currentTime();
         dateOfDecision = "";

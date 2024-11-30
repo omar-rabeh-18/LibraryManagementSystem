@@ -1,5 +1,6 @@
 #include "librarian.h"
 #include "ui_librarian.h"
+#include "mainwindow.h"
 #include "filemanipulator.h"
 #include <vector>
 #include "trie.h"
@@ -101,5 +102,14 @@ void Librarian::on_refuseButton_clicked()
         ui->warningLabel->setText("*Please Highlight a request before making a decision");
         ui->warningLabel->setHidden(false);
     }
+}
+
+
+void Librarian::on_signOutPushButton_clicked()
+{
+    filemanipulator File;
+    File.book_request_writer();
+    MainWindow *m = new MainWindow();
+    m->show();
 }
 

@@ -26,6 +26,8 @@ private slots:
 
     void on_refuseButton_clicked();
 
+    void on_signOutPushButton_clicked();
+
 private:
     Ui::Librarian *ui;
     vector<Request*> requests;

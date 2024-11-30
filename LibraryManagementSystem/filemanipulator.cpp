@@ -201,7 +201,7 @@ void filemanipulator::book_request_reader()
         QStringList cells = line.split(',');
 
 
-        //TODO: Solve the excess elements scalar initializer
+
         //Initialize a request
         Request bookrequest(
             cells[0].trimmed(),
