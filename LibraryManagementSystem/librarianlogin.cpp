@@ -19,8 +19,7 @@ LibrarianLogin::~LibrarianLogin()
 
 void LibrarianLogin::on_loginPushButton_clicked()
 {
-    filemanipulator file;
-    for(user* some_user : file.the_librarian_data_vector)
+    for(user* some_user : filemanipulator::the_librarian_data_vector)
     {
         qDebug() << "in loop statment";
         if(some_user->get_user_name() == ui->usernameLineEdit->text() && some_user->get_password() == ui->passwordLineEdit->text())
@@ -28,6 +27,7 @@ void LibrarianLogin::on_loginPushButton_clicked()
             this->close();
             Librarian *librarianDashboard = new Librarian();
             librarianDashboard->show();
+            break;
         }
     }
 

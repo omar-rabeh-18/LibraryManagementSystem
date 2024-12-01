@@ -31,6 +31,7 @@ private slots:
 private:
     Ui::Librarian *ui;
     vector<Request*> requests;
+    vector<Request*> activeRequests;
     vector<book*> books;
     vector<user*> users;
 

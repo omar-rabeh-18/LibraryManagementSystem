@@ -3,13 +3,15 @@
 #include "login.h"
 #include "ui_mainwindow.h"
 #include "librarianlogin.h"
-
+#include "filemanipulator.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
 
     ui->setupUi(this);
+    filemanipulator File;
+
 
 
 }

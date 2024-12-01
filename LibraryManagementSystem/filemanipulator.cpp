@@ -195,7 +195,7 @@ void filemanipulator::books_files_writer()
 
     else
     {
-        qDebug() << "book requests written was succesfully opened";
+        qDebug() << "book  written was succesfully opened";
     }
 
     QTextStream out(&boks_info_written);
@@ -228,9 +228,9 @@ void filemanipulator::book_request_reader()
 
     else
     {
-        qDebug() << "users files opened succefulyy";
+        qDebug() << "requests files opened succefulyy";
     }
-
+    //book_requests_vector.clear();
     QTextStream in(&book_request_file);
     while(!in.atEnd())
     {

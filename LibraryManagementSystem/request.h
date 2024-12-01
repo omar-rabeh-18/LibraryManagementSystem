@@ -16,6 +16,7 @@ private:
 
 public:
     Request(QString, int, QString, QString, QString);
+    Request(QString, int);
     ~Request();
     void decide(bool);
     QString getUsername(){return userRequestingBook;}

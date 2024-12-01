@@ -34,6 +34,8 @@ public:
     vector<book*> wishlisted_books_objects;
     vector<book*> borrowed_books_objects;
 
+    void refresh();
+
 private slots:
     void on_searchPushButton_clicked();
     void populate_searchList();

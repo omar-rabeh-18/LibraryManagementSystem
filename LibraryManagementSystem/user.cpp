@@ -11,6 +11,9 @@ user::user(QWidget *parent)
 {
     ui->setupUi(this);
      connect(ui->searchList, &QListWidget::itemClicked, this, &user::on_searchList_itemClicked);
+
+
+
 }
 
 user::~user()
@@ -75,9 +78,18 @@ void user::print_info()
 }
 
 
+//WARNING: Crash the applications. DO NOT USE (for now)
+void user::refresh()
+{
+    populate_borrowedList();
+    populate_wishList();
+}
+
+
 
 void user::on_searchPushButton_clicked()
 {
+
     hide();
     searchWindow s;
     s.setModal(true);
@@ -153,6 +165,7 @@ void user::populate_borrowedList()
 
 void user::on_pushButton_2_clicked()
 {
+
     results.clear();
     QString searchTitle = ui->titleSearchTextedit->toPlainText();
 
@@ -218,6 +231,9 @@ void user::on_signOutPushButton_clicked()
 {
     //filemanipulator::book_request_writer();
     //filemanipulator::users_files_writer();
+    filemanipulator File = filemanipulator();
+    File.book_request_writer();
+    File.users_files_writer();
     this->close();
     MainWindow *m = new MainWindow();
     m->show();
@@ -233,8 +249,10 @@ void user::on_pushButton_clicked()
 
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
-        if(selectedBook->getAvailableBooks()>0) selectedBook->setAvailableBooks(selectedBook->getAvailableBooks()-1);
-       if(selectedBook->getAvailableBooks()>0)  borrowed_books_objects.push_back(selectedBook);
+        Request* request = new Request(user_name, selectedBook->get_isbn().toInt());
+        filemanipulator::book_requests_vector.push_back(request);
+
+        //Redundant Code
         populate_borrowedList(); // Refresh the list
         populate_searchList();
         ui->borrowList->update();
@@ -249,8 +267,9 @@ void user::on_pushButton_3_clicked()
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
         wishlisted_books_objects.push_back(selectedBook);
+        wishlisted_books.push_back(selectedBook->getTitle());
        populate_wishList(); // Refresh the list
-        populate_searchList();
+        //populate_searchList();
     }
 
 }
@@ -266,10 +285,7 @@ void user::on_pushButton_4_clicked()
         auto it = std::find(borrowed_books_objects.begin(), borrowed_books_objects.end(), selectedBook);
         if (it != borrowed_books_objects.end()) {
             borrowed_books_objects.erase(it); // Erase the book from the borrowed list
-        }
-
-        // Optionally increment the available book count back
-        if (selectedBook) {
+            //Increment its number in the Trie
             selectedBook->setAvailableBooks(selectedBook->getAvailableBooks() + 1);
         }
     }
@@ -288,6 +304,10 @@ void user::on_pushButton_5_clicked()
         auto it = std::find(wishlisted_books_objects.begin(), wishlisted_books_objects.end(), selectedBook);
         if (it != wishlisted_books_objects.end()) {
             wishlisted_books_objects.erase(it); // Erase the book from the wishlist
+        }
+        auto it2 = std::find(wishlisted_books.begin(), wishlisted_books.end(), selectedBook->getTitle());
+        if (it2 != wishlisted_books.end()) {
+            wishlisted_books.erase(it2); // Erase the book from the wishlist
         }
     }
 

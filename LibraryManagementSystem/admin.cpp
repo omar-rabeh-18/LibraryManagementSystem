@@ -1,5 +1,6 @@
 #include "admin.h"
 #include "mainwindow.h"
+#include "filemanipulator.h"
 #include "ui_admin.h"
 #include "book.h"
 #include "trie.h"
@@ -135,6 +136,8 @@ book* selectedBook = static_cast<book*>(item->data(Qt::UserRole).value<void*>())
 
 void admin::on_signOutPushButton_clicked()
 {
+    filemanipulator File;
+    File.books_files_writer();
     this->close();
     MainWindow *m = new MainWindow();
     m->show();
