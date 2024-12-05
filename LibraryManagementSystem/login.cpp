@@ -30,8 +30,7 @@ void login::on_loginPushButton_clicked()
             this->close();
 
             some_user->show();
-            //TODO: Fix the not showing up of borrowed books/wishlisted books in User class
-            //TODO: By extension, think of the unborrow function
+
             some_user->refresh();
         }
     }

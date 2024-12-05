@@ -81,8 +81,10 @@ void user::print_info()
 //WARNING: Crash the applications. DO NOT USE (for now)
 void user::refresh()
 {
-    populate_borrowedList();
-    populate_wishList();
+    if(!borrowed_books.empty())
+        populate_borrowedList();
+    if(!wishlisted_books.empty())
+        populate_wishList();
 }
 
 
@@ -267,7 +269,7 @@ void user::on_pushButton_3_clicked()
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
         wishlisted_books_objects.push_back(selectedBook);
-        wishlisted_books.push_back(selectedBook->getTitle());
+        wishlisted_books.push_back(selectedBook->get_isbn());
        populate_wishList(); // Refresh the list
         //populate_searchList();
     }
@@ -288,6 +290,10 @@ void user::on_pushButton_4_clicked()
             //Increment its number in the Trie
             selectedBook->setAvailableBooks(selectedBook->getAvailableBooks() + 1);
         }
+        auto it2 = std::find(borrowed_books.begin(), borrowed_books.end(), selectedBook->get_isbn());
+        if (it2 != borrowed_books.end()) {
+            borrowed_books.erase(it2); // Erase the book from the wishlist
+        }
     }
 
     populate_borrowedList(); // Refresh the borrowed list
@@ -305,7 +311,7 @@ void user::on_pushButton_5_clicked()
         if (it != wishlisted_books_objects.end()) {
             wishlisted_books_objects.erase(it); // Erase the book from the wishlist
         }
-        auto it2 = std::find(wishlisted_books.begin(), wishlisted_books.end(), selectedBook->getTitle());
+        auto it2 = std::find(wishlisted_books.begin(), wishlisted_books.end(), selectedBook->get_isbn());
         if (it2 != wishlisted_books.end()) {
             wishlisted_books.erase(it2); // Erase the book from the wishlist
         }

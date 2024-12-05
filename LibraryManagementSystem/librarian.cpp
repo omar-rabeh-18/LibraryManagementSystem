@@ -75,7 +75,7 @@ void Librarian::on_acceptButton_clicked()
         if(rBook->getAvailableBooks() > 0){
             activeRequests[index]->decide(true);
             rBook->setAvailableBooks(rBook->getAvailableBooks()-1);
-            rUser->set_borrowed_books(rBook->getTitle());
+            rUser->set_borrowed_books(rBook->get_isbn());
             rUser->borrowed_books_objects.push_back(rBook);
             books.erase(books.begin() + index);
             users.erase(users.begin() + index);
