@@ -24,7 +24,7 @@ QT_BEGIN_NAMESPACE
 class Ui_LibrarianLogin
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *titleLabel;
     QHBoxLayout *horizontalLayout;
@@ -34,19 +34,20 @@ public:
     QLabel *passwordLabel;
     QLineEdit *passwordLineEdit;
     QPushButton *loginPushButton;
+    QLabel *backpic;
 
     void setupUi(QDialog *LibrarianLogin)
     {
         if (LibrarianLogin->objectName().isEmpty())
             LibrarianLogin->setObjectName("LibrarianLogin");
         LibrarianLogin->resize(599, 468);
-        widget = new QWidget(LibrarianLogin);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(150, 140, 306, 165));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(LibrarianLogin);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(150, 140, 306, 165));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        titleLabel = new QLabel(widget);
+        titleLabel = new QLabel(layoutWidget);
         titleLabel->setObjectName("titleLabel");
         QFont font;
         font.setPointSize(26);
@@ -57,12 +58,15 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        usernameLabel = new QLabel(widget);
+        usernameLabel = new QLabel(layoutWidget);
         usernameLabel->setObjectName("usernameLabel");
+        usernameLabel->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
 
         horizontalLayout->addWidget(usernameLabel);
 
-        usernameLineEdit = new QLineEdit(widget);
+        usernameLineEdit = new QLineEdit(layoutWidget);
         usernameLineEdit->setObjectName("usernameLineEdit");
 
         horizontalLayout->addWidget(usernameLineEdit);
@@ -72,12 +76,15 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        passwordLabel = new QLabel(widget);
+        passwordLabel = new QLabel(layoutWidget);
         passwordLabel->setObjectName("passwordLabel");
+        passwordLabel->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
 
         horizontalLayout_2->addWidget(passwordLabel);
 
-        passwordLineEdit = new QLineEdit(widget);
+        passwordLineEdit = new QLineEdit(layoutWidget);
         passwordLineEdit->setObjectName("passwordLineEdit");
         passwordLineEdit->setEchoMode(QLineEdit::Normal);
 
@@ -86,11 +93,14 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
-        loginPushButton = new QPushButton(widget);
+        loginPushButton = new QPushButton(layoutWidget);
         loginPushButton->setObjectName("loginPushButton");
 
         verticalLayout->addWidget(loginPushButton);
 
+        backpic = new QLabel(LibrarianLogin);
+        backpic->setObjectName("backpic");
+        backpic->setGeometry(QRect(-10, -10, 611, 481));
 
         retranslateUi(LibrarianLogin);
 
@@ -104,6 +114,7 @@ public:
         usernameLabel->setText(QCoreApplication::translate("LibrarianLogin", "Username:", nullptr));
         passwordLabel->setText(QCoreApplication::translate("LibrarianLogin", "Password:", nullptr));
         loginPushButton->setText(QCoreApplication::translate("LibrarianLogin", "Login", nullptr));
+        backpic->setText(QString());
     } // retranslateUi
 
 };

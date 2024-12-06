@@ -9,6 +9,13 @@ adminLoginWindow::adminLoginWindow(QWidget *parent)
     , ui(new Ui::adminLoginWindow)
 {
     ui->setupUi(this);
+    this->resize(589, 318);
+
+    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/librarianlogin.png");
+
+    ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+   ui->backpic->resize(this->size());
+    ui->backpic->lower();
 }
 
 adminLoginWindow::~adminLoginWindow()

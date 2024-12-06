@@ -61,7 +61,7 @@ public:
     QLabel *label_6;
     QLabel *label_9;
     QLabel *label_10;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QLineEdit *librarianusername;
     QLineEdit *librarianpassword;
@@ -180,39 +180,48 @@ public:
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(210, 150, 101, 31));
         label_6->setFont(font1);
+        label_6->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label_6->setAlignment(Qt::AlignCenter);
         label_9 = new QLabel(tab_7);
         label_9->setObjectName("label_9");
         label_9->setGeometry(QRect(210, 200, 101, 31));
         label_9->setFont(font1);
+        label_9->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label_9->setAlignment(Qt::AlignCenter);
         label_10 = new QLabel(tab_7);
         label_10->setObjectName("label_10");
         label_10->setGeometry(QRect(140, 240, 171, 31));
         label_10->setFont(font1);
+        label_10->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label_10->setAlignment(Qt::AlignCenter);
-        widget = new QWidget(tab_7);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(310, 140, 211, 191));
-        verticalLayout_2 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(tab_7);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(310, 140, 211, 191));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        librarianusername = new QLineEdit(widget);
+        librarianusername = new QLineEdit(layoutWidget);
         librarianusername->setObjectName("librarianusername");
 
         verticalLayout_2->addWidget(librarianusername);
 
-        librarianpassword = new QLineEdit(widget);
+        librarianpassword = new QLineEdit(layoutWidget);
         librarianpassword->setObjectName("librarianpassword");
 
         verticalLayout_2->addWidget(librarianpassword);
 
-        librarianpasswordconfrim = new QLineEdit(widget);
+        librarianpasswordconfrim = new QLineEdit(layoutWidget);
         librarianpasswordconfrim->setObjectName("librarianpasswordconfrim");
 
         verticalLayout_2->addWidget(librarianpasswordconfrim);
 
-        pushButton_4 = new QPushButton(widget);
+        pushButton_4 = new QPushButton(layoutWidget);
         pushButton_4->setObjectName("pushButton_4");
 
         verticalLayout_2->addWidget(pushButton_4);

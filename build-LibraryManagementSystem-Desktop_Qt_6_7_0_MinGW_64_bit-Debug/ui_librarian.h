@@ -27,6 +27,7 @@ public:
     QPushButton *refuseButton;
     QLabel *warningLabel;
     QPushButton *signOutPushButton;
+    QLabel *backpic;
 
     void setupUi(QDialog *Librarian)
     {
@@ -39,6 +40,13 @@ public:
         ActiveRequests = new QListWidget(Librarian);
         ActiveRequests->setObjectName("ActiveRequests");
         ActiveRequests->setGeometry(QRect(80, 70, 401, 311));
+        QFont font;
+        font.setPointSize(10);
+        font.setBold(true);
+        font.setUnderline(true);
+        font.setKerning(false);
+        ActiveRequests->setFont(font);
+        ActiveRequests->setStyleSheet(QString::fromUtf8("color: white;"));
         acceptButton = new QPushButton(Librarian);
         acceptButton->setObjectName("acceptButton");
         acceptButton->setGeometry(QRect(530, 330, 80, 24));
@@ -51,6 +59,17 @@ public:
         signOutPushButton = new QPushButton(Librarian);
         signOutPushButton->setObjectName("signOutPushButton");
         signOutPushButton->setGeometry(QRect(30, 440, 91, 51));
+        backpic = new QLabel(Librarian);
+        backpic->setObjectName("backpic");
+        backpic->setGeometry(QRect(-10, -10, 711, 571));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setUnderline(false);
+        font1.setKerning(true);
+        backpic->setFont(font1);
+        backpic->setAutoFillBackground(false);
+        backpic->setWordWrap(false);
 
         retranslateUi(Librarian);
 
@@ -65,6 +84,7 @@ public:
         refuseButton->setText(QCoreApplication::translate("Librarian", "Refuse", nullptr));
         warningLabel->setText(QCoreApplication::translate("Librarian", "<html><head/><body><p><span style=\" color:#ff0000;\">*Please Highlight a request before making a decision</span></p></body></html>", nullptr));
         signOutPushButton->setText(QCoreApplication::translate("Librarian", "Sign Out", nullptr));
+        backpic->setText(QString());
     } // retranslateUi
 
 };

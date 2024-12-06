@@ -35,10 +35,11 @@ public:
     QLabel *userLabel_2;
     QPushButton *signOutPushButton;
     QPushButton *pushButton_3;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_2;
     QPushButton *pushButton;
+    QLabel *backpic;
     QWidget *tab_2;
     QLabel *booksLabel;
     QScrollArea *booksArea;
@@ -53,6 +54,7 @@ public:
     QLabel *userLabel_5;
     QPushButton *pushButton_5;
     QListWidget *borrowList;
+    QLabel *backpic_2;
 
     void setupUi(QDialog *user)
     {
@@ -67,6 +69,9 @@ public:
         titleSearchTextedit = new QTextEdit(tab);
         titleSearchTextedit->setObjectName("titleSearchTextedit");
         titleSearchTextedit->setGeometry(QRect(280, 90, 471, 31));
+        titleSearchTextedit->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         deleteArea = new QScrollArea(tab);
         deleteArea->setObjectName("deleteArea");
         deleteArea->setGeometry(QRect(280, 120, 471, 261));
@@ -78,6 +83,9 @@ public:
         searchList = new QListWidget(scrollAreaWidgetContents_6);
         searchList->setObjectName("searchList");
         searchList->setGeometry(QRect(0, 0, 471, 261));
+        searchList->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         searchList->setFrameShape(QFrame::NoFrame);
         deleteArea->setWidget(scrollAreaWidgetContents_6);
         userLabel_2 = new QLabel(tab);
@@ -93,22 +101,25 @@ public:
         pushButton_3 = new QPushButton(tab);
         pushButton_3->setObjectName("pushButton_3");
         pushButton_3->setGeometry(QRect(950, 90, 121, 31));
-        widget = new QWidget(tab);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(750, 90, 195, 31));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(tab);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(750, 90, 195, 31));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName("pushButton_2");
 
         horizontalLayout->addWidget(pushButton_2);
 
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName("pushButton");
 
         horizontalLayout->addWidget(pushButton);
 
+        backpic = new QLabel(tab);
+        backpic->setObjectName("backpic");
+        backpic->setGeometry(QRect(-10, -30, 1131, 631));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
@@ -146,6 +157,9 @@ public:
         wishList = new QListWidget(scrollAreaWidgetContents_2);
         wishList->setObjectName("wishList");
         wishList->setFont(font1);
+        wishList->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
 
         horizontalLayout_4->addWidget(wishList);
 
@@ -166,6 +180,12 @@ public:
         borrowList->setObjectName("borrowList");
         borrowList->setGeometry(QRect(370, 100, 258, 429));
         borrowList->setFont(font1);
+        borrowList->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
+        backpic_2 = new QLabel(tab_2);
+        backpic_2->setObjectName("backpic_2");
+        backpic_2->setGeometry(QRect(-10, -20, 1131, 621));
         tabWidget->addTab(tab_2, QString());
 
         retranslateUi(user);
@@ -184,12 +204,14 @@ public:
         pushButton_3->setText(QCoreApplication::translate("user", "Add to wishlist", nullptr));
         pushButton_2->setText(QCoreApplication::translate("user", "Search", nullptr));
         pushButton->setText(QCoreApplication::translate("user", "Borrow", nullptr));
+        backpic->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("user", "Search", nullptr));
         booksLabel->setText(QCoreApplication::translate("user", "My Books", nullptr));
         pushButton_4->setText(QCoreApplication::translate("user", "Unborrow", nullptr));
         wishlistLabel->setText(QCoreApplication::translate("user", "Wishlist", nullptr));
         userLabel_5->setText(QCoreApplication::translate("user", "User Dashboard", nullptr));
         pushButton_5->setText(QCoreApplication::translate("user", "Remove from wishlist", nullptr));
+        backpic_2->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("user", "My Info", nullptr));
     } // retranslateUi
 

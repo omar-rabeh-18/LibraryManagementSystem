@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -40,6 +40,11 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="usernameLabel">
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+        </property>
         <property name="text">
          <string>Username:</string>
         </property>
@@ -54,6 +59,11 @@
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QLabel" name="passwordLabel">
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+        </property>
         <property name="text">
          <string>Password:</string>
         </property>
@@ -76,6 +86,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="backpic">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-10</y>
+     <width>611</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>

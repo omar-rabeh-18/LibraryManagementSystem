@@ -25,7 +25,7 @@ class Ui_adminLoginWindow
 {
 public:
     QLabel *titleLabel;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *usernameLabel;
@@ -36,6 +36,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QPushButton *loginPushButton;
     QPushButton *loginPushButton_2;
+    QLabel *backpic;
 
     void setupUi(QDialog *adminLoginWindow)
     {
@@ -49,20 +50,23 @@ public:
         font.setPointSize(26);
         font.setBold(true);
         titleLabel->setFont(font);
-        widget = new QWidget(adminLoginWindow);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(170, 90, 234, 103));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(adminLoginWindow);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(170, 90, 234, 103));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        usernameLabel = new QLabel(widget);
+        usernameLabel = new QLabel(layoutWidget);
         usernameLabel->setObjectName("usernameLabel");
+        usernameLabel->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
 
         horizontalLayout->addWidget(usernameLabel);
 
-        usernameLineEdit = new QLineEdit(widget);
+        usernameLineEdit = new QLineEdit(layoutWidget);
         usernameLineEdit->setObjectName("usernameLineEdit");
 
         horizontalLayout->addWidget(usernameLineEdit);
@@ -72,12 +76,15 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        passwordLabel = new QLabel(widget);
+        passwordLabel = new QLabel(layoutWidget);
         passwordLabel->setObjectName("passwordLabel");
+        passwordLabel->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
 
         horizontalLayout_2->addWidget(passwordLabel);
 
-        passwordLineEdit = new QLineEdit(widget);
+        passwordLineEdit = new QLineEdit(layoutWidget);
         passwordLineEdit->setObjectName("passwordLineEdit");
         passwordLineEdit->setEchoMode(QLineEdit::Password);
 
@@ -88,12 +95,12 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        loginPushButton = new QPushButton(widget);
+        loginPushButton = new QPushButton(layoutWidget);
         loginPushButton->setObjectName("loginPushButton");
 
         horizontalLayout_3->addWidget(loginPushButton);
 
-        loginPushButton_2 = new QPushButton(widget);
+        loginPushButton_2 = new QPushButton(layoutWidget);
         loginPushButton_2->setObjectName("loginPushButton_2");
 
         horizontalLayout_3->addWidget(loginPushButton_2);
@@ -101,6 +108,10 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        backpic = new QLabel(adminLoginWindow);
+        backpic->setObjectName("backpic");
+        backpic->setGeometry(QRect(-10, -10, 601, 331));
+        backpic->setStyleSheet(QString::fromUtf8(""));
 
         retranslateUi(adminLoginWindow);
 
@@ -115,6 +126,7 @@ public:
         passwordLabel->setText(QCoreApplication::translate("adminLoginWindow", "Password:", nullptr));
         loginPushButton->setText(QCoreApplication::translate("adminLoginWindow", "Login", nullptr));
         loginPushButton_2->setText(QCoreApplication::translate("adminLoginWindow", "Signup", nullptr));
+        backpic->setText(QString());
     } // retranslateUi
 
 };

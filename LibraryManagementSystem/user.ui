@@ -38,6 +38,11 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
     </widget>
     <widget class="QScrollArea" name="deleteArea">
      <property name="geometry">
@@ -71,6 +76,11 @@
          <width>471</width>
          <height>261</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
@@ -123,7 +133,7 @@
       <string>Add to wishlist</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>750</x>
@@ -148,6 +158,19 @@
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QLabel" name="backpic">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>-30</y>
+       <width>1131</width>
+       <height>631</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
@@ -247,6 +270,11 @@
            <pointsize>15</pointsize>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+         </property>
         </widget>
        </item>
       </layout>
@@ -318,6 +346,24 @@
       <font>
        <pointsize>15</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="backpic_2">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>-20</y>
+       <width>1131</width>
+       <height>621</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>

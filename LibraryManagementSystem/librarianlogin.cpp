@@ -8,6 +8,15 @@ LibrarianLogin::LibrarianLogin(QWidget *parent)
     , ui(new Ui::LibrarianLogin)
 {
     ui->setupUi(this);
+
+    this->resize(599, 468);
+
+    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/librarianlogin.png");
+
+    ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->backpic->resize(this->size());
+    ui->backpic->lower();
+
 }
 
 LibrarianLogin::~LibrarianLogin()

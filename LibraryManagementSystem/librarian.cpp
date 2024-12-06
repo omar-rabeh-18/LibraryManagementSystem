@@ -27,6 +27,15 @@ Librarian::Librarian(QWidget *parent)
     qDebug() << "Before Populating requests" << "\n";
     populate_requests();
     qDebug() << "After Populating requests" << "\n";
+
+    this->resize(696, 550);
+
+    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/librarianlogin.png");
+
+    ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->backpic->resize(this->size());
+    ui->backpic->lower();
+
 }
 
 Librarian::~Librarian()

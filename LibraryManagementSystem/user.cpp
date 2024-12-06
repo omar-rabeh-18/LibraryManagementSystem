@@ -13,6 +13,17 @@ user::user(QWidget *parent)
      connect(ui->searchList, &QListWidget::itemClicked, this, &user::on_searchList_itemClicked);
 
 
+     this->resize(1121, 621);
+
+     QPixmap bg("C:/Users/HP/Desktop/applied project pictures/userdashboard.png");
+
+     ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+     ui->backpic->resize(this->size());
+     ui->backpic->lower();
+
+     ui->backpic_2->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+     ui->backpic_2->resize(this->size());
+     ui->backpic_2->lower();
 
 }
 

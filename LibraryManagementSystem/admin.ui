@@ -420,6 +420,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <pointsize>12</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>Username</string>
      </property>
@@ -440,6 +445,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <font>
        <pointsize>12</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
      </property>
      <property name="text">
       <string>Password</string>
@@ -462,6 +472,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <pointsize>12</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>Confirm Password</string>
      </property>
@@ -469,7 +484,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>310</x>
