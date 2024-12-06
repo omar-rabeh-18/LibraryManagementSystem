@@ -2,6 +2,7 @@
 #include "admin.h"
 #include "ui_adminloginwindow.h"
 #include "filemanipulator.h"
+#include "adminsignupwindow.h"
 
 adminLoginWindow::adminLoginWindow(QWidget *parent)
     : QDialog(parent)
@@ -31,6 +32,15 @@ void adminLoginWindow::on_loginPushButton_clicked()
             adminDashboard->show();
         }
     }
+
+}
+
+
+void adminLoginWindow::on_loginPushButton_2_clicked()
+{
+    adminsignupwindow * signupdashboard = new adminsignupwindow();
+    this->close();
+    signupdashboard->show();
 
 }
 

@@ -1,5 +1,6 @@
 debug/admin.o
 debug/adminloginwindow.o
+debug/adminsignupwindow.o
 debug/book.o
 debug/filemanipulator.o
 debug/librarian.o
@@ -15,6 +16,7 @@ debug/user.o
 debug/qrc_TheResources.o
 debug/moc_admin.o
 debug/moc_adminloginwindow.o
+debug/moc_adminsignupwindow.o
 debug/moc_librarian.o
 debug/moc_librarianlogin.o
 debug/moc_login.o

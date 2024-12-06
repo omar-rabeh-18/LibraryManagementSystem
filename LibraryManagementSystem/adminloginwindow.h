@@ -18,6 +18,8 @@ public:
 private slots:
     void on_loginPushButton_clicked();
 
+    void on_loginPushButton_2_clicked();
+
 private:
     Ui::adminLoginWindow *ui;
 };

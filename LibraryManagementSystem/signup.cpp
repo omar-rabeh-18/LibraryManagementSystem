@@ -1,6 +1,7 @@
 #include "signup.h"
 #include "login.h"
 #include "ui_signup.h"
+#include <QMessageBox>
 
 signup::signup(QWidget *parent)
     : QDialog(parent)
@@ -46,6 +47,9 @@ void signup::on_signupPushButton_clicked()
 
         if(user_name_already_exists)
         {
+
+            QMessageBox::critical(this, "Error", "The username already exists. Please choose a different username.");
+
             qDebug() << "username already exists";
 
 
@@ -53,6 +57,8 @@ void signup::on_signupPushButton_clicked()
 
         else if(user_password_already_exits)
         {
+
+            QMessageBox::critical(this, "Error", "The Password already exists. Please choose a different Password.");
 
             qDebug() << "password already exists";
 
@@ -66,6 +72,9 @@ void signup::on_signupPushButton_clicked()
                 some_user->print_info();
 
             }
+            this->close();
+            login* userLogin = new login();
+            userLogin->show();
         }
 
     }
@@ -80,8 +89,6 @@ void signup::on_signupPushButton_clicked()
     file.users_files_writer();
 
 
-    this->close();
-    login* userLogin = new login();
-    userLogin->show();
+
 }
 

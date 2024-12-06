@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     adminloginwindow.cpp \
+    adminsignupwindow.cpp \
     book.cpp \
     filemanipulator.cpp \
     librarian.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 HEADERS += \
     admin.h \
     adminloginwindow.h \
+    adminsignupwindow.h \
     book.h \
     filemanipulator.h \
     librarian.h \
@@ -42,6 +44,7 @@ HEADERS += \
 FORMS += \
     admin.ui \
     adminloginwindow.ui \
+    adminsignupwindow.ui \
     librarian.ui \
     librarianlogin.ui \
     login.ui \

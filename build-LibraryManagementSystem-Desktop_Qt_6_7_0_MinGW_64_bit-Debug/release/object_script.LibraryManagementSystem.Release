@@ -1,5 +1,6 @@
 release/admin.o
 release/adminloginwindow.o
+release/adminsignupwindow.o
 release/book.o
 release/filemanipulator.o
 release/librarian.o
@@ -15,6 +16,7 @@ release/user.o
 release/qrc_TheResources.o
 release/moc_admin.o
 release/moc_adminloginwindow.o
+release/moc_adminsignupwindow.o
 release/moc_librarian.o
 release/moc_librarianlogin.o
 release/moc_login.o

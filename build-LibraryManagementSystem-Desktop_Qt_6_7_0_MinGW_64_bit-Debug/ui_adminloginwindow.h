@@ -27,6 +27,7 @@ public:
     QLineEdit *passwordLineEdit;
     QPushButton *loginPushButton;
     QLabel *titleLabel;
+    QPushButton *loginPushButton_2;
 
     void setupUi(QDialog *adminLoginWindow)
     {
@@ -48,7 +49,7 @@ public:
         passwordLineEdit->setEchoMode(QLineEdit::Password);
         loginPushButton = new QPushButton(adminLoginWindow);
         loginPushButton->setObjectName("loginPushButton");
-        loginPushButton->setGeometry(QRect(240, 180, 100, 32));
+        loginPushButton->setGeometry(QRect(200, 180, 100, 32));
         titleLabel = new QLabel(adminLoginWindow);
         titleLabel->setObjectName("titleLabel");
         titleLabel->setGeometry(QRect(210, 20, 181, 31));
@@ -56,6 +57,9 @@ public:
         font.setPointSize(26);
         font.setBold(true);
         titleLabel->setFont(font);
+        loginPushButton_2 = new QPushButton(adminLoginWindow);
+        loginPushButton_2->setObjectName("loginPushButton_2");
+        loginPushButton_2->setGeometry(QRect(330, 180, 100, 32));
 
         retranslateUi(adminLoginWindow);
 
@@ -69,6 +73,7 @@ public:
         passwordLabel->setText(QCoreApplication::translate("adminLoginWindow", "Password:", nullptr));
         loginPushButton->setText(QCoreApplication::translate("adminLoginWindow", "Login", nullptr));
         titleLabel->setText(QCoreApplication::translate("adminLoginWindow", "Admin Login", nullptr));
+        loginPushButton_2->setText(QCoreApplication::translate("adminLoginWindow", "Signup", nullptr));
     } // retranslateUi
 
 };
