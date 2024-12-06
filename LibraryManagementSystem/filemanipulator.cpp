@@ -64,19 +64,23 @@ void filemanipulator::users_files_reader()
             QStringList borrowedBooksList = cells[3].split(';');
             std::vector<QString> borrowedBooks;
             for (const QString& book : borrowedBooksList) {
+                qDebug() << book;
                 a_user->set_borrowed_books(book.trimmed());
             }
-           /*
+            qDebug() << "Starting borrowed list insertion";
             for (QString s: a_user->get_borrowed_books())
             {
+                if(s == "") continue;
+                qDebug() << s << ", Vector Size: " << myTrie->search(s).size();
                 a_user->borrowed_books_objects.push_back(myTrie->search(s)[0]);
             }
 
             for (QString s: a_user->get_whishlisted_books())
             {
+                if(s == "") continue;
                 a_user->wishlisted_books_objects.push_back(myTrie->search(s)[0]);
             }
-*/
+
             the_users_data_vector.push_back(a_user);
 
     }

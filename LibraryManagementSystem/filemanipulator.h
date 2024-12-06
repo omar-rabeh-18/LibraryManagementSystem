@@ -40,7 +40,7 @@ public:
     static vector<user*> the_librarian_data_vector;
     static vector<book*> books_vector;
     static vector<Request*> book_requests_vector;
-    QString projectPath = "D:\\College\\Fall '24\\ADS\\GithubProjectCode Take 4\\LibraryManagementSystem"; //QString::fromStdString(filesystem::current_path().parent_path().string());
+    QString projectPath = QString::fromStdString(filesystem::current_path().parent_path().string());
 };
 
 #endif // FILEMANIPULATOR_H
