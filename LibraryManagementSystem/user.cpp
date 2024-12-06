@@ -249,7 +249,7 @@ void user::on_pushButton_clicked()
 
     if (selectedItem) {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
-        Request* request = new Request(user_name, selectedBook->get_isbn().toInt());
+        Request* request = new Request(this, selectedBook);
         filemanipulator::book_requests_vector.push_back(request);
 
         //Redundant Code

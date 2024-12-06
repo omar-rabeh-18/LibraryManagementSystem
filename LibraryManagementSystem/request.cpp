@@ -11,7 +11,7 @@ QString currentTime(){
 }
 
 using namespace std;
-Request::Request(QString pUser, int pBook, QString pDateOfRequest, QString pDateOfDecision, QString pDecision) {
+Request::Request(user* pUser, book* pBook, QString pDateOfRequest, QString pDateOfDecision, QString pDecision) {
 
     dateOfRequest = pDateOfRequest;
     dateOfDecision = pDateOfDecision;
@@ -24,7 +24,7 @@ Request::Request(QString pUser, int pBook, QString pDateOfRequest, QString pDate
     bookToBeRequested = pBook;
 }
 
-Request::Request(QString pUser, int pBook){
+Request::Request(user* pUser, book* pBook){
     dateOfRequest = currentTime();
     dateOfDecision = "";
     decision = "Pending";

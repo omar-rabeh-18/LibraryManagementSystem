@@ -8,19 +8,22 @@
 class Request
 {
 private:
-    int bookToBeRequested;
-    QString userRequestingBook;
+
     QString dateOfRequest;
     QString dateOfDecision;
     QString decision;
 
 public:
-    Request(QString, int, QString, QString, QString);
-    Request(QString, int);
+
+    book* bookToBeRequested;
+    user* userRequestingBook;
+    Request(user*, book*, QString, QString, QString);
+    Request(user*, book*);
     ~Request();
     void decide(bool);
-    QString getUsername(){return userRequestingBook;}
-    int getISBN(){return bookToBeRequested;}
+    QString getUsername(){return userRequestingBook->get_user_name();}
+    QString getISBN(){return bookToBeRequested->get_isbn();}
+    QString getTitle(){return bookToBeRequested->getTitle();}
     QString getDateOfDecision(){return dateOfDecision;}
     QString getDateOfRequest(){return dateOfRequest;}
     QString getDecision(){return decision;}
