@@ -9,6 +9,17 @@ login::login(QWidget *parent)
     , ui(new Ui::login)
 {
     ui->setupUi(this);
+    this->resize(800, 600);
+
+    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/userloginback.png");
+
+    ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->backpic->resize(this->size());
+    ui->backpic->lower();
+
+
+
+
 }
 
 login::~login()

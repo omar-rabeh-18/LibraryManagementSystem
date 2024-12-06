@@ -12,54 +12,101 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_login
 {
 public:
+    QLabel *backpic;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLabel *titleLabel;
+    QHBoxLayout *horizontalLayout;
     QLabel *usernameLabel;
+    QLineEdit *usernameLineEdit;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *passwordLabel;
+    QLineEdit *passwordLineEdit;
+    QHBoxLayout *horizontalLayout_3;
     QPushButton *loginPushButton;
     QPushButton *signupPushButton;
-    QLineEdit *usernameLineEdit;
-    QLineEdit *passwordLineEdit;
-    QLabel *titleLabel;
 
     void setupUi(QDialog *login)
     {
         if (login->objectName().isEmpty())
             login->setObjectName("login");
-        login->resize(564, 313);
-        usernameLabel = new QLabel(login);
-        usernameLabel->setObjectName("usernameLabel");
-        usernameLabel->setGeometry(QRect(150, 100, 71, 16));
-        passwordLabel = new QLabel(login);
-        passwordLabel->setObjectName("passwordLabel");
-        passwordLabel->setGeometry(QRect(150, 140, 71, 16));
-        loginPushButton = new QPushButton(login);
-        loginPushButton->setObjectName("loginPushButton");
-        loginPushButton->setGeometry(QRect(150, 190, 100, 32));
-        signupPushButton = new QPushButton(login);
-        signupPushButton->setObjectName("signupPushButton");
-        signupPushButton->setGeometry(QRect(290, 190, 100, 32));
-        usernameLineEdit = new QLineEdit(login);
-        usernameLineEdit->setObjectName("usernameLineEdit");
-        usernameLineEdit->setGeometry(QRect(230, 100, 161, 21));
-        passwordLineEdit = new QLineEdit(login);
-        passwordLineEdit->setObjectName("passwordLineEdit");
-        passwordLineEdit->setGeometry(QRect(230, 140, 161, 21));
-        passwordLineEdit->setEchoMode(QLineEdit::Password);
-        titleLabel = new QLabel(login);
+        login->resize(800, 600);
+        backpic = new QLabel(login);
+        backpic->setObjectName("backpic");
+        backpic->setGeometry(QRect(0, 0, 800, 600));
+        widget = new QWidget(login);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(250, 140, 267, 167));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        titleLabel = new QLabel(widget);
         titleLabel->setObjectName("titleLabel");
-        titleLabel->setGeometry(QRect(200, 30, 141, 41));
         QFont font;
         font.setPointSize(26);
         font.setBold(true);
         titleLabel->setFont(font);
+
+        verticalLayout->addWidget(titleLabel);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        usernameLabel = new QLabel(widget);
+        usernameLabel->setObjectName("usernameLabel");
+
+        horizontalLayout->addWidget(usernameLabel);
+
+        usernameLineEdit = new QLineEdit(widget);
+        usernameLineEdit->setObjectName("usernameLineEdit");
+
+        horizontalLayout->addWidget(usernameLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        passwordLabel = new QLabel(widget);
+        passwordLabel->setObjectName("passwordLabel");
+
+        horizontalLayout_2->addWidget(passwordLabel);
+
+        passwordLineEdit = new QLineEdit(widget);
+        passwordLineEdit->setObjectName("passwordLineEdit");
+        passwordLineEdit->setEchoMode(QLineEdit::Password);
+
+        horizontalLayout_2->addWidget(passwordLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        loginPushButton = new QPushButton(widget);
+        loginPushButton->setObjectName("loginPushButton");
+
+        horizontalLayout_3->addWidget(loginPushButton);
+
+        signupPushButton = new QPushButton(widget);
+        signupPushButton->setObjectName("signupPushButton");
+
+        horizontalLayout_3->addWidget(signupPushButton);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
 
         retranslateUi(login);
 
@@ -69,11 +116,12 @@ public:
     void retranslateUi(QDialog *login)
     {
         login->setWindowTitle(QCoreApplication::translate("login", "Dialog", nullptr));
+        backpic->setText(QString());
+        titleLabel->setText(QCoreApplication::translate("login", "Reader Login", nullptr));
         usernameLabel->setText(QCoreApplication::translate("login", "Username:", nullptr));
         passwordLabel->setText(QCoreApplication::translate("login", "Password:", nullptr));
         loginPushButton->setText(QCoreApplication::translate("login", "Login", nullptr));
         signupPushButton->setText(QCoreApplication::translate("login", "Signup", nullptr));
-        titleLabel->setText(QCoreApplication::translate("login", "User Login", nullptr));
     } // retranslateUi
 
 };

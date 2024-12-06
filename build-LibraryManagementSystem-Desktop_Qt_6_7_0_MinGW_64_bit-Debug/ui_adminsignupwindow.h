@@ -12,60 +12,113 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_adminsignupwindow
 {
 public:
-    QLabel *confirmPasswordLabel;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
     QLabel *usernameLabel;
-    QLineEdit *passwordLineEdit;
-    QLabel *passwordLabel;
-    QPushButton *signupPushButton;
     QLineEdit *usernameLineEdit;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *passwordLabel;
+    QLineEdit *passwordLineEdit;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *confirmPasswordLabel;
     QLineEdit *confirmPasswordLineEdit;
+    QHBoxLayout *horizontalLayout_4;
     QLabel *confirmPasswordLabel_2;
     QLineEdit *confirmPasswordLineEdit_2;
+    QPushButton *signupPushButton;
 
     void setupUi(QDialog *adminsignupwindow)
     {
         if (adminsignupwindow->objectName().isEmpty())
             adminsignupwindow->setObjectName("adminsignupwindow");
         adminsignupwindow->resize(449, 362);
-        confirmPasswordLabel = new QLabel(adminsignupwindow);
-        confirmPasswordLabel->setObjectName("confirmPasswordLabel");
-        confirmPasswordLabel->setGeometry(QRect(70, 160, 121, 16));
-        usernameLabel = new QLabel(adminsignupwindow);
+        widget = new QWidget(adminsignupwindow);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(70, 80, 286, 171));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        usernameLabel = new QLabel(widget);
         usernameLabel->setObjectName("usernameLabel");
-        usernameLabel->setGeometry(QRect(70, 80, 71, 16));
-        passwordLineEdit = new QLineEdit(adminsignupwindow);
-        passwordLineEdit->setObjectName("passwordLineEdit");
-        passwordLineEdit->setGeometry(QRect(150, 120, 201, 21));
-        passwordLineEdit->setEchoMode(QLineEdit::Password);
-        passwordLabel = new QLabel(adminsignupwindow);
-        passwordLabel->setObjectName("passwordLabel");
-        passwordLabel->setGeometry(QRect(70, 120, 71, 16));
-        signupPushButton = new QPushButton(adminsignupwindow);
-        signupPushButton->setObjectName("signupPushButton");
-        signupPushButton->setGeometry(QRect(170, 260, 100, 32));
-        usernameLineEdit = new QLineEdit(adminsignupwindow);
+
+        horizontalLayout->addWidget(usernameLabel);
+
+        usernameLineEdit = new QLineEdit(widget);
         usernameLineEdit->setObjectName("usernameLineEdit");
-        usernameLineEdit->setGeometry(QRect(150, 80, 201, 21));
-        confirmPasswordLineEdit = new QLineEdit(adminsignupwindow);
+
+        horizontalLayout->addWidget(usernameLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        passwordLabel = new QLabel(widget);
+        passwordLabel->setObjectName("passwordLabel");
+
+        horizontalLayout_2->addWidget(passwordLabel);
+
+        passwordLineEdit = new QLineEdit(widget);
+        passwordLineEdit->setObjectName("passwordLineEdit");
+        passwordLineEdit->setEchoMode(QLineEdit::Password);
+
+        horizontalLayout_2->addWidget(passwordLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        confirmPasswordLabel = new QLabel(widget);
+        confirmPasswordLabel->setObjectName("confirmPasswordLabel");
+
+        horizontalLayout_3->addWidget(confirmPasswordLabel);
+
+        confirmPasswordLineEdit = new QLineEdit(widget);
         confirmPasswordLineEdit->setObjectName("confirmPasswordLineEdit");
-        confirmPasswordLineEdit->setGeometry(QRect(190, 160, 161, 21));
         confirmPasswordLineEdit->setEchoMode(QLineEdit::Password);
-        confirmPasswordLabel_2 = new QLabel(adminsignupwindow);
+
+        horizontalLayout_3->addWidget(confirmPasswordLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        confirmPasswordLabel_2 = new QLabel(widget);
         confirmPasswordLabel_2->setObjectName("confirmPasswordLabel_2");
-        confirmPasswordLabel_2->setGeometry(QRect(70, 190, 31, 16));
-        confirmPasswordLineEdit_2 = new QLineEdit(adminsignupwindow);
+
+        horizontalLayout_4->addWidget(confirmPasswordLabel_2);
+
+        confirmPasswordLineEdit_2 = new QLineEdit(widget);
         confirmPasswordLineEdit_2->setObjectName("confirmPasswordLineEdit_2");
-        confirmPasswordLineEdit_2->setGeometry(QRect(120, 190, 81, 21));
         confirmPasswordLineEdit_2->setEchoMode(QLineEdit::Password);
+
+        horizontalLayout_4->addWidget(confirmPasswordLineEdit_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        signupPushButton = new QPushButton(widget);
+        signupPushButton->setObjectName("signupPushButton");
+
+        verticalLayout->addWidget(signupPushButton);
+
 
         retranslateUi(adminsignupwindow);
 
@@ -75,11 +128,11 @@ public:
     void retranslateUi(QDialog *adminsignupwindow)
     {
         adminsignupwindow->setWindowTitle(QCoreApplication::translate("adminsignupwindow", "Dialog", nullptr));
-        confirmPasswordLabel->setText(QCoreApplication::translate("adminsignupwindow", "Confirm Password:", nullptr));
         usernameLabel->setText(QCoreApplication::translate("adminsignupwindow", "Username:", nullptr));
         passwordLabel->setText(QCoreApplication::translate("adminsignupwindow", "Password:", nullptr));
-        signupPushButton->setText(QCoreApplication::translate("adminsignupwindow", "Signup", nullptr));
+        confirmPasswordLabel->setText(QCoreApplication::translate("adminsignupwindow", "Confirm Password:", nullptr));
         confirmPasswordLabel_2->setText(QCoreApplication::translate("adminsignupwindow", "SPC", nullptr));
+        signupPushButton->setText(QCoreApplication::translate("adminsignupwindow", "Signup", nullptr));
     } // retranslateUi
 
 };

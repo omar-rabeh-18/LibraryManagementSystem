@@ -13,45 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="usernameLabel">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>80</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Username:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="passwordLabel">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>120</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Password:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="confirmPasswordLabel">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>160</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Confirm Password:</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="signupPushButton">
    <property name="geometry">
     <rect>
@@ -65,41 +26,79 @@
     <string>Signup</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="usernameLineEdit">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>80</x>
      <y>80</y>
-     <width>201</width>
-     <height>21</height>
+     <width>232</width>
+     <height>28</height>
     </rect>
    </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="usernameLabel">
+      <property name="text">
+       <string>Username:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="usernameLineEdit"/>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLineEdit" name="confirmPasswordLineEdit">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>160</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="passwordLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
+     <x>80</x>
      <y>120</y>
-     <width>201</width>
-     <height>21</height>
+     <width>227</width>
+     <height>28</height>
     </rect>
    </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QLabel" name="passwordLabel">
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="passwordLineEdit">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>160</y>
+     <width>284</width>
+     <height>28</height>
+    </rect>
    </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLabel" name="confirmPasswordLabel">
+      <property name="text">
+       <string>Confirm Password:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="confirmPasswordLineEdit">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

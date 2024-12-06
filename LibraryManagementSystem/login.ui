@@ -6,106 +6,100 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
-    <height>313</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="usernameLabel">
+  <widget class="QLabel" name="backpic">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>100</y>
-     <width>71</width>
-     <height>16</height>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>600</height>
     </rect>
    </property>
    <property name="text">
-    <string>Username:</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="passwordLabel">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>250</x>
      <y>140</y>
-     <width>71</width>
-     <height>16</height>
+     <width>267</width>
+     <height>167</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Password:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="loginPushButton">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>190</y>
-     <width>100</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Login</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="signupPushButton">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>190</y>
-     <width>100</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Signup</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="usernameLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>100</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="passwordLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>140</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="titleLabel">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>30</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>26</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>User Login</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Reader Login</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="usernameLabel">
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="usernameLineEdit"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="passwordLabel">
+        <property name="text">
+         <string>Password:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="passwordLineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="loginPushButton">
+        <property name="text">
+         <string>Login</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="signupPushButton">
+        <property name="text">
+         <string>Signup</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

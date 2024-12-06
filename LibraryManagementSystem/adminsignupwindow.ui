@@ -13,119 +13,92 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="confirmPasswordLabel">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>160</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Confirm Password:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="usernameLabel">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>70</x>
      <y>80</y>
-     <width>71</width>
-     <height>16</height>
+     <width>286</width>
+     <height>171</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Username:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="passwordLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>120</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="passwordLabel">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>120</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Password:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="signupPushButton">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>260</y>
-     <width>100</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Signup</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="usernameLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>80</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="confirmPasswordLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>160</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="confirmPasswordLabel_2">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>190</y>
-     <width>31</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SPC</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="confirmPasswordLineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>190</y>
-     <width>81</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="usernameLabel">
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="usernameLineEdit"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="passwordLabel">
+        <property name="text">
+         <string>Password:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="passwordLineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="confirmPasswordLabel">
+        <property name="text">
+         <string>Confirm Password:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="confirmPasswordLineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="confirmPasswordLabel_2">
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="confirmPasswordLineEdit_2">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="signupPushButton">
+      <property name="text">
+       <string>Signup</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

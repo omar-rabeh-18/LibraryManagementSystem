@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
 
 
 QT_BEGIN_NAMESPACE
@@ -19,12 +20,8 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_userPushButton_clicked();
 
-    void on_adminPushButton_clicked();
-
-
-    void on_librarianPushButton_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

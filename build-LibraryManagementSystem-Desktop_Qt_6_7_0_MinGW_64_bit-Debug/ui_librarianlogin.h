@@ -12,50 +12,85 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_LibrarianLogin
 {
 public:
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
     QLabel *titleLabel;
-    QLabel *passwordLabel;
-    QLineEdit *usernameLineEdit;
-    QPushButton *loginPushButton;
-    QLineEdit *passwordLineEdit;
+    QHBoxLayout *horizontalLayout;
     QLabel *usernameLabel;
+    QLineEdit *usernameLineEdit;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *passwordLabel;
+    QLineEdit *passwordLineEdit;
+    QPushButton *loginPushButton;
 
     void setupUi(QDialog *LibrarianLogin)
     {
         if (LibrarianLogin->objectName().isEmpty())
             LibrarianLogin->setObjectName("LibrarianLogin");
         LibrarianLogin->resize(599, 468);
-        titleLabel = new QLabel(LibrarianLogin);
+        widget = new QWidget(LibrarianLogin);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(150, 140, 306, 165));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        titleLabel = new QLabel(widget);
         titleLabel->setObjectName("titleLabel");
-        titleLabel->setGeometry(QRect(190, 80, 271, 51));
         QFont font;
         font.setPointSize(26);
         font.setBold(true);
         titleLabel->setFont(font);
-        passwordLabel = new QLabel(LibrarianLogin);
-        passwordLabel->setObjectName("passwordLabel");
-        passwordLabel->setGeometry(QRect(150, 190, 71, 16));
-        usernameLineEdit = new QLineEdit(LibrarianLogin);
-        usernameLineEdit->setObjectName("usernameLineEdit");
-        usernameLineEdit->setGeometry(QRect(230, 150, 161, 21));
-        loginPushButton = new QPushButton(LibrarianLogin);
-        loginPushButton->setObjectName("loginPushButton");
-        loginPushButton->setGeometry(QRect(220, 240, 100, 32));
-        passwordLineEdit = new QLineEdit(LibrarianLogin);
-        passwordLineEdit->setObjectName("passwordLineEdit");
-        passwordLineEdit->setGeometry(QRect(230, 190, 161, 21));
-        passwordLineEdit->setEchoMode(QLineEdit::EchoMode::Password);
-        usernameLabel = new QLabel(LibrarianLogin);
+
+        verticalLayout->addWidget(titleLabel);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        usernameLabel = new QLabel(widget);
         usernameLabel->setObjectName("usernameLabel");
-        usernameLabel->setGeometry(QRect(150, 150, 81, 16));
+
+        horizontalLayout->addWidget(usernameLabel);
+
+        usernameLineEdit = new QLineEdit(widget);
+        usernameLineEdit->setObjectName("usernameLineEdit");
+
+        horizontalLayout->addWidget(usernameLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        passwordLabel = new QLabel(widget);
+        passwordLabel->setObjectName("passwordLabel");
+
+        horizontalLayout_2->addWidget(passwordLabel);
+
+        passwordLineEdit = new QLineEdit(widget);
+        passwordLineEdit->setObjectName("passwordLineEdit");
+        passwordLineEdit->setEchoMode(QLineEdit::Normal);
+
+        horizontalLayout_2->addWidget(passwordLineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        loginPushButton = new QPushButton(widget);
+        loginPushButton->setObjectName("loginPushButton");
+
+        verticalLayout->addWidget(loginPushButton);
+
 
         retranslateUi(LibrarianLogin);
 
@@ -66,9 +101,9 @@ public:
     {
         LibrarianLogin->setWindowTitle(QCoreApplication::translate("LibrarianLogin", "Dialog", nullptr));
         titleLabel->setText(QCoreApplication::translate("LibrarianLogin", "Librarian Login", nullptr));
+        usernameLabel->setText(QCoreApplication::translate("LibrarianLogin", "Username:", nullptr));
         passwordLabel->setText(QCoreApplication::translate("LibrarianLogin", "Password:", nullptr));
         loginPushButton->setText(QCoreApplication::translate("LibrarianLogin", "Login", nullptr));
-        usernameLabel->setText(QCoreApplication::translate("LibrarianLogin", "Username:", nullptr));
     } // retranslateUi
 
 };

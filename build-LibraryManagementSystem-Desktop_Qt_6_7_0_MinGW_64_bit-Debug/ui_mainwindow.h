@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -25,9 +26,8 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QLabel *roleLabel;
-    QPushButton *adminPushButton;
-    QPushButton *userPushButton;
-    QPushButton *librarianPushButton;
+    QComboBox *comboBox;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -35,29 +35,37 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(737, 389);
+        MainWindow->resize(800, 600);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         roleLabel = new QLabel(centralwidget);
         roleLabel->setObjectName("roleLabel");
-        roleLabel->setGeometry(QRect(220, 80, 301, 41));
+        roleLabel->setGeometry(QRect(130, 200, 531, 41));
         QFont font;
         font.setPointSize(26);
         font.setBold(true);
         roleLabel->setFont(font);
-        adminPushButton = new QPushButton(centralwidget);
-        adminPushButton->setObjectName("adminPushButton");
-        adminPushButton->setGeometry(QRect(160, 170, 100, 32));
-        userPushButton = new QPushButton(centralwidget);
-        userPushButton->setObjectName("userPushButton");
-        userPushButton->setGeometry(QRect(450, 170, 100, 32));
-        librarianPushButton = new QPushButton(centralwidget);
-        librarianPushButton->setObjectName("librarianPushButton");
-        librarianPushButton->setGeometry(QRect(300, 170, 101, 31));
+        comboBox = new QComboBox(centralwidget);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName("comboBox");
+        comboBox->setGeometry(QRect(180, 270, 221, 31));
+        comboBox->setMouseTracking(true);
+        comboBox->setAutoFillBackground(true);
+        comboBox->setFrame(false);
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(450, 270, 161, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 737, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -71,10 +79,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        roleLabel->setText(QCoreApplication::translate("MainWindow", "Please select your role:", nullptr));
-        adminPushButton->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
-        userPushButton->setText(QCoreApplication::translate("MainWindow", "User", nullptr));
-        librarianPushButton->setText(QCoreApplication::translate("MainWindow", "Librarian", nullptr));
+        roleLabel->setText(QCoreApplication::translate("MainWindow", "what type of user are you:", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Reader", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("MainWindow", "Librarian", nullptr));
+        comboBox->setItemText(2, QCoreApplication::translate("MainWindow", "Admin", nullptr));
+
+        pushButton->setText(QCoreApplication::translate("MainWindow", "select", nullptr));
     } // retranslateUi
 
 };
