@@ -35,10 +35,10 @@ public:
         Librarian->resize(696, 550);
         MainTitle = new QLabel(Librarian);
         MainTitle->setObjectName("MainTitle");
-        MainTitle->setGeometry(QRect(0, 0, 281, 51));
+        MainTitle->setGeometry(QRect(0, 0, 341, 51));
         ActiveRequests = new QListWidget(Librarian);
         ActiveRequests->setObjectName("ActiveRequests");
-        ActiveRequests->setGeometry(QRect(180, 70, 301, 311));
+        ActiveRequests->setGeometry(QRect(80, 70, 401, 311));
         acceptButton = new QPushButton(Librarian);
         acceptButton->setObjectName("acceptButton");
         acceptButton->setGeometry(QRect(530, 330, 80, 24));

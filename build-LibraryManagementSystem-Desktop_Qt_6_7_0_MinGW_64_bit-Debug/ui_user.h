@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
@@ -25,56 +26,47 @@ QT_BEGIN_NAMESPACE
 class Ui_user
 {
 public:
-    QPushButton *searchPushButton;
-    QPushButton *signOutPushButton;
-    QPushButton *pushButton_5;
     QTabWidget *tabWidget;
     QWidget *tab;
     QTextEdit *titleSearchTextedit;
-    QPushButton *pushButton_2;
     QScrollArea *deleteArea;
     QWidget *scrollAreaWidgetContents_6;
     QListWidget *searchList;
     QLabel *userLabel_2;
-    QWidget *tab_2;
-    QLabel *userLabel;
-    QPushButton *pushButton;
-    QLabel *booksLabel;
+    QPushButton *signOutPushButton;
     QPushButton *pushButton_3;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton;
+    QWidget *tab_2;
+    QLabel *booksLabel;
     QScrollArea *booksArea;
     QWidget *scrollAreaWidgetContents;
-    QListWidget *borrowList;
+    QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton_4;
     QScrollArea *wishlistArea;
     QWidget *scrollAreaWidgetContents_2;
+    QHBoxLayout *horizontalLayout_4;
     QListWidget *wishList;
     QLabel *wishlistLabel;
+    QLabel *userLabel_5;
+    QPushButton *pushButton_5;
+    QListWidget *borrowList;
 
     void setupUi(QDialog *user)
     {
         if (user->objectName().isEmpty())
             user->setObjectName("user");
         user->resize(1118, 619);
-        searchPushButton = new QPushButton(user);
-        searchPushButton->setObjectName("searchPushButton");
-        searchPushButton->setGeometry(QRect(610, 520, 111, 61));
-        signOutPushButton = new QPushButton(user);
-        signOutPushButton->setObjectName("signOutPushButton");
-        signOutPushButton->setGeometry(QRect(90, 520, 91, 51));
-        pushButton_5 = new QPushButton(user);
-        pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setGeometry(QRect(860, 530, 161, 29));
         tabWidget = new QTabWidget(user);
         tabWidget->setObjectName("tabWidget");
-        tabWidget->setGeometry(QRect(0, 0, 1121, 561));
+        tabWidget->setGeometry(QRect(0, 0, 1121, 621));
         tab = new QWidget();
         tab->setObjectName("tab");
         titleSearchTextedit = new QTextEdit(tab);
         titleSearchTextedit->setObjectName("titleSearchTextedit");
         titleSearchTextedit->setGeometry(QRect(280, 90, 471, 31));
-        pushButton_2 = new QPushButton(tab);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(750, 90, 91, 31));
         deleteArea = new QScrollArea(tab);
         deleteArea->setObjectName("deleteArea");
         deleteArea->setGeometry(QRect(280, 120, 471, 261));
@@ -95,50 +87,85 @@ public:
         font.setPointSize(25);
         font.setBold(true);
         userLabel_2->setFont(font);
+        signOutPushButton = new QPushButton(tab);
+        signOutPushButton->setObjectName("signOutPushButton");
+        signOutPushButton->setGeometry(QRect(40, 460, 91, 51));
+        pushButton_3 = new QPushButton(tab);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(950, 90, 121, 31));
+        widget = new QWidget(tab);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(750, 90, 195, 31));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton_2 = new QPushButton(widget);
+        pushButton_2->setObjectName("pushButton_2");
+
+        horizontalLayout->addWidget(pushButton_2);
+
+        pushButton = new QPushButton(widget);
+        pushButton->setObjectName("pushButton");
+
+        horizontalLayout->addWidget(pushButton);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
-        userLabel = new QLabel(tab_2);
-        userLabel->setObjectName("userLabel");
-        userLabel->setGeometry(QRect(130, 50, 331, 61));
-        userLabel->setFont(font);
-        pushButton = new QPushButton(tab_2);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(100, 130, 75, 24));
         booksLabel = new QLabel(tab_2);
         booksLabel->setObjectName("booksLabel");
-        booksLabel->setGeometry(QRect(290, 130, 71, 16));
-        pushButton_3 = new QPushButton(tab_2);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(60, 180, 121, 24));
+        booksLabel->setGeometry(QRect(370, 59, 251, 31));
+        QFont font1;
+        font1.setPointSize(15);
+        booksLabel->setFont(font1);
+        booksLabel->setAlignment(Qt::AlignCenter);
         booksArea = new QScrollArea(tab_2);
         booksArea->setObjectName("booksArea");
-        booksArea->setGeometry(QRect(260, 150, 161, 141));
+        booksArea->setGeometry(QRect(510, 110, 280, 451));
+        booksArea->setFrameShape(QFrame::NoFrame);
         booksArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 159, 139));
-        borrowList = new QListWidget(scrollAreaWidgetContents);
-        borrowList->setObjectName("borrowList");
-        borrowList->setGeometry(QRect(10, 0, 141, 131));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 280, 451));
+        horizontalLayout_3 = new QHBoxLayout(scrollAreaWidgetContents);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
         booksArea->setWidget(scrollAreaWidgetContents);
         pushButton_4 = new QPushButton(tab_2);
         pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(70, 230, 93, 29));
+        pushButton_4->setGeometry(QRect(252, 100, 111, 51));
         wishlistArea = new QScrollArea(tab_2);
         wishlistArea->setObjectName("wishlistArea");
-        wishlistArea->setGeometry(QRect(280, 290, 161, 141));
+        wishlistArea->setGeometry(QRect(650, 90, 280, 451));
+        wishlistArea->setFrameShape(QFrame::NoFrame);
         wishlistArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 159, 139));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 280, 451));
+        horizontalLayout_4 = new QHBoxLayout(scrollAreaWidgetContents_2);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
         wishList = new QListWidget(scrollAreaWidgetContents_2);
         wishList->setObjectName("wishList");
-        wishList->setGeometry(QRect(10, 0, 141, 131));
+        wishList->setFont(font1);
+
+        horizontalLayout_4->addWidget(wishList);
+
         wishlistArea->setWidget(scrollAreaWidgetContents_2);
         wishlistLabel = new QLabel(tab_2);
         wishlistLabel->setObjectName("wishlistLabel");
-        wishlistLabel->setGeometry(QRect(180, 300, 71, 16));
+        wishlistLabel->setGeometry(QRect(660, 70, 251, 31));
+        wishlistLabel->setFont(font1);
+        wishlistLabel->setAlignment(Qt::AlignCenter);
+        userLabel_5 = new QLabel(tab_2);
+        userLabel_5->setObjectName("userLabel_5");
+        userLabel_5->setGeometry(QRect(20, 10, 331, 61));
+        userLabel_5->setFont(font);
+        pushButton_5 = new QPushButton(tab_2);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setGeometry(QRect(930, 100, 161, 51));
+        borrowList = new QListWidget(tab_2);
+        borrowList->setObjectName("borrowList");
+        borrowList->setGeometry(QRect(370, 100, 258, 429));
+        borrowList->setFont(font1);
         tabWidget->addTab(tab_2, QString());
 
         retranslateUi(user);
@@ -152,19 +179,18 @@ public:
     void retranslateUi(QDialog *user)
     {
         user->setWindowTitle(QCoreApplication::translate("user", "Dialog", nullptr));
-        searchPushButton->setText(QCoreApplication::translate("user", "DO NOT USE NOW", nullptr));
-        signOutPushButton->setText(QCoreApplication::translate("user", "Sign Out", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("user", "Remove from wishlist", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("user", "Search", nullptr));
         userLabel_2->setText(QCoreApplication::translate("user", "User Dashboard", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("user", "Tab 1", nullptr));
-        userLabel->setText(QCoreApplication::translate("user", "User Dashboard", nullptr));
-        pushButton->setText(QCoreApplication::translate("user", "Borrow", nullptr));
-        booksLabel->setText(QCoreApplication::translate("user", "My Books:", nullptr));
+        signOutPushButton->setText(QCoreApplication::translate("user", "Sign Out", nullptr));
         pushButton_3->setText(QCoreApplication::translate("user", "Add to wishlist", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("user", "Search", nullptr));
+        pushButton->setText(QCoreApplication::translate("user", "Borrow", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("user", "Search", nullptr));
+        booksLabel->setText(QCoreApplication::translate("user", "My Books", nullptr));
         pushButton_4->setText(QCoreApplication::translate("user", "Unborrow", nullptr));
-        wishlistLabel->setText(QCoreApplication::translate("user", "Wishlist:", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("user", "Tab 2", nullptr));
+        wishlistLabel->setText(QCoreApplication::translate("user", "Wishlist", nullptr));
+        userLabel_5->setText(QCoreApplication::translate("user", "User Dashboard", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("user", "Remove from wishlist", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("user", "My Info", nullptr));
     } // retranslateUi
 
 };

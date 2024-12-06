@@ -13,11 +13,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpinBox>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,120 +28,217 @@ QT_BEGIN_NAMESPACE
 class Ui_admin
 {
 public:
-    QLabel *adminLabel;
-    QLabel *insertLabel;
-    QScrollArea *deleteArea;
-    QWidget *scrollAreaWidgetContents_2;
-    QListWidget *listWidget;
-    QLabel *deleteLabel;
-    QTextEdit *titleTextBox;
-    QLabel *label;
-    QTextEdit *authorTextBox;
-    QLabel *label_2;
-    QPushButton *pushButton;
-    QSpinBox *copiesNumber;
-    QLabel *label_3;
-    QTextEdit *titleSearchTextedit;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QSpinBox *removingNumber;
-    QLabel *label_6;
-    QPushButton *signOutPushButton;
-    QTextEdit *genreTextBox;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QLabel *label_5;
+    QTextEdit *lnumTextBox;
     QLabel *label_7;
     QLabel *label_4;
-    QTextEdit *lnumTextBox;
+    QTextEdit *titleTextBox;
+    QTextEdit *genreTextBox;
     QTextEdit *ISPNTextBox;
-    QLabel *label_5;
+    QLabel *label;
+    QTextEdit *authorTextBox;
+    QPushButton *pushButton;
+    QLabel *label_2;
+    QLabel *label_3;
+    QSpinBox *copiesNumber;
+    QPushButton *signOutPushButton;
+    QLabel *adminLabel;
+    QLabel *insertLabel;
+    QLabel *label_8;
+    QWidget *tab_2;
+    QTextEdit *titleSearchTextedit;
+    QPushButton *pushButton_2;
+    QSpinBox *removingNumber;
+    QPushButton *pushButton_3;
+    QScrollArea *deleteArea;
+    QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout;
+    QListWidget *listWidget;
+    QLabel *adminLabel_2;
+    QWidget *tab_7;
+    QLabel *label_6;
+    QLabel *label_9;
+    QLabel *label_10;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_2;
+    QLineEdit *librarianusername;
+    QLineEdit *librarianpassword;
+    QLineEdit *librarianpasswordconfrim;
+    QPushButton *pushButton_4;
 
     void setupUi(QDialog *admin)
     {
         if (admin->objectName().isEmpty())
             admin->setObjectName("admin");
         admin->resize(778, 618);
-        adminLabel = new QLabel(admin);
+        tabWidget = new QTabWidget(admin);
+        tabWidget->setObjectName("tabWidget");
+        tabWidget->setGeometry(QRect(0, 0, 781, 621));
+        tab = new QWidget();
+        tab->setObjectName("tab");
+        label_5 = new QLabel(tab);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(-30, 160, 49, 16));
+        lnumTextBox = new QTextEdit(tab);
+        lnumTextBox->setObjectName("lnumTextBox");
+        lnumTextBox->setGeometry(QRect(290, 310, 171, 31));
+        label_7 = new QLabel(tab);
+        label_7->setObjectName("label_7");
+        label_7->setGeometry(QRect(240, 240, 49, 16));
+        label_4 = new QLabel(tab);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(240, 320, 49, 16));
+        titleTextBox = new QTextEdit(tab);
+        titleTextBox->setObjectName("titleTextBox");
+        titleTextBox->setGeometry(QRect(290, 190, 171, 31));
+        genreTextBox = new QTextEdit(tab);
+        genreTextBox->setObjectName("genreTextBox");
+        genreTextBox->setGeometry(QRect(290, 230, 171, 31));
+        ISPNTextBox = new QTextEdit(tab);
+        ISPNTextBox->setObjectName("ISPNTextBox");
+        ISPNTextBox->setGeometry(QRect(290, 350, 171, 31));
+        label = new QLabel(tab);
+        label->setObjectName("label");
+        label->setGeometry(QRect(250, 200, 49, 16));
+        authorTextBox = new QTextEdit(tab);
+        authorTextBox->setObjectName("authorTextBox");
+        authorTextBox->setGeometry(QRect(290, 270, 171, 31));
+        pushButton = new QPushButton(tab);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(320, 400, 101, 51));
+        label_2 = new QLabel(tab);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(240, 280, 49, 16));
+        label_3 = new QLabel(tab);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(550, 270, 49, 16));
+        copiesNumber = new QSpinBox(tab);
+        copiesNumber->setObjectName("copiesNumber");
+        copiesNumber->setGeometry(QRect(500, 270, 42, 22));
+        signOutPushButton = new QPushButton(tab);
+        signOutPushButton->setObjectName("signOutPushButton");
+        signOutPushButton->setGeometry(QRect(610, 480, 100, 32));
+        adminLabel = new QLabel(tab);
         adminLabel->setObjectName("adminLabel");
-        adminLabel->setGeometry(QRect(190, 0, 371, 51));
+        adminLabel->setGeometry(QRect(10, 20, 371, 51));
         QFont font;
         font.setPointSize(25);
         font.setBold(true);
         adminLabel->setFont(font);
-        insertLabel = new QLabel(admin);
+        insertLabel = new QLabel(tab);
         insertLabel->setObjectName("insertLabel");
-        insertLabel->setGeometry(QRect(20, 30, 58, 16));
-        deleteArea = new QScrollArea(admin);
+        insertLabel->setGeometry(QRect(290, 160, 161, 20));
+        QFont font1;
+        font1.setPointSize(12);
+        insertLabel->setFont(font1);
+        insertLabel->setAlignment(Qt::AlignCenter);
+        label_8 = new QLabel(tab);
+        label_8->setObjectName("label_8");
+        label_8->setGeometry(QRect(240, 360, 49, 16));
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName("tab_2");
+        titleSearchTextedit = new QTextEdit(tab_2);
+        titleSearchTextedit->setObjectName("titleSearchTextedit");
+        titleSearchTextedit->setGeometry(QRect(170, 100, 351, 31));
+        pushButton_2 = new QPushButton(tab_2);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(520, 100, 91, 31));
+        removingNumber = new QSpinBox(tab_2);
+        removingNumber->setObjectName("removingNumber");
+        removingNumber->setGeometry(QRect(530, 140, 42, 22));
+        pushButton_3 = new QPushButton(tab_2);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(570, 140, 75, 24));
+        deleteArea = new QScrollArea(tab_2);
         deleteArea->setObjectName("deleteArea");
-        deleteArea->setGeometry(QRect(390, 120, 221, 441));
+        deleteArea->setGeometry(QRect(160, 120, 371, 461));
+        deleteArea->setFrameShape(QFrame::NoFrame);
         deleteArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 219, 439));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 371, 461));
+        verticalLayout = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout->setObjectName("verticalLayout");
         listWidget = new QListWidget(scrollAreaWidgetContents_2);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(10, 0, 191, 441));
+        listWidget->setFrameShape(QFrame::NoFrame);
+
+        verticalLayout->addWidget(listWidget);
+
         deleteArea->setWidget(scrollAreaWidgetContents_2);
-        deleteLabel = new QLabel(admin);
-        deleteLabel->setObjectName("deleteLabel");
-        deleteLabel->setGeometry(QRect(570, 10, 58, 16));
-        titleTextBox = new QTextEdit(admin);
-        titleTextBox->setObjectName("titleTextBox");
-        titleTextBox->setGeometry(QRect(60, 60, 171, 31));
-        label = new QLabel(admin);
-        label->setObjectName("label");
-        label->setGeometry(QRect(20, 70, 49, 16));
-        authorTextBox = new QTextEdit(admin);
-        authorTextBox->setObjectName("authorTextBox");
-        authorTextBox->setGeometry(QRect(60, 140, 171, 31));
-        label_2 = new QLabel(admin);
-        label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(10, 150, 49, 16));
-        pushButton = new QPushButton(admin);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(90, 270, 101, 51));
-        copiesNumber = new QSpinBox(admin);
-        copiesNumber->setObjectName("copiesNumber");
-        copiesNumber->setGeometry(QRect(260, 80, 42, 22));
-        label_3 = new QLabel(admin);
-        label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(260, 110, 49, 16));
-        titleSearchTextedit = new QTextEdit(admin);
-        titleSearchTextedit->setObjectName("titleSearchTextedit");
-        titleSearchTextedit->setGeometry(QRect(80, 360, 201, 31));
-        pushButton_2 = new QPushButton(admin);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(130, 430, 91, 51));
-        pushButton_3 = new QPushButton(admin);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(660, 150, 75, 24));
-        removingNumber = new QSpinBox(admin);
-        removingNumber->setObjectName("removingNumber");
-        removingNumber->setGeometry(QRect(670, 200, 42, 22));
-        label_6 = new QLabel(admin);
+        adminLabel_2 = new QLabel(tab_2);
+        adminLabel_2->setObjectName("adminLabel_2");
+        adminLabel_2->setGeometry(QRect(10, 20, 371, 51));
+        adminLabel_2->setFont(font);
+        tabWidget->addTab(tab_2, QString());
+        tab_7 = new QWidget();
+        tab_7->setObjectName("tab_7");
+        label_6 = new QLabel(tab_7);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(10, 360, 49, 16));
-        signOutPushButton = new QPushButton(admin);
-        signOutPushButton->setObjectName("signOutPushButton");
-        signOutPushButton->setGeometry(QRect(650, 500, 100, 32));
-        genreTextBox = new QTextEdit(admin);
-        genreTextBox->setObjectName("genreTextBox");
-        genreTextBox->setGeometry(QRect(60, 100, 171, 31));
-        label_7 = new QLabel(admin);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(10, 110, 49, 16));
-        label_4 = new QLabel(admin);
-        label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(10, 190, 49, 16));
-        lnumTextBox = new QTextEdit(admin);
-        lnumTextBox->setObjectName("lnumTextBox");
-        lnumTextBox->setGeometry(QRect(60, 180, 171, 31));
-        ISPNTextBox = new QTextEdit(admin);
-        ISPNTextBox->setObjectName("ISPNTextBox");
-        ISPNTextBox->setGeometry(QRect(60, 230, 171, 31));
-        label_5 = new QLabel(admin);
-        label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(10, 240, 49, 16));
+        label_6->setGeometry(QRect(210, 150, 101, 31));
+        label_6->setFont(font1);
+        label_6->setAlignment(Qt::AlignCenter);
+        label_9 = new QLabel(tab_7);
+        label_9->setObjectName("label_9");
+        label_9->setGeometry(QRect(210, 200, 101, 31));
+        label_9->setFont(font1);
+        label_9->setAlignment(Qt::AlignCenter);
+        label_10 = new QLabel(tab_7);
+        label_10->setObjectName("label_10");
+        label_10->setGeometry(QRect(140, 240, 171, 31));
+        label_10->setFont(font1);
+        label_10->setAlignment(Qt::AlignCenter);
+        widget = new QWidget(tab_7);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(310, 140, 211, 191));
+        verticalLayout_2 = new QVBoxLayout(widget);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        librarianusername = new QLineEdit(widget);
+        librarianusername->setObjectName("librarianusername");
+
+        verticalLayout_2->addWidget(librarianusername);
+
+        librarianpassword = new QLineEdit(widget);
+        librarianpassword->setObjectName("librarianpassword");
+
+        verticalLayout_2->addWidget(librarianpassword);
+
+        librarianpasswordconfrim = new QLineEdit(widget);
+        librarianpasswordconfrim->setObjectName("librarianpasswordconfrim");
+
+        verticalLayout_2->addWidget(librarianpasswordconfrim);
+
+        pushButton_4 = new QPushButton(widget);
+        pushButton_4->setObjectName("pushButton_4");
+
+        verticalLayout_2->addWidget(pushButton_4);
+
+        tabWidget->addTab(tab_7, QString());
+        QWidget::setTabOrder(pushButton_2, deleteArea);
+        QWidget::setTabOrder(deleteArea, titleSearchTextedit);
+        QWidget::setTabOrder(titleSearchTextedit, titleTextBox);
+        QWidget::setTabOrder(titleTextBox, pushButton);
+        QWidget::setTabOrder(pushButton, copiesNumber);
+        QWidget::setTabOrder(copiesNumber, listWidget);
+        QWidget::setTabOrder(listWidget, tabWidget);
+        QWidget::setTabOrder(tabWidget, authorTextBox);
+        QWidget::setTabOrder(authorTextBox, removingNumber);
+        QWidget::setTabOrder(removingNumber, signOutPushButton);
+        QWidget::setTabOrder(signOutPushButton, pushButton_3);
+        QWidget::setTabOrder(pushButton_3, genreTextBox);
+        QWidget::setTabOrder(genreTextBox, lnumTextBox);
+        QWidget::setTabOrder(lnumTextBox, ISPNTextBox);
+        QWidget::setTabOrder(ISPNTextBox, librarianusername);
+        QWidget::setTabOrder(librarianusername, librarianpassword);
 
         retranslateUi(admin);
+
+        tabWidget->setCurrentIndex(2);
+
 
         QMetaObject::connectSlotsByName(admin);
     } // setupUi
@@ -146,10 +246,34 @@ public:
     void retranslateUi(QDialog *admin)
     {
         admin->setWindowTitle(QCoreApplication::translate("admin", "Dialog", nullptr));
-        adminLabel->setText(QCoreApplication::translate("admin", "Admin Dashboard", nullptr));
-        insertLabel->setText(QCoreApplication::translate("admin", "Insert:", nullptr));
-        deleteLabel->setText(QCoreApplication::translate("admin", "Delete:", nullptr));
+        label_5->setText(QCoreApplication::translate("admin", "ISPN", nullptr));
+        lnumTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        label_7->setText(QCoreApplication::translate("admin", "Genre", nullptr));
+        label_4->setText(QCoreApplication::translate("admin", "L-num", nullptr));
         titleTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        genreTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        ISPNTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"
@@ -166,40 +290,23 @@ public:
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        label_2->setText(QCoreApplication::translate("admin", "Author", nullptr));
         pushButton->setText(QCoreApplication::translate("admin", "Insert", nullptr));
+        label_2->setText(QCoreApplication::translate("admin", "Author", nullptr));
         label_3->setText(QCoreApplication::translate("admin", "copies", nullptr));
+        signOutPushButton->setText(QCoreApplication::translate("admin", "Sign Out", nullptr));
+        adminLabel->setText(QCoreApplication::translate("admin", "Admin Dashboard", nullptr));
+        insertLabel->setText(QCoreApplication::translate("admin", "Insert Books", nullptr));
+        label_8->setText(QCoreApplication::translate("admin", "ISBN", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("admin", "Book Insertion", nullptr));
         pushButton_2->setText(QCoreApplication::translate("admin", "Search", nullptr));
         pushButton_3->setText(QCoreApplication::translate("admin", "remove", nullptr));
-        label_6->setText(QCoreApplication::translate("admin", "Search:", nullptr));
-        signOutPushButton->setText(QCoreApplication::translate("admin", "Sign Out", nullptr));
-        genreTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        label_7->setText(QCoreApplication::translate("admin", "Genre", nullptr));
-        label_4->setText(QCoreApplication::translate("admin", "L-num", nullptr));
-        lnumTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        ISPNTextBox->setHtml(QCoreApplication::translate("admin", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        label_5->setText(QCoreApplication::translate("admin", "ISPN", nullptr));
+        adminLabel_2->setText(QCoreApplication::translate("admin", "Admin Dashboard", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("admin", "Book Search and Deletion", nullptr));
+        label_6->setText(QCoreApplication::translate("admin", "Username", nullptr));
+        label_9->setText(QCoreApplication::translate("admin", "Password", nullptr));
+        label_10->setText(QCoreApplication::translate("admin", "Confirm Password", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("admin", "Add Librarian", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_7), QCoreApplication::translate("admin", "Add Librarian", nullptr));
     } // retranslateUi
 
 };

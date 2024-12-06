@@ -5,6 +5,8 @@
 #include "book.h"
 #include "trie.h"
 #include <vector>
+#include "QMessageBox"
+
 using namespace std;
 extern Trie* myTrie;
 admin::admin(QWidget *parent)
@@ -144,4 +146,80 @@ void admin::on_signOutPushButton_clicked()
 }
 
 
+
+
+void admin::on_pushButton_4_clicked()
+{
+    filemanipulator file;
+
+    user* a_user = new user();
+
+
+        a_user->set_user_name(ui->librarianusername->text());
+        if(ui->librarianpassword->text() == ui->librarianpasswordconfrim->text())
+        {
+            a_user->set_password(ui->librarianpassword->text());
+
+            bool user_name_already_exists = false;
+            bool user_password_already_exits = false;
+
+            for(user* some_user : file.the_librarian_data_vector)
+            {
+                if(some_user->get_user_name() == a_user->get_user_name())
+                {
+                    user_name_already_exists = true;
+                    break;
+                }
+
+                if(some_user->get_password() == a_user->get_password())
+                {
+                    user_password_already_exits = true;
+                    break;
+                }
+            }
+
+            if(user_name_already_exists)
+            {
+
+                QMessageBox::critical(this, "Error", "The username already exists. Please choose a different username.");
+
+                qDebug() << "username already exists";
+
+
+            }
+
+            else if(user_password_already_exits)
+            {
+
+                QMessageBox::critical(this, "Error", "The Password already exists. Please choose a different Password.");
+
+                qDebug() << "password already exists";
+
+            }
+
+            else
+            {
+                file.the_librarian_data_vector.push_back(a_user);
+                for(user* some_user : file.the_admin_data_vector)
+                {
+                    some_user->print_info();
+
+                }
+                file.librarian_file_writer();
+            }
+
+        }
+
+        else
+        {
+            QMessageBox::critical(this, "Error", "Passwords DONOT match.");
+            qDebug() << "the passwords donot match";
+        }
+
+
+
+
+
+
+}
 

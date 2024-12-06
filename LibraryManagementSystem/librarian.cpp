@@ -87,8 +87,9 @@ void Librarian::on_refuseButton_clicked()
     int index = ui->ActiveRequests->currentIndex().row();
 
     if (selectedItem) {
-        activeRequests[index]->decide(false);
-        activeRequests.erase(requests.begin() + index);
+        Request* currentRequest = static_cast<Request*>(selectedItem->data(Qt::UserRole).value<void*>());
+        currentRequest->decide(false);
+        activeRequests.erase(activeRequests.begin() + index);
         populate_requests();
     }else{
         ui->warningLabel->setText("*Please Highlight a request before making a decision");

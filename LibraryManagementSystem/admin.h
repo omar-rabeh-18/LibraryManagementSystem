@@ -31,6 +31,8 @@ private slots:
 
     void on_signOutPushButton_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::admin *ui;
     std::vector<book*> results;
