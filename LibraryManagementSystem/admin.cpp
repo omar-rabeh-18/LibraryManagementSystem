@@ -15,7 +15,22 @@ admin::admin(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->listWidget, &QListWidget::itemClicked, this, &admin::on_listWidget_itemClicked);
+
+    QPixmap bg(":/resources/userdashboard.png");
+
+    ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->backpic->resize(this->size());
+    ui->backpic->lower();
+
+    ui->backpic_2->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->backpic_2->resize(this->size());
+    ui->backpic_2->lower();
+
+    ui->backpic_3->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->backpic_3->resize(this->size());
+    ui->backpic_3->lower();
 }
+
 
 admin::~admin()
 {

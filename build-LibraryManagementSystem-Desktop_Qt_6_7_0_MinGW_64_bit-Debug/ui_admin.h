@@ -47,6 +47,7 @@ public:
     QLabel *adminLabel;
     QLabel *insertLabel;
     QLabel *label_8;
+    QLabel *backpic;
     QWidget *tab_2;
     QTextEdit *titleSearchTextedit;
     QPushButton *pushButton_2;
@@ -57,6 +58,7 @@ public:
     QVBoxLayout *verticalLayout;
     QListWidget *listWidget;
     QLabel *adminLabel_2;
+    QLabel *backpic_2;
     QWidget *tab_7;
     QLabel *label_6;
     QLabel *label_9;
@@ -67,6 +69,8 @@ public:
     QLineEdit *librarianpassword;
     QLineEdit *librarianpasswordconfrim;
     QPushButton *pushButton_4;
+    QLabel *adminLabel_3;
+    QLabel *backpic_3;
 
     void setupUi(QDialog *admin)
     {
@@ -81,39 +85,67 @@ public:
         label_5 = new QLabel(tab);
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(-30, 160, 49, 16));
+        label_5->setStyleSheet(QString::fromUtf8(""));
         lnumTextBox = new QTextEdit(tab);
         lnumTextBox->setObjectName("lnumTextBox");
         lnumTextBox->setGeometry(QRect(290, 310, 171, 31));
+        lnumTextBox->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label_7 = new QLabel(tab);
         label_7->setObjectName("label_7");
         label_7->setGeometry(QRect(240, 240, 49, 16));
+        label_7->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label_4 = new QLabel(tab);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(240, 320, 49, 16));
+        label_4->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         titleTextBox = new QTextEdit(tab);
         titleTextBox->setObjectName("titleTextBox");
         titleTextBox->setGeometry(QRect(290, 190, 171, 31));
+        titleTextBox->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         genreTextBox = new QTextEdit(tab);
         genreTextBox->setObjectName("genreTextBox");
         genreTextBox->setGeometry(QRect(290, 230, 171, 31));
         ISPNTextBox = new QTextEdit(tab);
         ISPNTextBox->setObjectName("ISPNTextBox");
         ISPNTextBox->setGeometry(QRect(290, 350, 171, 31));
+        ISPNTextBox->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label = new QLabel(tab);
         label->setObjectName("label");
         label->setGeometry(QRect(250, 200, 49, 16));
+        label->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         authorTextBox = new QTextEdit(tab);
         authorTextBox->setObjectName("authorTextBox");
         authorTextBox->setGeometry(QRect(290, 270, 171, 31));
+        authorTextBox->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         pushButton = new QPushButton(tab);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(320, 400, 101, 51));
         label_2 = new QLabel(tab);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(240, 280, 49, 16));
+        label_2->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         label_3 = new QLabel(tab);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(550, 270, 49, 16));
+        label_3->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         copiesNumber = new QSpinBox(tab);
         copiesNumber->setObjectName("copiesNumber");
         copiesNumber->setGeometry(QRect(500, 270, 42, 22));
@@ -133,16 +165,28 @@ public:
         QFont font1;
         font1.setPointSize(12);
         insertLabel->setFont(font1);
+        insertLabel->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         insertLabel->setAlignment(Qt::AlignCenter);
         label_8 = new QLabel(tab);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(240, 360, 49, 16));
+        label_8->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
+        backpic = new QLabel(tab);
+        backpic->setObjectName("backpic");
+        backpic->setGeometry(QRect(-10, 0, 791, 601));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
         titleSearchTextedit = new QTextEdit(tab_2);
         titleSearchTextedit->setObjectName("titleSearchTextedit");
         titleSearchTextedit->setGeometry(QRect(170, 100, 351, 31));
+        titleSearchTextedit->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         pushButton_2 = new QPushButton(tab_2);
         pushButton_2->setObjectName("pushButton_2");
         pushButton_2->setGeometry(QRect(520, 100, 91, 31));
@@ -164,6 +208,9 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         listWidget = new QListWidget(scrollAreaWidgetContents_2);
         listWidget->setObjectName("listWidget");
+        listWidget->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         listWidget->setFrameShape(QFrame::NoFrame);
 
         verticalLayout->addWidget(listWidget);
@@ -173,6 +220,9 @@ public:
         adminLabel_2->setObjectName("adminLabel_2");
         adminLabel_2->setGeometry(QRect(10, 20, 371, 51));
         adminLabel_2->setFont(font);
+        backpic_2 = new QLabel(tab_2);
+        backpic_2->setObjectName("backpic_2");
+        backpic_2->setGeometry(QRect(0, 0, 791, 601));
         tabWidget->addTab(tab_2, QString());
         tab_7 = new QWidget();
         tab_7->setObjectName("tab_7");
@@ -226,6 +276,13 @@ public:
 
         verticalLayout_2->addWidget(pushButton_4);
 
+        adminLabel_3 = new QLabel(tab_7);
+        adminLabel_3->setObjectName("adminLabel_3");
+        adminLabel_3->setGeometry(QRect(10, 20, 371, 51));
+        adminLabel_3->setFont(font);
+        backpic_3 = new QLabel(tab_7);
+        backpic_3->setObjectName("backpic_3");
+        backpic_3->setGeometry(QRect(-10, 0, 791, 601));
         tabWidget->addTab(tab_7, QString());
         QWidget::setTabOrder(pushButton_2, deleteArea);
         QWidget::setTabOrder(deleteArea, titleSearchTextedit);
@@ -246,7 +303,7 @@ public:
 
         retranslateUi(admin);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(admin);
@@ -306,15 +363,19 @@ public:
         adminLabel->setText(QCoreApplication::translate("admin", "Admin Dashboard", nullptr));
         insertLabel->setText(QCoreApplication::translate("admin", "Insert Books", nullptr));
         label_8->setText(QCoreApplication::translate("admin", "ISBN", nullptr));
+        backpic->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("admin", "Book Insertion", nullptr));
         pushButton_2->setText(QCoreApplication::translate("admin", "Search", nullptr));
         pushButton_3->setText(QCoreApplication::translate("admin", "remove", nullptr));
         adminLabel_2->setText(QCoreApplication::translate("admin", "Admin Dashboard", nullptr));
+        backpic_2->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("admin", "Book Search and Deletion", nullptr));
         label_6->setText(QCoreApplication::translate("admin", "Username", nullptr));
         label_9->setText(QCoreApplication::translate("admin", "Password", nullptr));
         label_10->setText(QCoreApplication::translate("admin", "Confirm Password", nullptr));
         pushButton_4->setText(QCoreApplication::translate("admin", "Add Librarian", nullptr));
+        adminLabel_3->setText(QCoreApplication::translate("admin", "Admin Dashboard", nullptr));
+        backpic_3->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_7), QCoreApplication::translate("admin", "Add Librarian", nullptr));
     } // retranslateUi
 

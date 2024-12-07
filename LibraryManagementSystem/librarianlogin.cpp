@@ -2,6 +2,7 @@
 #include "ui_librarianlogin.h"
 #include "librarian.h"
 #include "filemanipulator.h"
+#include <QMessageBox>
 
 LibrarianLogin::LibrarianLogin(QWidget *parent)
     : QDialog(parent)
@@ -11,7 +12,7 @@ LibrarianLogin::LibrarianLogin(QWidget *parent)
 
     this->resize(599, 468);
 
-    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/librarianlogin.png");
+    QPixmap bg(":/resources/librarianlogin.png");
 
     ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     ui->backpic->resize(this->size());
@@ -28,6 +29,8 @@ LibrarianLogin::~LibrarianLogin()
 
 void LibrarianLogin::on_loginPushButton_clicked()
 {
+    bool error = true;
+
     for(user* some_user : filemanipulator::the_librarian_data_vector)
     {
         qDebug() << "in loop statment";
@@ -36,8 +39,15 @@ void LibrarianLogin::on_loginPushButton_clicked()
             this->close();
             Librarian *librarianDashboard = new Librarian();
             librarianDashboard->show();
+            error = false;
             break;
         }
+
+    }
+
+    if(error)
+    {
+        QMessageBox::critical(this, "Error", "These Credentials Donot exit, ASK AN ADMIN FOR HELP");
     }
 
 

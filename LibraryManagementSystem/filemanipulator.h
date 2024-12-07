@@ -33,6 +33,8 @@ public:
     void admin_files_writer();
     void librarian_file_reader();
     void librarian_file_writer();
+    QString encryptPassword(const QString& password);
+    QString decryptPassword(const QString& encryptedPassword);
 
     void write_to_users_vector(QString name, QString password, QString wishlistedbooks, QString Borrowedbooks);
     static Vector<user*> the_users_data_vector;

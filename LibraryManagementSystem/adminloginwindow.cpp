@@ -3,6 +3,7 @@
 #include "ui_adminloginwindow.h"
 #include "filemanipulator.h"
 #include "adminsignupwindow.h"
+#include <QMessageBox>
 
 adminLoginWindow::adminLoginWindow(QWidget *parent)
     : QDialog(parent)
@@ -11,7 +12,7 @@ adminLoginWindow::adminLoginWindow(QWidget *parent)
     ui->setupUi(this);
     this->resize(589, 318);
 
-    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/librarianlogin.png");
+    QPixmap bg(":/resources/librarianlogin.png");
 
     ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
    ui->backpic->resize(this->size());
@@ -27,17 +28,26 @@ void adminLoginWindow::on_loginPushButton_clicked()
 {
 
     filemanipulator file;
+    bool error = true;
     for(user* some_user : file.the_admin_data_vector)
     {
       qDebug() << "in loop statment";
         if(some_user->get_user_name() == ui->usernameLineEdit->text() && some_user->get_password() == ui->passwordLineEdit->text())
         {
             qDebug() << "in if statment";
+            error = false;
             this->close();
 
             admin *adminDashboard = new admin();
             adminDashboard->show();
         }
+
+
+    }
+
+    if(error)
+    {
+        QMessageBox::critical(this, "Error", "These Credentials Donot exit, Try SIGNING UP");
     }
 
 }

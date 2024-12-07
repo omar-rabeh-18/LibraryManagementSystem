@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Scale the pixmap to the button's size
     ui->pushButton->setText(""); // Removes the text
-    QPixmap pixmap("C:/Users/HP/Desktop/applied project pictures/selectbutton.png");
+    QPixmap pixmap(":/resources/selectbutton.png");
     QPixmap scaledPixmap = pixmap.scaled(ui->pushButton->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     ui->pushButton->setIcon(QIcon(scaledPixmap));
     ui->pushButton->setIconSize(ui->pushButton->size());
@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     this->setStyleSheet(
-        "background-image: url(C:/Users/HP/Desktop/applied project pictures/softermainmenubackground.png);"
+        "background-image: url(:/resources/softermainmenubackground.png);"
         "background-repeat: no-repeat;"
         "background-position: center;"
         "background-size: cover;"

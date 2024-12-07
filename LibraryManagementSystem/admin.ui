@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -38,6 +38,9 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
       <string>ISPN</string>
      </property>
@@ -50,6 +53,11 @@
        <width>171</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -71,6 +79,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>Genre</string>
      </property>
@@ -84,6 +97,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>L-num</string>
      </property>
@@ -96,6 +114,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <width>171</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -137,6 +160,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -157,6 +185,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>Title</string>
      </property>
@@ -169,6 +202,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <width>171</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -203,6 +241,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>Author</string>
      </property>
@@ -215,6 +258,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <width>49</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
      </property>
      <property name="text">
       <string>copies</string>
@@ -276,6 +324,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <pointsize>12</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>Insert Books</string>
      </property>
@@ -292,8 +345,26 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+     </property>
      <property name="text">
       <string>ISBN</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="backpic">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>0</y>
+       <width>791</width>
+       <height>601</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -309,6 +380,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <width>351</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_2">
@@ -374,6 +450,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QListWidget" name="listWidget">
+         <property name="styleSheet">
+          <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 180); 
+ border: 1px solid gray;</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
@@ -399,6 +480,19 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </property>
      <property name="text">
       <string>Admin Dashboard</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="backpic_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>791</width>
+       <height>601</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -511,6 +605,38 @@ background-color: rgba(255, 255, 255, 180);
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QLabel" name="adminLabel_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>371</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Admin Dashboard</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="backpic_3">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>0</y>
+       <width>791</width>
+       <height>601</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
   </widget>

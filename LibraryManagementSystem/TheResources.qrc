@@ -1,3 +1,10 @@
 <RCC>
     <qresource prefix="/thefiles"/>
+    <qresource prefix="/">
+        <file>resources/librarianlogin.png</file>
+        <file>resources/userloginback.png</file>
+        <file>resources/selectbutton.png</file>
+        <file>resources/softermainmenubackground.png</file>
+        <file>resources/userdashboard.png</file>
+    </qresource>
 </RCC>

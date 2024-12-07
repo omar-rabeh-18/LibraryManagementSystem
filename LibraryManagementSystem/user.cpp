@@ -15,7 +15,7 @@ user::user(QWidget *parent)
 
      this->resize(1121, 621);
 
-     QPixmap bg("C:/Users/HP/Desktop/applied project pictures/userdashboard.png");
+     QPixmap bg(":/resources/userdashboard.png");
 
      ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
      ui->backpic->resize(this->size());

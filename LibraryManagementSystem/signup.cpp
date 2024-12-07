@@ -11,7 +11,7 @@ signup::signup(QWidget *parent)
 
     this->resize(519, 349);
 
-    QPixmap bg("C:/Users/HP/Desktop/applied project pictures/librarianlogin.png");
+    QPixmap bg(":/resources/librarianlogin.png");
 
     ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     ui->backpic->resize(this->size());

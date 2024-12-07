@@ -22,7 +22,7 @@ void filemanipulator::users_files_reader()
 {
     qDebug() << "In users_files_manipualtor"; //check if file is open
 
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\users_info.csv";
+    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\users_info.csv";
     QFile users_file(csv_user_path);  //openeing the users file
     string line;
     if(!users_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -49,7 +49,11 @@ void filemanipulator::users_files_reader()
             a_user->set_user_name(cells[0].trimmed());
 
             // Set password
-            a_user->set_password(cells[1].trimmed());
+            QString encryptedPassword = cells[1].trimmed();
+            if (encryptedPassword.startsWith('"') && encryptedPassword.endsWith('"')) {
+                encryptedPassword = encryptedPassword.mid(1, encryptedPassword.length() - 2);
+            }
+            a_user->set_password(decryptPassword(encryptedPassword));
 
             // Process wishlisted books (split by semicolon)
             QStringList wishlistedBooksList = cells[2].split(';');
@@ -101,7 +105,7 @@ void filemanipulator::users_files_reader()
 
 void filemanipulator::users_files_writer()
 {
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\users_info.csv";
+    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\users_info.csv";
     QFile users_written(csv_user_path);
 
     if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -121,7 +125,8 @@ void filemanipulator::users_files_writer()
         QStringList rowData;
 
             rowData << user->get_user_name();
-            rowData << user->get_password();
+        QString encryptedPassword = "\"" + encryptPassword(user->get_password()) + "\"";
+        rowData << encryptedPassword;
 
             QStringList wishlisted_books_string;
             for(QString book : user->get_whishlisted_books())
@@ -154,7 +159,7 @@ void filemanipulator::books_files_reader()
 {
     qDebug() << "In books_files_manipualtor"; //check if file is open
 
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_info.csv";
+    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_info.csv";
     QFile users_file(csv_user_path);  //openeing the users file
     string line;
     if(!users_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -187,7 +192,7 @@ void filemanipulator::books_files_reader()
 
 void filemanipulator::books_files_writer()
 {
-    QString csv_books_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_info.csv";
+    QString csv_books_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_info.csv";
     QFile boks_info_written(csv_books_path);
 
     if (!boks_info_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -221,7 +226,7 @@ void filemanipulator::books_files_writer()
 
 void filemanipulator::book_request_reader()
 {
-    QString csv_book_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_request_info.csv";
+    QString csv_book_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_request_info.csv";
     QFile book_request_file(csv_book_path);  //openeing the users file
     string line;
     if(!book_request_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -271,7 +276,7 @@ void filemanipulator::book_request_reader()
 
 void filemanipulator::book_request_writer()
 {
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\books_request_info.csv";
+    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_request_info.csv";
     QFile users_written(csv_user_path);
 
     if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -305,7 +310,7 @@ void filemanipulator::book_request_writer()
 
 void filemanipulator::admin_files_reader()
 {
-    QString csv_admin_path = projectPath + "\\LibraryManagementSystem\\csv files\\admin_info.csv";
+    QString csv_admin_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\admin_info.csv";
     QFile admin_file(csv_admin_path);  //openeing the users file
     string line;
     if(!admin_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -332,7 +337,11 @@ void filemanipulator::admin_files_reader()
             a_user->set_user_name(cells[0].trimmed());
 
             // Set password
-            a_user->set_password(cells[1].trimmed());
+            QString encryptedPassword = cells[1].trimmed();
+            if (encryptedPassword.startsWith('"') && encryptedPassword.endsWith('"')) {
+                encryptedPassword = encryptedPassword.mid(1, encryptedPassword.length() - 2);
+            }
+            a_user->set_password(decryptPassword(encryptedPassword));
 
 
 
@@ -354,7 +363,7 @@ void filemanipulator::admin_files_reader()
 void filemanipulator::admin_files_writer()
 {
 
-        QString csv_user_path = projectPath + "\\LibraryManagementSystem\\csv files\\admin_info.csv";
+        QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\admin_info.csv";
         QFile users_written(csv_user_path);
 
         if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -374,7 +383,8 @@ void filemanipulator::admin_files_writer()
             QStringList rowData;
 
             rowData << user->get_user_name();
-            rowData << user->get_password();
+            QString encryptedPassword = "\"" + encryptPassword(user->get_password()) + "\"";
+            rowData << encryptedPassword;
 
 
             out << rowData.join(",") << "\n";  // Join with commas and write as a line
@@ -387,7 +397,7 @@ void filemanipulator::admin_files_writer()
 
 void filemanipulator::librarian_file_reader()
 {
-    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\csv files\\librarian_info.csv";
+    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\librarian_info.csv";
     QFile librarian_file(csv_librarian_path);  //openeing the users file
     string line;
     if(!librarian_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -414,7 +424,12 @@ void filemanipulator::librarian_file_reader()
             a_librarian->set_user_name(cells[0].trimmed());
 
             // Set password
-            a_librarian->set_password(cells[1].trimmed());
+            QString encryptedPassword = cells[1].trimmed();
+            if (encryptedPassword.startsWith('"') && encryptedPassword.endsWith('"')) {
+                encryptedPassword = encryptedPassword.mid(1, encryptedPassword.length() - 2);
+            }
+            a_librarian->set_password(decryptPassword(encryptedPassword));
+
 
 
 
@@ -436,7 +451,7 @@ void filemanipulator::librarian_file_reader()
 
 void filemanipulator::librarian_file_writer()
 {
-    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\csv files\\librarian_info.csv";
+    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\librarian_info.csv";
     QFile librarian_written(csv_librarian_path);
 
     if (!librarian_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -456,13 +471,34 @@ void filemanipulator::librarian_file_writer()
         QStringList rowData;
 
         rowData << user->get_user_name();
-        rowData << user->get_password();
+        QString encryptedPassword = "\"" + encryptPassword(user->get_password()) + "\"";
+        rowData << encryptedPassword;
 
 
         out << rowData.join(",") << "\n";  // Join with commas and write as a line
     }
 
     librarian_written.close();
+}
+
+QString filemanipulator::encryptPassword(const QString &password)
+{
+    QByteArray byteArray = password.toUtf8();
+    char key = 'K';
+    for (int i = 0; i < byteArray.size(); ++i) {
+        byteArray[i] = byteArray[i] ^ key;
+    }
+    return QString::fromUtf8(byteArray);
+}
+
+QString filemanipulator::decryptPassword(const QString &encryptedPassword)
+{
+    QByteArray byteArray = encryptedPassword.toUtf8();
+    char key = 'K';
+    for (int i = 0; i < byteArray.size(); ++i) {
+        byteArray[i] = byteArray[i] ^ key;
+    }
+    return QString::fromUtf8(byteArray);
 }
 
 
