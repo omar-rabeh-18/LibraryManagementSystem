@@ -113,6 +113,9 @@ public:
         genreTextBox = new QTextEdit(tab);
         genreTextBox->setObjectName("genreTextBox");
         genreTextBox->setGeometry(QRect(290, 230, 171, 31));
+        genreTextBox->setStyleSheet(QString::fromUtf8("color: black;\n"
+"background-color: rgba(255, 255, 255, 180); \n"
+" border: 1px solid gray;"));
         ISPNTextBox = new QTextEdit(tab);
         ISPNTextBox->setObjectName("ISPNTextBox");
         ISPNTextBox->setGeometry(QRect(290, 350, 171, 31));
@@ -121,7 +124,7 @@ public:
 " border: 1px solid gray;"));
         label = new QLabel(tab);
         label->setObjectName("label");
-        label->setGeometry(QRect(250, 200, 49, 16));
+        label->setGeometry(QRect(240, 190, 49, 16));
         label->setStyleSheet(QString::fromUtf8("color: black;\n"
 "background-color: rgba(255, 255, 255, 180); \n"
 " border: 1px solid gray;"));
@@ -177,7 +180,7 @@ public:
 " border: 1px solid gray;"));
         backpic = new QLabel(tab);
         backpic->setObjectName("backpic");
-        backpic->setGeometry(QRect(-10, 0, 791, 601));
+        backpic->setGeometry(QRect(-10, -10, 791, 601));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
