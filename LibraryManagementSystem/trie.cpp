@@ -32,6 +32,7 @@ void Trie::insert(QString word, book* b) {
 
     // Loop through each character in the word
     while (i < word.size()) {
+        qDebug() << "Start of the next iteration in while loop\n";
         // Convert QChar to char and get the index
         char c = word[i].toLower().toLatin1(); // Convert QChar to char
         int index = charToIndex(c); // Get the index for the character
@@ -41,29 +42,28 @@ void Trie::insert(QString word, book* b) {
             i++;
             continue;
         }
-
+        qDebug() << "Testing for word:" << word << " at loop " << i << "\n";
         // If the node for that character doesn't exist, create a new TrieNode
         if (!(cursor->v[index])) {
+            qDebug() << "Inside an if statment\n";
             cursor->v[index] = new TrieNode();
         }
-
+        qDebug() << "Finished Testing\n";
         // Move to the next node in the Trie
         cursor = cursor->v[index];
+        qDebug() << "Finished Testing 2\n";
 
-        // Increment prefix count if not the last character in the word
-        if (i != word.size() - 1) {
-            cursor->pref++;
-        }
         i++;
     }
-
+    qDebug() << "Got out of the loop\n";
     // Mark the end of the word and add the book to the list
     cursor->end++;
     cursor->books.push_back(b); // Add the book to the books list
+    qDebug() << "Finished Adding a book to the vector\n";
     qDebug() << "inserted " << word;
 }
 
-vector<book*> Trie::search(QString word) {
+Vector<book*> Trie::search(QString word) {
     TrieNode* cursor = root;
     int i = 0;
 

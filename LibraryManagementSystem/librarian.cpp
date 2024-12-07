@@ -2,7 +2,6 @@
 #include "ui_librarian.h"
 #include "mainwindow.h"
 #include "filemanipulator.h"
-#include <vector>
 #include "trie.h"
 #include <QDebug>
 using namespace std;

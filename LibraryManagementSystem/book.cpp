@@ -5,11 +5,13 @@ extern Trie* myTrie;
 void book::processAndInsertWords(const QString& text) {
     QString word;
     for (int i = 0; i < text.length(); ++i) {
+        qDebug() << "After checking char" << i << "\n";
         QChar c = text[i];
         if (c.isLetter() || c.isDigit() || c == '-') {
             word += c.toLower();
         } else {
             if (!word.isEmpty()) {
+                qDebug() << word << "\n";
                 myTrie->insert(word, this);
                 word.clear();
             }
@@ -22,16 +24,21 @@ void book::processAndInsertWords(const QString& text) {
 
 book::book(QString t, QString a, QString g, int copies, QString i, QString LN)
     : author(a), title(t), genre(g), availableBooks(copies), isbn(i), booknuminlib(LN) {
-
+    qDebug() << "In Book Constructor\n";
     filemanipulator a_file;
     a_file.books_vector.push_back(this);
-
+    qDebug() << "After Pushing a book\n";
     // Process words for title, author, ISBN, and library number
     processAndInsertWords(title);
+    qDebug() << "After Inserting title\n";
     processAndInsertWords(author);
+    qDebug() << "After Inserting Author\n";
     processAndInsertWords(isbn);
+    qDebug() << "After Inserting ISBN\n";
     processAndInsertWords(booknuminlib);
+    qDebug() << "After Inserting BookNumber\n";
     processAndInsertWords(genre);
+    qDebug() << "After Inserting Genre\n";
 }
 
 QString book::getTitle() const

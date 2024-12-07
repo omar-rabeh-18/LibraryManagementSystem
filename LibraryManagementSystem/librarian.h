@@ -2,7 +2,7 @@
 #define LIBRARIAN_H
 
 #include <QDialog>
-#include <vector>
+#include <Vector.h>
 #include "request.h"
 #include "book.h"
 #include "user.h"
@@ -30,8 +30,8 @@ private slots:
 
 private:
     Ui::Librarian *ui;
-    vector<Request*> requests;
-    vector<Request*> activeRequests;
+    Vector<Request*> requests;
+    Vector<Request*> activeRequests;
 };
 
 #endif // LIBRARIAN_H

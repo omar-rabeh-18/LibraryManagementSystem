@@ -26,6 +26,7 @@ SOURCES += \
     user.cpp
 
 HEADERS += \
+    Vector.h \
     admin.h \
     adminloginwindow.h \
     adminsignupwindow.h \

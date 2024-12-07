@@ -3,7 +3,7 @@
 #include "book.h"
 #include <QDialog>
 #include <QListWidgetItem>
-#include <vector>
+#include <Vector.h>
 using namespace std;
 namespace Ui {
 class admin;
@@ -35,7 +35,7 @@ private slots:
 
 private:
     Ui::admin *ui;
-    std::vector<book*> results;
+    Vector<book*> results;
 };
 
 #endif // ADMIN_H

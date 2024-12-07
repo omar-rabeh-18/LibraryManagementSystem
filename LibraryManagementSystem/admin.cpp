@@ -70,16 +70,16 @@ void admin::on_pushButton_2_clicked()
 
     // Search for title words and find the intersection
     for (const QString& word : titleWords) {
-        std::vector<book*> currentBooks = myTrie->search(word);
+        Vector<book*> currentBooks = myTrie->search(word);
 
         if (firstWord) {
             results = currentBooks;  // For the first word, initialize results with the books found
             firstWord = false;
         } else {
             // For subsequent words, find the intersection of results
-            std::vector<book*> intersectedBooks;
+            Vector<book*> intersectedBooks;
             for (book* bookInResults : results) {
-                if (std::find(currentBooks.begin(), currentBooks.end(), bookInResults) != currentBooks.end()) {
+                if (currentBooks.find(bookInResults) != currentBooks.end()) {
                     intersectedBooks.push_back(bookInResults);
                 }
             }

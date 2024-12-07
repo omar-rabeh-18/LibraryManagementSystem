@@ -2,7 +2,7 @@
 #define USER_H
 
 #include <QDialog>
-#include <vector>
+#include <Vector.h>
 #include "book.h"
 #include <QListWidgetItem>
 #include <iostream>
@@ -25,14 +25,14 @@ public:
     void set_password(QString given_password);
     QString get_password();
     void set_wishlisted_books(QString wishlisted_book);
-    vector<QString> get_whishlisted_books();
+    Vector<QString> get_whishlisted_books();
     void set_borrowed_books(QString borrowed_book);
-    vector<QString> get_borrowed_books();
+    Vector<QString> get_borrowed_books();
     void print_info();
 
 
-    vector<book*> wishlisted_books_objects;
-    vector<book*> borrowed_books_objects;
+    Vector<book*> wishlisted_books_objects;
+    Vector<book*> borrowed_books_objects;
 
     void refresh();
 
@@ -59,9 +59,9 @@ private:
     Ui::user *ui;
     QString user_name;
     QString password;
-    vector<QString> wishlisted_books;
-    vector<QString> borrowed_books;
-    vector<book*> results;
+    Vector<QString> wishlisted_books;
+    Vector<QString> borrowed_books;
+    Vector<book*> results;
 };
 
 #endif // USER_H

@@ -57,7 +57,7 @@ void user::set_wishlisted_books(QString wishlisted_book)
     wishlisted_books.push_back(wishlisted_book);
 }
 
-vector<QString> user::get_whishlisted_books()
+Vector<QString> user::get_whishlisted_books()
 {
     return wishlisted_books;
 }
@@ -67,7 +67,7 @@ void user::set_borrowed_books(QString borrowed_book)
     borrowed_books.push_back(borrowed_book);
 }
 
-vector<QString> user::get_borrowed_books()
+Vector<QString> user::get_borrowed_books()
 {
      return borrowed_books;
 }
@@ -94,6 +94,7 @@ void user::refresh()
 {
     populate_borrowedList();
     populate_wishList();
+    ui->searchList->clear();
 }
 
 
@@ -181,7 +182,7 @@ void user::on_pushButton_2_clicked()
     QString searchTitle = ui->titleSearchTextedit->toPlainText();
 
 
-    std::vector<QString> titleWords;
+    Vector<QString> titleWords;
 
     // Split the title into words (considering letters, digits, and dash)
     QString currentWord;
@@ -210,16 +211,16 @@ void user::on_pushButton_2_clicked()
 
     // Search for title words and find the intersection
     for (const QString& word : titleWords) {
-        std::vector<book*> currentBooks = myTrie->search(word);
+        Vector<book*> currentBooks = myTrie->search(word);
 
         if (firstWord) {
             results = currentBooks;  // For the first word, initialize results with the books found
             firstWord = false;
         } else {
             // For subsequent words, find the intersection of results
-            std::vector<book*> intersectedBooks;
+            Vector<book*> intersectedBooks;
             for (book* bookInResults : results) {
-                if (std::find(currentBooks.begin(), currentBooks.end(), bookInResults) != currentBooks.end()) {
+                if (currentBooks.find(bookInResults) != currentBooks.end()) {
                     intersectedBooks.push_back(bookInResults);
                 }
             }
@@ -245,6 +246,7 @@ void user::on_signOutPushButton_clicked()
     filemanipulator File = filemanipulator();
     File.book_request_writer();
     File.users_files_writer();
+    File.books_files_writer();
     this->close();
     MainWindow *m = new MainWindow();
     m->show();
@@ -293,14 +295,14 @@ void user::on_pushButton_4_clicked()
     if (selectedItem)
     {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
-        auto it = std::find(borrowed_books_objects.begin(), borrowed_books_objects.end(), selectedBook);
+        auto it = borrowed_books_objects.find(selectedBook);
         if (it != borrowed_books_objects.end()) {
             borrowed_books_objects.erase(it); // Erase the book from the borrowed list
             //Increment its number in the Trie
             selectedBook->setAvailableBooks(selectedBook->getAvailableBooks() + 1);
         }
 
-        auto it2 = std::find(borrowed_books.begin(), borrowed_books.end(), selectedBook->get_isbn());
+        auto it2 = borrowed_books.find(selectedBook->get_isbn());
         if (it2 != borrowed_books.end()) {
             borrowed_books.erase(it2); // Erase the book from the borrowed list
         }
@@ -317,11 +319,11 @@ void user::on_pushButton_5_clicked()
     if (selectedItem)
     {
         book* selectedBook = static_cast<book*>(selectedItem->data(Qt::UserRole).value<void*>());
-        auto it = std::find(wishlisted_books_objects.begin(), wishlisted_books_objects.end(), selectedBook);
+        auto it = wishlisted_books_objects.find(selectedBook);
         if (it != wishlisted_books_objects.end()) {
             wishlisted_books_objects.erase(it); // Erase the book from the wishlist
         }
-        auto it2 = std::find(wishlisted_books.begin(), wishlisted_books.end(), selectedBook->get_isbn());
+        auto it2 = wishlisted_books.find(selectedBook->get_isbn());
         if (it2 != wishlisted_books.end()) {
             wishlisted_books.erase(it2); // Erase the book from the wishlist
         }

@@ -2,7 +2,7 @@
 #define FILEMANIPULATOR_H
 #include <iostream>
 #include <string>
-#include <vector>
+#include <Vector.h>
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -35,11 +35,11 @@ public:
     void librarian_file_writer();
 
     void write_to_users_vector(QString name, QString password, QString wishlistedbooks, QString Borrowedbooks);
-    static vector<user*> the_users_data_vector;
-    static vector<user*> the_admin_data_vector;
-    static vector<user*> the_librarian_data_vector;
-    static vector<book*> books_vector;
-    static vector<Request*> book_requests_vector;
+    static Vector<user*> the_users_data_vector;
+    static Vector<user*> the_admin_data_vector;
+    static Vector<user*> the_librarian_data_vector;
+    static Vector<book*> books_vector;
+    static Vector<Request*> book_requests_vector;
     QString projectPath = QString::fromStdString(filesystem::current_path().parent_path().string());
 };
 
