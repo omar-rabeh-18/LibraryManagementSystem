@@ -9,6 +9,7 @@ extern Trie* myTrie;
 
 filemanipulator::filemanipulator() {
     qDebug() << projectPath;
+    qDebug() << appDir;
 }
 
 filemanipulator::~filemanipulator()
@@ -22,7 +23,8 @@ void filemanipulator::users_files_reader()
 {
     qDebug() << "In users_files_manipualtor"; //check if file is open
 
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\users_info.csv";
+    QString csv_user_path = appDir + "/csv files/users_info.csv";
+    qDebug() << csv_user_path;
     QFile users_file(csv_user_path);  //openeing the users file
     string line;
     if(!users_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -105,7 +107,7 @@ void filemanipulator::users_files_reader()
 
 void filemanipulator::users_files_writer()
 {
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\users_info.csv";
+    QString csv_user_path =  ".\\csv files\\users_info.csv";
     QFile users_written(csv_user_path);
 
     if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {

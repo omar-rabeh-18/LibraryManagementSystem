@@ -12,6 +12,8 @@
 #include <QByteArray>
 #include "book.h"
 #include "request.h"
+#include <QDir>
+#include <QCoreApplication>
 
 
 using namespace std;
@@ -43,6 +45,7 @@ public:
     static Vector<book*> books_vector;
     static Vector<Request*> book_requests_vector;
     QString projectPath = QString::fromStdString(filesystem::current_path().parent_path().string());
+    QString appDir = QCoreApplication::applicationDirPath();
 };
 
 #endif // FILEMANIPULATOR_H
