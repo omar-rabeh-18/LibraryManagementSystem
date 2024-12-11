@@ -120,6 +120,7 @@ public:
         signupPushButton->setText(QCoreApplication::translate("signup", "Signup", nullptr));
         usernameLabel->setText(QCoreApplication::translate("signup", "Username:", nullptr));
         passwordLabel->setText(QCoreApplication::translate("signup", "Password:", nullptr));
+        passwordLineEdit->setInputMask(QString());
         confirmPasswordLabel->setText(QCoreApplication::translate("signup", "Confirm Password:", nullptr));
         backpic->setText(QString());
     } // retranslateUi

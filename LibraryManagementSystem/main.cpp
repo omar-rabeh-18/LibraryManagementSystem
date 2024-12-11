@@ -19,14 +19,21 @@ int main(int argc, char *argv[])
     thefiles.admin_files_reader();
     thefiles.librarian_file_reader();
 
+    QObject::connect(&a, &QApplication::aboutToQuit, [&]() {
+        qDebug() << "about to quite";
+        thefiles.users_files_writer();
+        thefiles.book_request_writer();
+        thefiles.admin_files_writer();
+        thefiles.books_files_writer();
+        thefiles.librarian_file_writer();
+    });
+
 
     w.show();
 
-    thefiles.users_files_writer();
-    thefiles.book_request_writer();
-    thefiles.admin_files_writer();
-    thefiles.books_files_writer();
-    thefiles.librarian_file_writer();
+    ;
+
+
     return a.exec();
 
 

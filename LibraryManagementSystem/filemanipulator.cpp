@@ -107,7 +107,7 @@ void filemanipulator::users_files_reader()
 
 void filemanipulator::users_files_writer()
 {
-    QString csv_user_path =  ".\\csv files\\users_info.csv";
+    QString csv_user_path =  appDir + "/csv files/users_info.csv";
     QFile users_written(csv_user_path);
 
     if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -161,7 +161,7 @@ void filemanipulator::books_files_reader()
 {
     qDebug() << "In books_files_manipualtor"; //check if file is open
 
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_info.csv";
+    QString csv_user_path = appDir + "/csv files/books_info.csv";
     QFile users_file(csv_user_path);  //openeing the users file
     string line;
     if(!users_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -194,7 +194,7 @@ void filemanipulator::books_files_reader()
 
 void filemanipulator::books_files_writer()
 {
-    QString csv_books_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_info.csv";
+    QString csv_books_path = appDir + "/csv files/books_info.csv";
     QFile boks_info_written(csv_books_path);
 
     if (!boks_info_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -228,7 +228,7 @@ void filemanipulator::books_files_writer()
 
 void filemanipulator::book_request_reader()
 {
-    QString csv_book_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_request_info.csv";
+    QString csv_book_path = appDir + "/csv files/books_request_info.csv";
     QFile book_request_file(csv_book_path);  //openeing the users file
     string line;
     if(!book_request_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -278,7 +278,7 @@ void filemanipulator::book_request_reader()
 
 void filemanipulator::book_request_writer()
 {
-    QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\books_request_info.csv";
+    QString csv_user_path = appDir + "/csv files/books_request_info.csv";
     QFile users_written(csv_user_path);
 
     if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -312,7 +312,7 @@ void filemanipulator::book_request_writer()
 
 void filemanipulator::admin_files_reader()
 {
-    QString csv_admin_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\admin_info.csv";
+    QString csv_admin_path = appDir + "/csv files/admin_info.csv";
     QFile admin_file(csv_admin_path);  //openeing the users file
     string line;
     if(!admin_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -365,7 +365,7 @@ void filemanipulator::admin_files_reader()
 void filemanipulator::admin_files_writer()
 {
 
-        QString csv_user_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\admin_info.csv";
+        QString csv_user_path = appDir + "/csv files/admin_info.csv";
         QFile users_written(csv_user_path);
 
         if (!users_written.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -399,7 +399,7 @@ void filemanipulator::admin_files_writer()
 
 void filemanipulator::librarian_file_reader()
 {
-    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\librarian_info.csv";
+    QString csv_librarian_path = appDir + "/csv files/librarian_info.csv";
     QFile librarian_file(csv_librarian_path);  //openeing the users file
     string line;
     if(!librarian_file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -453,7 +453,7 @@ void filemanipulator::librarian_file_reader()
 
 void filemanipulator::librarian_file_writer()
 {
-    QString csv_librarian_path = projectPath + "\\LibraryManagementSystem\\build\\LibraryManagementSystem\\csv files\\librarian_info.csv";
+    QString csv_librarian_path = appDir + "/csv files/librarian_info.csv";
     QFile librarian_written(csv_librarian_path);
 
     if (!librarian_written.open(QIODevice::WriteOnly | QIODevice::Text)) {

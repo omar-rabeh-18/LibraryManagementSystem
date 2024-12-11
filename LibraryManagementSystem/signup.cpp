@@ -16,6 +16,8 @@ signup::signup(QWidget *parent)
     ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     ui->backpic->resize(this->size());
     ui->backpic->lower();
+    ui->passwordLineEdit->setValidator(new QIntValidator(ui->passwordLineEdit));
+    ui->confirmPasswordLineEdit->setValidator(new QIntValidator(ui->confirmPasswordLineEdit));
 }
 
 signup::~signup()
@@ -31,66 +33,76 @@ void signup::on_signupPushButton_clicked()
     user* a_user = new user();
 
     a_user->set_user_name(ui->usernameLineEdit->text());
-    if(ui->passwordLineEdit->text() == ui->confirmPasswordLineEdit->text())
+
+
+     if(ui->usernameLineEdit->text() != "" && ui->passwordLineEdit->text() != "")
     {
-        a_user->set_password(ui->passwordLineEdit->text());
-
-        bool user_name_already_exists = false;
-        bool user_password_already_exits = false;
-
-        for(user* some_user : file.the_users_data_vector)
+        if(ui->passwordLineEdit->text() == ui->confirmPasswordLineEdit->text())
         {
-            if(some_user->get_user_name() == a_user->get_user_name())
+            a_user->set_password(ui->passwordLineEdit->text());
+
+            bool user_name_already_exists = false;
+            bool user_password_already_exits = false;
+
+            for(user* some_user : file.the_users_data_vector)
             {
-                user_name_already_exists = true;
-                break;
+                if(some_user->get_user_name() == a_user->get_user_name())
+                {
+                    user_name_already_exists = true;
+                    break;
+                }
+
+                if(some_user->get_password() == a_user->get_password())
+                {
+                    user_password_already_exits = true;
+                    break;
+                }
             }
 
-            if(some_user->get_password() == a_user->get_password())
+            if(user_name_already_exists)
             {
-                user_password_already_exits = true;
-                break;
+
+                QMessageBox::critical(this, "Error", "The username already exists. Please choose a different username.");
+
+                qDebug() << "username already exists";
+
+
             }
-        }
 
-        if(user_name_already_exists)
-        {
+            else if(user_password_already_exits)
+            {
 
-            QMessageBox::critical(this, "Error", "The username already exists. Please choose a different username.");
+                QMessageBox::critical(this, "Error", "The Password already exists. Please choose a different Password.");
 
-            qDebug() << "username already exists";
+                qDebug() << "password already exists";
 
+            }
 
-        }
+            else
+            {
+                file.the_users_data_vector.push_back(a_user);
+                for(user* some_user : file.the_users_data_vector)
+                {
+                    some_user->print_info();
 
-        else if(user_password_already_exits)
-        {
-
-            QMessageBox::critical(this, "Error", "The Password already exists. Please choose a different Password.");
-
-            qDebug() << "password already exists";
+                }
+                this->close();
+                login* userLogin = new login();
+                userLogin->show();
+            }
 
         }
 
         else
         {
-            file.the_users_data_vector.push_back(a_user);
-            for(user* some_user : file.the_users_data_vector)
-            {
-                some_user->print_info();
-
-            }
-            this->close();
-            login* userLogin = new login();
-            userLogin->show();
+            qDebug() << "the passwords donot match";
         }
-
     }
 
     else
-    {
-        qDebug() << "the passwords donot match";
-    }
+     {
+         QMessageBox::critical(this, "Error", "please provide a username and password!");
+     }
 
 
 

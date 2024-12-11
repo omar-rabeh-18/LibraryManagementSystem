@@ -29,6 +29,9 @@ admin::admin(QWidget *parent)
     ui->backpic_3->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     ui->backpic_3->resize(this->size());
     ui->backpic_3->lower();
+
+    ui->librarianpassword->setValidator(new QIntValidator(ui->librarianpassword));
+    ui->librarianpasswordconfrim->setValidator(new QIntValidator(ui->librarianpasswordconfrim));
 }
 
 

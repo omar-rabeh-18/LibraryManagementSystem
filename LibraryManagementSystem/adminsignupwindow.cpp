@@ -17,6 +17,9 @@ adminsignupwindow::adminsignupwindow(QWidget *parent)
     ui->backpic->setPixmap(bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     ui->backpic->resize(this->size());
     ui->backpic->lower();
+
+    ui->passwordLineEdit->setValidator(new QIntValidator(ui->passwordLineEdit));
+    ui->confirmPasswordLineEdit->setValidator(new QIntValidator(ui->confirmPasswordLineEdit));
 }
 
 adminsignupwindow::~adminsignupwindow()
@@ -29,80 +32,92 @@ void adminsignupwindow::on_signupPushButton_clicked()
     filemanipulator file;
 
     user* a_user = new user();
-    if(ui->confirmPasswordLineEdit_2->text() == SPC)
-    {
-    a_user->set_user_name(ui->usernameLineEdit->text());
-    if(ui->passwordLineEdit->text() == ui->confirmPasswordLineEdit->text())
-    {
-        a_user->set_password(ui->passwordLineEdit->text());
 
-        bool user_name_already_exists = false;
-        bool user_password_already_exits = false;
 
-        for(user* some_user : file.the_admin_data_vector)
+    if(ui->usernameLineEdit->text() != "" && ui->passwordLineEdit->text() != "")
+    {
+        if(ui->confirmPasswordLineEdit_2->text() == SPC)
         {
-            if(some_user->get_user_name() == a_user->get_user_name())
+            a_user->set_user_name(ui->usernameLineEdit->text());
+            if(ui->passwordLineEdit->text() == ui->confirmPasswordLineEdit->text())
             {
-                user_name_already_exists = true;
-                break;
+                a_user->set_password(ui->passwordLineEdit->text());
+
+                bool user_name_already_exists = false;
+                bool user_password_already_exits = false;
+
+                for(user* some_user : file.the_admin_data_vector)
+                {
+                    if(some_user->get_user_name() == a_user->get_user_name())
+                    {
+                        user_name_already_exists = true;
+                        break;
+                    }
+
+                    if(some_user->get_password() == a_user->get_password())
+                    {
+                        user_password_already_exits = true;
+                        break;
+                    }
+                }
+
+                if(user_name_already_exists)
+                {
+
+                    QMessageBox::critical(this, "Error", "The username already exists. Please choose a different username.");
+
+                    qDebug() << "username already exists";
+
+
+                }
+
+                else if(user_password_already_exits)
+                {
+
+                    QMessageBox::critical(this, "Error", "The Password already exists. Please choose a different Password.");
+
+                    qDebug() << "password already exists";
+
+                }
+
+                else
+                {
+                    file.the_admin_data_vector.push_back(a_user);
+                    for(user* some_user : file.the_admin_data_vector)
+                    {
+                        some_user->print_info();
+
+                    }
+                    file.admin_files_writer();
+                    this->close();
+                    adminLoginWindow* adminLogin = new adminLoginWindow();
+                    adminLogin->show();
+                }
+
             }
 
-            if(some_user->get_password() == a_user->get_password())
+            else
             {
-                user_password_already_exits = true;
-                break;
+                QMessageBox::critical(this, "Error", "Passwords DONOT match.");
+                qDebug() << "the passwords donot match";
             }
-        }
-
-        if(user_name_already_exists)
-        {
-
-            QMessageBox::critical(this, "Error", "The username already exists. Please choose a different username.");
-
-            qDebug() << "username already exists";
 
 
-        }
-
-        else if(user_password_already_exits)
-        {
-
-            QMessageBox::critical(this, "Error", "The Password already exists. Please choose a different Password.");
-
-            qDebug() << "password already exists";
 
         }
 
         else
         {
-            file.the_admin_data_vector.push_back(a_user);
-            for(user* some_user : file.the_admin_data_vector)
-            {
-                some_user->print_info();
-
-            }
-            file.admin_files_writer();
-            this->close();
-            adminLoginWindow* adminLogin = new adminLoginWindow();
-            adminLogin->show();
+            QMessageBox::critical(this, "Error", "THE SPC IS INCORRECT");
         }
-
     }
 
     else
     {
-        QMessageBox::critical(this, "Error", "Passwords DONOT match.");
-        qDebug() << "the passwords donot match";
+        QMessageBox::critical(this, "Error", "Provide a username and password!");
     }
 
 
-
-    }
-
-    else
-    {
-        QMessageBox::critical(this, "Error", "THE SPC IS INCORRECT");
-    }
 
 
 
