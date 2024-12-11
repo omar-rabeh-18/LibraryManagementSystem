@@ -22,6 +22,9 @@ using namespace std;
 
 class filemanipulator
 {
+private:
+
+
 public:
     filemanipulator();
     ~filemanipulator();
@@ -46,6 +49,7 @@ public:
     static Vector<Request*> book_requests_vector;
     QString projectPath = QString::fromStdString(filesystem::current_path().parent_path().string());
     QString appDir = QCoreApplication::applicationDirPath();
+    QDir dir = QDir(appDir);
 };
 
 #endif // FILEMANIPULATOR_H

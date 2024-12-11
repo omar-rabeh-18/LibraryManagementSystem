@@ -7,7 +7,15 @@
 #include "request.h"
 extern Trie* myTrie;
 
+
+
 filemanipulator::filemanipulator() {
+    qDebug() << projectPath;
+    qDebug() << appDir;
+    dir.cdUp();
+    dir.cdUp();
+    dir.cdUp();
+    appDir = dir.absolutePath();
     qDebug() << projectPath;
     qDebug() << appDir;
 }
