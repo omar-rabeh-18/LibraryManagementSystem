@@ -97,13 +97,13 @@ This system manages library operations through three distinct user roles — **A
 ## 📸 Screenshots
 
 ![Screenshot 1](1.jpg)  
-*Library Management System - Admin View*
+
 
 ![Screenshot 2](2.jpg)  
-*Library Management System - Librarian View*
+
 
 ![Screenshot 3](3.jpg)  
-*Library Management System - User View*
+
 
 ---
 
