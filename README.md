@@ -56,6 +56,7 @@ This system manages library operations through three distinct user roles — **A
 ### 👑 Admin
 - Add/Remove books, manage stock via UI components.
 - Search books using Trie.
+- Add/Remove Librarians
 
 ### 📚 Librarian
 - Handles requests for books (`book_request_info.csv`).
@@ -89,6 +90,20 @@ This system manages library operations through three distinct user roles — **A
 - **Time complexity**:  
   - Insertion: `O(k)` such that k is average word length. 
   - Multi-keyword search: fast intersection-based matching.
+
+
+---
+
+## 📸 Screenshots
+
+![Screenshot 1](1.jpg)  
+*Library Management System - Admin View*
+
+![Screenshot 2](2.jpg)  
+*Library Management System - Librarian View*
+
+![Screenshot 3](3.jpg)  
+*Library Management System - User View*
 
 ---
 
